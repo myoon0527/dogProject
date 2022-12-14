@@ -49,55 +49,57 @@
   grid-gap: 5px;
 }
 
-#calendar_dateHead div, #calendar_dateBoard div {
+#calendar_dateHead div, #calendar_dateBoard button {
   padding: .6rem;
   font-size: .9rem;
 }
 
-#calendar_dateBoard div {
+#calendar_dateBoard button {
   color: #222;
   font-weight: bold;
   min-height: 5rem;
   padding: .6rem .8rem;
   border-radius: 5px;
   width: 75px;
+  height: 75px;
   border: 1px solid #eee;
   cursor: pointer;
+  align-items: flex-start;
 }
-#calendar_dateBoard div:hover {
+#calendar_dateBoard button:hover {
   border: 1px solid #eee;
 }
-#calendar_dateBoard div:active {
+#calendar_dateBoard button:active {
   border: 1px solid #eee;
   background-color: #eee;
 }
-#calendar_dateBoard div:visited {
+#calendar_dateBoard button:focus {
   border: 1px solid #eee;
   background-color: #eee;
 }
 
 @media (min-width: 1200px) {
-  #calendar_dateHead div {
+  #calendar_dateHead button {
     width: 93px;
   }
-  #calendar_dateBoard div {
+  #calendar_dateBoard button {
     width: 93px;
   }
 }
 
 @media (max-width: 768px) {
-  #calendar_dateHead div {
+  #calendar_dateHead button {
     width: 65px;
   }
-  #calendar_dateBoard div {
+  #calendar_dateBoard button {
     width: 65px;
   }
 }
 @media (max-width: 576px) {
-  #calendar_dateHead div {
+  #calendar_dateHead button {
     width: 60px;
   }
-  #calendar_dateBoard div {
+  #calendar_dateBoard button {
     width: 60px;
   }
 }

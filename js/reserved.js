@@ -23,7 +23,7 @@ const makeCalendar = (date) => {
 
   // 이번달 날짜 표시하기
   for (let i = 1; i <= lastDay; i++) {    
-    htmlDummy += `<div class="dateBox">${i}</div>`;
+    htmlDummy += `<button type="button" class="dateBox" tabindex="${i}"><div class="dateNum">${i}</div></button>`;
   }
 
   // 다음달 날짜 표시하기
