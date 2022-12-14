@@ -1,0 +1,298 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <!-- 아이콘 -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- 구글 웹 폰트 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- 라이브러리 스타일시트 -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+	<!-- 메뉴 Start -->
+    <div class="container-fluid position-relative shadow">
+      <nav
+        class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5"
+      >
+        <a
+          href="index.html"
+          class="navbar-brand font-weight-bold text-secondary"
+          style="font-size: 50px"
+        >
+      	<img class="img-fluid" src="img/logo.png" alt="logo">
+        </a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          <div class="navbar-nav font-weight-bold mx-auto">
+            <a href="index.html" class="nav-item nav-link active mr-3">Home</a>
+            <a href="introduce.html" class="nav-item nav-link mr-3">소개</a>
+            <a href="class.html" class="nav-item nav-link mr-3">예약</a>
+			<a href="class.html" class="nav-item nav-link mr-3">커뮤니티</a>
+			<a href="class.html" class="nav-item nav-link mr-3">고객센터</a>
+          </div>
+          <a href="" class="btn btn-primary px-3">로그인</a>
+		  <a href="" class="btn btn-primary px-3 ml-4">회원가입</a>
+        </div>
+      </nav>
+    </div>
+    <!-- 메뉴 End -->   
+	
+	<!-- 섹션 1 start -->
+  <div class="container-fluid bg-primary mb-5">
+      <div
+        class="d-flex flex-column align-items-center justify-content-center"
+        style="min-height: 400px"
+      >
+        <h3 class="display-3 font-weight-bold text-white" style="font-family: Noto sans Korean">업체 소개</h3>
+        <div class="d-inline-flex text-white">
+          <p class="m-0"><a class="text-white" href="index.html">Home</a></p>
+          <p class="m-0 px-2">/</p>
+          <p class="m-0">소개</p>
+        </div>
+      </div>
+    </div>
+	<!-- 섹션 1 end -->
+ <!-- dogMain -->
+<div class="container-fluid pt-5">
+  <div class="container">
+    <div class="p-5 rounded bg-light">
+      <div class="col-lg-12 mb-12">
+        <div class="contact-form">
+            <form name="sentMessage" id="contactForm" novalidate="novalidate">
+              <div class="row">
+                <div class="col-12 mb-3 ml-4"><button class="btn btn-info btn float-right">수정</button><button class="btn btn-info btn float-right mr-1">추가하기</button></div>
+              </div>
+                <div class="row justify-content-center mb-3">
+                  <div class="control-group">
+                    <div class="border border-2 img-fluid" style="border-radius: 70%; width: 150px; height: 150px; overflow: hidden;">
+                      <img src="img/dogImg/icon/paws.png" alt="프로필 사진" style="width: 100%; height: 100%; object-fit: cover; background-color: white;">
+                    </div>
+                  </div>
+               </div>
+              <div class="text-center pb-2">
+                <h5 class="mb-4 font-weight-bold fs-10"><select class="bg-light" style="border: none;outline: none;"><option>나비</option></select></h5>
+              </div>
+            <div class="row">
+              <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-6 pb-1">
+                    <button type="button"
+                      class="d-flex shadow-sm rounded mb-4"
+                      style="padding: 30px; background-color: white; border: none;" onclick="location.href='DogNotice.html'">
+                      <img src="img/dogImg/icon/강아지채크.png" alt="일기장" class="h1 font-weight-normal text-primary mb-3" style="width:15%;">
+                      <div class="pl-4">
+                        <h4>알림장</h4>
+                      </div>
+                    </button>
+                </div>
+                <div class="col-lg-5 col-md-6 pb-1">
+                    <button type="button"
+                      class="d-flex shadow-sm rounded mb-4"
+                      style="padding: 30px; background-color: white; border: none;" onclick="location.href='dogActivity.html'">
+                      <img src="img/dogImg/icon/활동.png" alt="활동" class="h1 font-weight-normal text-primary mb-3" style="width:15%;">
+                      <div class="pl-4">
+                        <h4>오늘의 활동</h4>
+                      </div>
+                    </button>
+                </div>
+                <div class="col-lg-5 col-md-6 pb-1">
+                    <button type="button"
+                      class="d-flex shadow-sm rounded mb-4"
+                      style="padding: 30px; background-color: white; border: none;" onclick="location.href='dogFood.html'">
+                      <!--<i class="flaticon-030-crayons h1 font-weight-normal text-primary mb-3"></i>-->
+                      <img src="img/dogImg/icon/pet-food.png" alt="식단" class="h1 font-weight-normal text-primary mb-3" style="width:15%;">
+                      <div class="pl-4">
+                        <h4>오늘의 식단</h4>
+                      </div>
+                    </button>
+                </div>
+                <div class="col-lg-5 col-md-6 pb-1">
+                    <button type="button"
+                      class="d-flex shadow-sm rounded mb-4"
+                      style="padding: 30px;background-color: white; border: none;" onclick="location.href='dogHealth.html'">
+                      <!--<i class="flaticon-017-toy-car h1 font-weight-normal text-primary mb-3"></i>-->
+                      <img src="img/dogImg/icon/veterinary (1).png" alt="건강" class="h1 font-weight-normal text-primary mb-3" style="width:15%;">
+                      <div class="pl-4">
+                        <h4>건강체크</h4>
+                      </div>
+                    </button>
+                </div>
+                <div class="col-lg-10 col-md-12 pb-1">
+                    <button type="button"
+                      class="d-flex shadow-sm rounded mb-4"
+                      style="width: 100%; padding: 30px; background-color: white; border: none;" onclick="location.href='dogActivity.html'">
+                      <!--<i class="flaticon-025-sandwich h1 font-weight-normal text-primary mb-3"></i>-->
+                      <img src="img/dogImg/icon/하트강아지.png" alt="건강" class="h1 font-weight-normal text-primary mb-3" style="width:15%;">
+                      <div class="pl-4">
+                        <h4>소중한 추억들</h4>
+                      </div>
+                    </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- dogMain end -->
+
+  <!-- 푸터 Start -->
+  <div
+  class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5"
+>
+  <div class="row pt-5 justify-content-center">
+    <div class="col-lg-4 col-md-6 mb-5">
+      <a
+        href="index.html"
+        class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0"
+        style="font-size: 35px; line-height: 35px"
+      >
+        <i class="flaticon-028-kindergarten mr-3"></i>
+        <span class="text-white">PUPPY HOUSE</span>
+      </a>
+      <p class="mt-4" style="font-family: 'Noto Sans KR'">
+     애견과 견주 모두 만족시키는 프리미엄 애견 유치원
+      </p>
+      <div class="d-flex justify-content-start mt-4">
+        <a
+          class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+          style="width: 38px; height: 38px"
+          href="#"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a
+          class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+          style="width: 38px; height: 38px"
+          href="#"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a
+          class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+          style="width: 38px; height: 38px"
+          href="#"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-5">
+      <h3 class="text-primary mb-4">Get In Touch</h3>
+      <div class="d-flex">
+        <h4 class="fa fa-map-marker-alt text-primary"></h4>
+        <div class="pl-3">
+          <h5 class="text-white">Address</h5>
+              <p style="font-family: 'Noto Sans KR'">
+              경기도 수원시 팔달구 덕영대로 905 아이메카 7층 
+            </p>
+        </div>
+      </div>
+      <div class="d-flex">
+        <h4 class="fa fa-envelope text-primary"></h4>
+        <div class="pl-3">
+          <h5 class="text-white">Email</h5>
+          <p>info@example.com</p>
+        </div>
+      </div>
+      <div class="d-flex">
+        <h4 class="fa fa-phone-alt text-primary"></h4>
+        <div class="pl-3">
+          <h5 class="text-white">Phone</h5>
+          <p>+012 345 67890</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-5">
+      <h3 class="text-primary mb-4">Quick Links</h3>
+      <div class="d-flex flex-column justify-content-start">
+        <a class="text-white mb-2" href="index.html"
+          ><i class="fa fa-angle-right mr-2"></i>Home</a
+        >
+        <a class="text-white mb-2" href="introduce.html"
+          ><i class="fa fa-angle-right mr-2"></i>소개</a
+        >
+        <a class="text-white mb-2" href="#"
+          ><i class="fa fa-angle-right mr-2"></i>예약</a
+        >
+        <a class="text-white mb-2" href="#"
+          ><i class="fa fa-angle-right mr-2"></i>커뮤니티</a
+        >
+        <a class="text-white mb-2" href="#"
+          ><i class="fa fa-angle-right mr-2"></i>고객센터</a
+        >
+      </div>
+    </div>
+
+  </div>
+  <div
+    class="container-fluid pt-5"
+    style="border-top: 1px solid rgba(23, 162, 184, 0.2) ;"
+  >
+    <p class="m-0 text-center text-white">
+      &copy;
+      <a class="text-primary font-weight-bold" href="#">Your Site Name</a>.
+      All Rights Reserved.
+      Designed by
+      <a class="text-primary font-weight-bold" href="https://htmlcodex.com"
+        >HTML Codex</a
+      >
+      <br />Distributed By:
+      <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+    </p>
+  </div>
+</div>
+<!-- 푸터 End -->
+
+
+  <a href="#" class="btn btn-primary p-3 back-to-top"
+  ><i class="fa fa-angle-double-up"></i></a>
+
+
+<!-- 자바스크립트 라이브러 -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/isotope/isotope.pkgd.min.js"></script>
+<script src="lib/lightbox/js/lightbox.min.js"></script>
+
+<!-- 템플릿 자바스크립트  -->
+<script src="js/main.js"></script>
+
+
+
+
+</body>
+</html>
