@@ -31,6 +31,9 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+    
+        <!-- 캘린더 스타일시트 -->
+    <link href="css/myReservation.css" rel="stylesheet" />
 </head>
 
 <body>
