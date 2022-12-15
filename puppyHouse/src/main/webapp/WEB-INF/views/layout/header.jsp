@@ -43,7 +43,7 @@
         class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5"
       >
           <a
-          href="index.html"
+          href="index.jsp"
           class="navbar-brand font-weight-bold text-secondary"
           style="font-size: 50px"
         >
@@ -59,14 +59,14 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
           <div class="navbar-nav font-weight-bold mx-auto">
-            <a href="index.html" class="nav-item nav-link active mr-3">Home</a>
-            <a href="introduce.html" class="nav-item nav-link mr-3">소개</a>
-            <a href="class.html" class="nav-item nav-link mr-3">예약</a>
-			<a href="class.html" class="nav-item nav-link mr-3">커뮤니티</a>
-			<a href="class.html" class="nav-item nav-link mr-3">고객센터</a>
+            <a href="index.jsp" class="nav-item nav-link active mr-3">Home</a>
+            <a href="introduce.jsp" class="nav-item nav-link mr-3">소개</a>
+            <a href="reserve/reserveMain.jsp" class="nav-item nav-link mr-3">예약</a>
+			<a href="commuBoard/commuMain.jsp" class="nav-item nav-link mr-3">커뮤니티</a>
+			<a href="news/newsMain.jsp" class="nav-item nav-link mr-3">고객센터</a>
           </div>
-          <a href="" class="btn btn-primary px-3">로그인</a>
-		  <a href="" class="btn btn-primary px-3 ml-4">회원가입</a>
+          <a href="user/loginForm.jsp" class="btn btn-primary px-3">로그인</a>
+		  <a href="user/joinForm.jsp" class="btn btn-primary px-3 ml-4">회원가입</a>
         </div>
       </nav>
     </div>
