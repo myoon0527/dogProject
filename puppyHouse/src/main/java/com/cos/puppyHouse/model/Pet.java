@@ -4,11 +4,12 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,10 +21,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name="users")
+@Table(name="pet")
 @SequenceGenerator(
-		name = "USER_SEQ_GENERATOR"
-		, sequenceName = "USER_SEQ"
+		name = "USER_SEQ_GENERATOR2"
+		, sequenceName = "USER_SEQ2"
 		, initialValue = 1
 		, allocationSize = 1
 		)
@@ -32,34 +33,36 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Entity
-
-public class Users {
+public class Pet {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USER_SEQ_GENERATOR")
-	private int id;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USER_SEQ_GENERATOR2")
+	private int petId;
 	
-	@Column(nullable=false, length=30, unique=true)
-	private String userId;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="UsersId")
+	private Users users;
 	
 	@Column(nullable=false, length=100)
-	private String userPassword;
+	private String species;
 	
 	@Column(nullable=false, length=30)
-	private String userName;
+	private int age;
 	
 	@Column(nullable=false, length=30)
-	private String phone;
+	private String gender;
+	
+	@Column(length=100)
+	private String allergy;
+	
+	@Column(length=100)
+	private String etc;
+	
+	@Column(nullable=false, length=30)
+	private String neutered;
 	
 	@Column(nullable=false, length=50)
-	private String email;
-	
-	@Column(nullable=false, length=30)
-	private String addr;
-	
-	@Enumerated(EnumType.STRING)
-	private RoleType roles;
+	private String petImg;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
-	
 }
