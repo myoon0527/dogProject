@@ -6,9 +6,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -37,25 +41,21 @@ import lombok.NoArgsConstructor;
 public class NoticeFAQ {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USER_SEQ_GENERATOR3")
-	private int id;
+	private int noticeId;
 	
-	@Column(nullable=false, length=20, unique=true)
-	private String noticeid;
+	@ManyToOne(fetch = FetchType.EAGER)
 	
-	@Column(nullable=false, length=20)
-	private String userid;
+	@JoinColumn(name="UsersId")
+	private Users users;
 	
 	@Column(nullable=false, length=40)
 	private String title;
 	
-	@Column(nullable=false, length=100)
+	@Lob 
 	private String content;
 		
-	@Column(nullable=false, length=30)
-	private String createdate;
-
 	@Enumerated(EnumType.STRING)
-	private RoleType roles;
+	private NoticeRoleType roles;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
