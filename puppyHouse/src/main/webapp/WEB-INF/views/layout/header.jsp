@@ -65,7 +65,7 @@
 			<a href="commuBoard/commuMain.jsp" class="nav-item nav-link mr-3">커뮤니티</a>
 			<a href="news/newsMain.jsp" class="nav-item nav-link mr-3">고객센터</a>
           </div>
-          <a href="user/loginForm.jsp" class="btn btn-primary px-3">로그인</a>
+          <a href="../user/loginForm" class="btn btn-primary px-3">로그인</a>
 		  <a href="user/joinForm.jsp" class="btn btn-primary px-3 ml-4">회원가입</a>
         </div>
       </nav>
