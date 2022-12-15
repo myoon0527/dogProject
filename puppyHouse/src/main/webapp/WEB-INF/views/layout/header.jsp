@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>index</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <!-- ������ -->
-    <link href="img/favicon.ico" rel="icon" />
+    <!-- 아이콘 -->
+    <link href="../img/favicon.ico" rel="icon" />
 
-    <!-- ���� �� ��Ʈ -->
+    <!-- 구글 웹 폰트 -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
@@ -23,31 +23,38 @@
     />
 
     <!-- Flaticon Font -->
-    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet" />
+    <link href="../lib/flaticon/font/flaticon.css" rel="stylesheet" />
 
-    <!-- ���̺귯�� ��Ÿ�Ͻ�Ʈ -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <!-- 라이브러리 스타일시트 -->
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="../lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
     
-        <!-- Ķ���� ��Ÿ�Ͻ�Ʈ -->
-    <link href="css/myReservation.css" rel="stylesheet" />
+        <!-- 캘린더 스타일시트 -->
+    <link href="../css/myReservation.css" rel="stylesheet" />
+    
+    <!-- Summernote -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 </head>
 
 <body>
-	<!-- �޴� Start -->
+	<!-- 메뉴 Start -->
     <div class="container-fluid position-relative shadow">
       <nav
         class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5"
       >
           <a
-          href="index.jsp"
+          href="/"
           class="navbar-brand font-weight-bold text-secondary"
           style="font-size: 50px"
         >
-      	<img class="img-fluid" src="img/logo.png" alt="logo">
+      	<img class="img-fluid" src="../img/logo.png" alt="logo">
         </a>
         <button
           type="button"
@@ -59,15 +66,15 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
           <div class="navbar-nav font-weight-bold mx-auto">
-            <a href="index.jsp" class="nav-item nav-link active mr-3">Home</a>
-            <a href="introduce.jsp" class="nav-item nav-link mr-3">�Ұ�</a>
-            <a href="reserve/reserveMain.jsp" class="nav-item nav-link mr-3">����</a>
-			<a href="commuBoard/commuMain.jsp" class="nav-item nav-link mr-3">Ŀ�´�Ƽ</a>
-			<a href="news/newsMain.jsp" class="nav-item nav-link mr-3">��������</a>
+            <a href="/" class="nav-item nav-link active mr-3">Home</a>
+            <a href="../introduce.jsp" class="nav-item nav-link mr-3">소개</a>
+            <a href="../reserve/reserveMain.jsp" class="nav-item nav-link mr-3">예약</a>
+			<a href="/commuBoard/commuMain" class="nav-item nav-link mr-3">커뮤니티</a>
+			<a href="../news/newsMain.jsp" class="nav-item nav-link mr-3">고객센터</a>
           </div>
-          <a href="user/loginForm.jsp" class="btn btn-primary px-3">�α���</a>
-		  <a href="user/joinForm.jsp" class="btn btn-primary px-3 ml-4">ȸ������</a>
+          <a href="/auth/loginForm" class="btn btn-primary px-3">로그인</a>
+		  <a href="/auth/joinForm" class="btn btn-primary px-3 ml-4">회원가입</a>
         </div>
       </nav>
     </div>
-    <!-- �޴� End --> 
+    <!-- 메뉴 End --> 

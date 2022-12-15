@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ include file="layout/header.jsp" %>  
 	
-		<!-- »ó´Ü 1 start -->
+		<!-- ìƒë‹¨ 1 start -->
 	 <div class="container-fluid px-0 px-md-5 mb-5">
 		  <div class="row align-items-center">
 			  <div class="col-lg-12">
@@ -10,10 +10,10 @@
 			  </div>
 		 </div>
 	</div>
-	<!-- »ó´Ü 1 end -->
+	<!-- ìƒë‹¨ 1 end -->
 	
 
-	<!-- »ó´Ü 2 start -->
+	<!-- ìƒë‹¨ 2 start -->
 	 <div class="container-fluid px-0 px-md-5 my-5">
 		  <div class="row justify-content-center">
 			  <div class="col-lg-3 col-md-3 col-sm-3">
@@ -21,8 +21,8 @@
 			  </div>
 			  <div class="col-lg-4 col-md-8 col-sm-8 ml-3 align-self-center">
 			  <h2 class="text-primary" style="font-family: 'Noto Sans KR'">ABOUT</h2>
-				<h5 class="mb-5" style="font-family: 'Noto Sans KR'">¾Ö°ß À¯Ä¡¿øÀÎ ÆÛÇÇÇÏ¿ì½º´Â
-				 ¹Ý·Á°ß°ú °¡Á·ÀÇ Çàº¹ÇÑ Life ¹®È­¸¦ ¼±µµÇÏ°íÀÚ ¹Ý·Áµ¿¹°ÀÇ LifeÀÇ »õ·Î¿î ¹®È­ Ã¢Á¶¿Í ¹ßÀüÀ» ¸ñÇ¥·Î ÇÕ´Ï´Ù.</h5>
+				<h5 class="mb-5" style="font-family: 'Noto Sans KR'">ì• ê²¬ ìœ ì¹˜ì›ì¸ í¼í”¼í•˜ìš°ìŠ¤ëŠ”
+				 ë°˜ë ¤ê²¬ê³¼ ê°€ì¡±ì˜ í–‰ë³µí•œ Life ë¬¸í™”ë¥¼ ì„ ë„í•˜ê³ ìž ë°˜ë ¤ë™ë¬¼ì˜ Lifeì˜ ìƒˆë¡œìš´ ë¬¸í™” ì°½ì¡°ì™€ ë°œì „ì„ ëª©í‘œë¡œ í•©ë‹ˆë‹¤.</h5>
 				  <img class="img-fluid mr-3" src="img/icon1.png" alt="icon1">
 				  <img class="img-fluid mr-3" src="img/icon2.png" alt="icon2">
 				  <img class="img-fluid mr-3" src="img/icon3.png" alt="icon3">
@@ -31,30 +31,30 @@
 
 		 </div>
 	</div>
-	<!-- »ó´Ü 2 end -->
+	<!-- ìƒë‹¨ 2 end -->
 
 	
 	
-	<!-- »ó´Ü3 Start -->
+	<!-- ìƒë‹¨3 Start -->
     <div class="container-fluid pt-5">
       <div class="container">
         <div class="text-center pb-2">
           <p class="section-title px-5">
             <span class="px-2">Content</span>
           </p>
-          <h1 class="mb-4" style="font-family: 'Noto Sans KR'">ÆÛÇÇÇÏ¿ì½ºÀÇ ¸ðµç °Í</h1>
+          <h1 class="mb-4" style="font-family: 'Noto Sans KR'">í¼í”¼í•˜ìš°ìŠ¤ì˜ ëª¨ë“  ê²ƒ</h1>
         </div>
         <div class="row pb-3">
           <div class="col-lg-4 mb-4">
             <div class="card border-0 shadow-sm mb-2">
               <img class="card-img-top mb-2" src="img/content1.png" alt="" />
               <div class="card-body bg-light text-center p-4">
-                <h4 style="font-family: 'Noto Sans KR'">À¯Ä¡¿ø ¼Ò°³</h4>
+                <h4 style="font-family: 'Noto Sans KR'">ìœ ì¹˜ì› ì†Œê°œ</h4>
                 <p class="mt-4" style="font-family: 'Noto Sans KR'" >
-               	  ¾Ö°ß ¶óÀÌÇÁ Æ®·»µå¿¡ ¸ÂÃç ÇÏ³ªÇÏ³ª ¼¶¼¼ÇÏ°Ô ºÁµå¸³´Ï´Ù.
+               	  ì• ê²¬ ë¼ì´í”„ íŠ¸ë Œë“œì— ë§žì¶° í•˜ë‚˜í•˜ë‚˜ ì„¬ì„¸í•˜ê²Œ ë´ë“œë¦½ë‹ˆë‹¤.
                 </p>
 				  <a href="introduce.html" class="btn btn-primary px-4 mx-auto my-2"
-                  >»ó¼¼ Á¤º¸</a
+                  >ìƒì„¸ ì •ë³´</a
                 >
               </div>
             </div>
@@ -63,12 +63,12 @@
             <div class="card border-0 shadow-sm mb-2">
               <img class="card-img-top mb-2" src="img/content2.png" alt="" />
               <div class="card-body bg-light text-center p-4">
-                <h4 style="font-family: 'Noto Sans KR'">¿¹¾àÇÏ±â</h4>
+                <h4 style="font-family: 'Noto Sans KR'">ì˜ˆì•½í•˜ê¸°</h4>
                 <p class="mt-4" style="font-family: 'Noto Sans KR'">
-                  È¨ÆäÀÌÁö´Â ¹°·Ð ¸ð¹ÙÀÏ¿¡¼­µµ ÀÌÁ¦ °£ÆíÇÏ°Ô ¿¹¾àÀÌ °¡´ÉÇÕ´Ï´Ù.
+                  í™ˆíŽ˜ì´ì§€ëŠ” ë¬¼ë¡  ëª¨ë°”ì¼ì—ì„œë„ ì´ì œ ê°„íŽ¸í•˜ê²Œ ì˜ˆì•½ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
                 </p>
 				    <a href="" class="btn btn-primary px-4 mx-auto my-2"
-                  >¿¹¾àÇÏ±â</a
+                  >ì˜ˆì•½í•˜ê¸°</a
                 >
               </div>
             </div>
@@ -77,12 +77,12 @@
             <div class="card border-0 shadow-sm mb-2">
               <img class="card-img-top mb-2" src="img/content3.png" alt="" />
               <div class="card-body bg-light text-center p-4">
-                <h4 style="font-family: 'Noto Sans KR'">¿À½Ã´Â ±æ</h4>
+                <h4 style="font-family: 'Noto Sans KR'">ì˜¤ì‹œëŠ” ê¸¸</h4>
                 <p class="mt-4" style="font-family: 'Noto Sans KR'">
-                  °æ±âµµ ¼ö¿ø½Ã ÆÈ´Þ±¸ ´ö¿µ´ë·Î 905 ¾ÆÀÌ¸ÞÄ« 7Ãþ 
+                  ê²½ê¸°ë„ ìˆ˜ì›ì‹œ íŒ”ë‹¬êµ¬ ë•ì˜ëŒ€ë¡œ 905 ì•„ì´ë©”ì¹´ 7ì¸µ 
                 </p>
             <a href="introduce.html" class="btn btn-primary px-4 mx-auto my-2"
-                  >»ó¼¼ Á¤º¸</a
+                  >ìƒì„¸ ì •ë³´</a
                 >
               </div>
             </div>
@@ -90,6 +90,6 @@
           </div>
         </div>
       </div>
-    <!-- »ó´Ü3 End -->
+    <!-- ìƒë‹¨3 End -->
 	
 <%@ include file="layout/footer.jsp" %> 
