@@ -83,8 +83,8 @@
 			<a href="/auth/news/newsMain" class="nav-item nav-link mr-3">고객센터</a>
 			<a href="/user/updateForm" class="nav-item nav-link mr-3">마이페이지</a>
           </div>
-          <a href="/user/loginForm.jsp" class="btn btn-primary px-3">로그인</a>
-		  <a href="/user/joinForm.jsp" class="btn btn-primary px-3 ml-4">회원가입</a>
+          <a href="/auth/loginForm" class="btn btn-primary px-3">로그인</a>
+		  <a href="/auth/joinForm" class="btn btn-primary px-3 ml-4">회원가입</a>
         </div>
       </nav>
     </div>
