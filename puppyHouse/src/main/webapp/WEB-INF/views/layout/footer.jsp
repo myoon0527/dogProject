@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
- <!-- Ǫ�� Start -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+ <!-- 푸터 Start -->
     <div
       class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
       <div class="row pt-5 justify-content-center">
@@ -14,7 +14,7 @@
             <span class="text-white">PUPPY HOUSE</span>
           </a>
 			<p class="mt-4" style="font-family: 'Noto Sans KR'">
-     		�ְ߰� ���� ��� ������Ű�� �����̾� �ְ� ��ġ��
+     		애견과 견주 모두 만족시키는 프리미엄 애견 유치원
          	 </p>
           <div class="d-flex justify-content-start mt-4">
             <a
@@ -44,7 +44,7 @@
             <div class="pl-3">
               <h5 class="text-white">Address</h5>
                 <p style="font-family: 'Noto Sans KR'">
-                  ��⵵ ������ �ȴޱ� ������� 905 ���̸�ī 7�� 
+                  경기도 수원시 팔달구 덕영대로 905 아이메카 7층 
                 </p>
             </div>
           </div>
@@ -66,20 +66,20 @@
         <div class="col-lg-4 col-md-6 mb-5">
           <h3 class="text-primary mb-4">Quick Links</h3>
           <div class="d-flex flex-column justify-content-start">
-            <a class="text-white mb-2" href="index.html"
+            <a class="text-white mb-2" href="/"
               ><i class="fa fa-angle-right mr-2"></i>Home</a
             >
-            <a class="text-white mb-2" href="introduce.html"
-              ><i class="fa fa-angle-right mr-2"></i>�Ұ�</a
+            <a class="text-white mb-2" href="/auth/introduce"
+              ><i class="fa fa-angle-right mr-2"></i>소개</a
+            >
+            <a class="text-white mb-2" href="/auth/reserveMain""
+              ><i class="fa fa-angle-right mr-2"></i>예약</a
             >
             <a class="text-white mb-2" href="#"
-              ><i class="fa fa-angle-right mr-2"></i>����</a
+              ><i class="fa fa-angle-right mr-2"></i>커뮤니티</a
             >
             <a class="text-white mb-2" href="#"
-              ><i class="fa fa-angle-right mr-2"></i>Ŀ�´�Ƽ</a
-            >
-            <a class="text-white mb-2" href="#"
-              ><i class="fa fa-angle-right mr-2"></i>��������</a
+              ><i class="fa fa-angle-right mr-2"></i>고객센터</a
             >
           </div>
         </div>
@@ -102,22 +102,22 @@
         </p>
       </div>
     </div>
-    <!-- Ǫ�� End -->
+    <!-- 푸터 End -->
 	
 	
 	    <a href="#" class="btn btn-primary p-3 back-to-top"
       ><i class="fa fa-angle-double-up"></i></a>
 	
 	
-	<!-- �ڹٽ�ũ��Ʈ ���̺귯 -->
+	<!-- 자바스크립트 라이브러 -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="../lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- ���ø� �ڹٽ�ũ��Ʈ  -->
+    <!-- 템플릿 자바스크립트  -->
     <script src="js/main.js"></script>
 </body>
 </html>

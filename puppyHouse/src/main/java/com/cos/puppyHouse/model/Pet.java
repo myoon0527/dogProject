@@ -42,6 +42,9 @@ public class Pet {
 	@JoinColumn(name="UsersId")
 	private Users users;
 	
+	@Column(nullable=false, length=30)
+	private String petName;
+	
 	@Column(nullable=false, length=100)
 	private String species;
 	
