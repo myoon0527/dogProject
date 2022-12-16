@@ -7,9 +7,9 @@ let index = {
 	
 	save: function() {
 		let data={
-			userName: $("#username").val(),
-			userId: $("#userid").val(),
-			userPassword: $("#userpwd").val(),
+			username: $("#username").val(),
+			userid: $("#userid").val(),
+			userpassword: $("#userpwd").val(),
 			email: $("#useremail").val(),
 			phone: $("#userphone").val(),
 			addr: $("#useraddr").val()
@@ -24,6 +24,7 @@ let index = {
 			
 		}).done(function(resp){
 			alert("회원가입이 완료되었습니다.");
+			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});
