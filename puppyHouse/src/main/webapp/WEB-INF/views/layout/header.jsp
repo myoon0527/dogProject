@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="principal"/>
+</sec:authorize>
 
 <!doctype html>
 <html>
@@ -81,10 +85,19 @@
             <a href="/auth/reserveMain" class="nav-item nav-link mr-3">예약</a>
 			<a href="/auth/commuBoard/commuMain" class="nav-item nav-link mr-3">커뮤니티</a>
 			<a href="/auth/news/newsMain" class="nav-item nav-link mr-3">고객센터</a>
-			<a href="/user/updateForm" class="nav-item nav-link mr-3">마이페이지</a>
+		<c:choose>
+		<c:when test="${empty principal}">
           </div>
           <a href="/auth/loginForm" class="btn btn-primary px-3">로그인</a>
 		  <a href="/auth/joinForm" class="btn btn-primary px-3 ml-4">회원가입</a>
+		</c:when>
+		<c:otherwise>
+			<a href="/user/updateForm" class="nav-item nav-link mr-3">마이페이지</a>
+          </div>
+          <a href="" class="btn btn-primary px-3">애견수첩</a>
+		  <a href="" class="btn btn-primary px-3 ml-4">로그아웃</a>
+		</c:otherwise>
+		</c:choose>
         </div>
       </nav>
     </div>
