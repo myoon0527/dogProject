@@ -36,6 +36,9 @@
         <!-- 캘린더 스타일시트 -->
     <link href="/css/myReservation.css" rel="stylesheet" />
     
+     <!--카카오 지도 API-->
+     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5994d78f64b564c1aaf75803fce10a44"></script>
+     
     <!-- Summernote -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -51,7 +54,7 @@
 	<!-- 메뉴 Start -->
     <div class="container-fluid position-relative shadow">
       <nav
-        class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5"
+        class="navbar navbar-expand-lg navbar-light py-3 py-lg-0 px-0 px-lg-5"
       >
           <a
           href="/"
@@ -71,13 +74,14 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
           <div class="navbar-nav font-weight-bold mx-auto">
             <a href="/" class="nav-item nav-link active mr-3">Home</a>
-            <a href="../introduce.jsp" class="nav-item nav-link mr-3">소개</a>
-            <a href="../reserve/reserveMain.jsp" class="nav-item nav-link mr-3">예약</a>
-			<a href="/commuBoard/commuMain" class="nav-item nav-link mr-3">커뮤니티</a>
-			<a href="../news/newsMain.jsp" class="nav-item nav-link mr-3">고객센터</a>
+            <a href="/auth/introduce" class="nav-item nav-link mr-3">소개</a>
+            <a href="/auth/reserveMain" class="nav-item nav-link mr-3">예약</a>
+			<a href="/auth/commuBoard/commuMain" class="nav-item nav-link mr-3">커뮤니티</a>
+			<a href="/auth/news/newsMain" class="nav-item nav-link mr-3">고객센터</a>
+			<a href="/user/updateForm" class="nav-item nav-link mr-3">마이페이지</a>
           </div>
-          <a href="/auth/loginForm" class="btn btn-primary px-3">로그인</a>
-		  <a href="/auth/joinForm" class="btn btn-primary px-3 ml-4">회원가입</a>
+          <a href="/user/loginForm.jsp" class="btn btn-primary px-3">로그인</a>
+		  <a href="/user/joinForm.jsp" class="btn btn-primary px-3 ml-4">회원가입</a>
         </div>
       </nav>
     </div>

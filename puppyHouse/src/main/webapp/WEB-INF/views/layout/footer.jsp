@@ -66,13 +66,13 @@
         <div class="col-lg-4 col-md-6 mb-5">
           <h3 class="text-primary mb-4">Quick Links</h3>
           <div class="d-flex flex-column justify-content-start">
-            <a class="text-white mb-2" href="index.html"
+            <a class="text-white mb-2" href="/"
               ><i class="fa fa-angle-right mr-2"></i>Home</a
             >
-            <a class="text-white mb-2" href="introduce.html"
+            <a class="text-white mb-2" href="/auth/introduce"
               ><i class="fa fa-angle-right mr-2"></i>소개</a
             >
-            <a class="text-white mb-2" href="#"
+            <a class="text-white mb-2" href="/auth/reserveMain""
               ><i class="fa fa-angle-right mr-2"></i>예약</a
             >
             <a class="text-white mb-2" href="#"
