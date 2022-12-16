@@ -51,7 +51,6 @@
             
           </form>
           <div>
-          
               <input type="button" class="btn btn-primary py-2 px-4" id="btn-save">회원가입</input>
           </div>
           <script src="/js/user.js"></script>
