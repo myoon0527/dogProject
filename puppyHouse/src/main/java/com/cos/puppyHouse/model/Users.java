@@ -39,13 +39,13 @@ public class Users {
 	private int id;
 	
 	@Column(nullable=false, length=30, unique=true)
-	private String userId;
+	private String userid;
 	
 	@Column(nullable=false, length=100)
-	private String userPassword;
+	private String userpassword;
 	
 	@Column(nullable=false, length=30)
-	private String userName;
+	private String username;
 	
 	@Column(nullable=false, length=30)
 	private String phone;

@@ -48,14 +48,16 @@
               <input type="text" class="form-control" id="useraddr" placeholder="Your Address">
               <p class="help-block text-danger"></p> 
             </div>
-            <div>
-              <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">회원가입</button>
-            </div>
+            
           </form>
+          <div>
+          
+              <input type="button" class="btn btn-primary py-2 px-4" id="btn-save">회원가입</input>
+          </div>
+          <script src="/js/user.js"></script>
         </div>
       </div>
     </div>
   </div>
   <!-- 섹션 2 end -->
-
-<%@ include file="../layout/footer.jsp" %>  
+  <%@ include file="../layout/footer.jsp" %>  

@@ -48,6 +48,7 @@
 
 
     // Post carousel
+    /*
     $(".post-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 1500,
@@ -73,7 +74,7 @@
             }
         }
     });
-
+	
 
     // Testimonials carousel
     $(".testimonial-carousel").owlCarousel({
@@ -97,6 +98,6 @@
             }
         }
     });
-    
+    */
 })(jQuery);
 

@@ -29,11 +29,11 @@
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group">
-              <input type="password" class="form-control" id="userpwd" name="userpwd" placeholder="Your Password">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Your Password">
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group">
-              <input type="checkbox" id=""> 로그인상태유지
+              <input type="checkbox" name="remember"> 로그인상태유지
               <a href="" style="float: right;">아이디 / 비밀번호 찾기</a>
               <p class="help-block text-danger"></p>
             </div>

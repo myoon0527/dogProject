@@ -6,7 +6,7 @@
       <div class="row pt-5 justify-content-center">
         <div class="col-lg-4 col-md-6 mb-5">
      	 <a
-            href="index.html"
+            href="../index.jsp"
             class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0"
             style="font-size: 35px; line-height: 35px"
           >
@@ -112,12 +112,12 @@
 	<!-- 자바스크립트 라이브러 -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <!-- <script src="/lib/owlcarousel/owl.carousel.min.js"></script>  -->
+    <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- 템플릿 자바스크립트  -->
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

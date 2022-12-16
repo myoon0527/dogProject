@@ -17,7 +17,7 @@
 	 <div class="container-fluid px-0 px-md-5 my-5">
 		  <div class="row justify-content-center">
 			  <div class="col-lg-3 col-md-3 col-sm-3">
-				<img class="img-fluid" src="img/main3.png" alt="main3">
+				<img class="img-fluid" src="../img/main3.png" alt="main3">
 			  </div>
 			  <div class="col-lg-4 col-md-8 col-sm-8 ml-3 align-self-center">
 			  <h2 class="text-primary" style="font-family: 'Noto Sans KR'">ABOUT</h2>

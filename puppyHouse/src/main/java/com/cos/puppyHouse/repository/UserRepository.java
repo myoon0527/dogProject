@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.cos.puppyHouse.model.Users;
 
 public interface UserRepository extends JpaRepository<Users, Integer>{
-	Optional<Users> findByUserName(String userName);
+	Optional<Users> findByUserid(String userId);
 }
