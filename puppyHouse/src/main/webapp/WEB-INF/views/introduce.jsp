@@ -320,6 +320,7 @@
 	<!-- 섹션 6 start -->
 	 <div class="container-fluid pt-5">
 		 <div class="container">
+		 <a name="howtocome"></a>
 		<div class="row justify-content-center">
         <div class="text-center col-lg-12 pb-2">
           <h1 class="mb-4" style="font-family: 'Noto Sans KR'">오시는 길</h1>

@@ -81,7 +81,7 @@
                 <p class="mt-4" style="font-family: 'Noto Sans KR'">
                   경기도 수원시 팔달구 덕영대로 905 아이메카 7층 
                 </p>
-            <a href="/auth/introduce" class="btn btn-primary px-4 mx-auto my-2"
+            <a href="/auth/introduce#howtocome" class="btn btn-primary px-4 mx-auto my-2"
                   >상세 정보</a
                 >
               </div>
