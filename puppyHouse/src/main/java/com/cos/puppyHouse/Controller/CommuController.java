@@ -1,15 +1,21 @@
 package com.cos.puppyHouse.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+
+import com.cos.puppyHouse.Service.commuService;
 
 @Controller
 public class CommuController {
 	
-	@GetMapping("/commuBoard/commuMain")
-	public String commuMain()	{
+	@Autowired
+	private commuService commuService;
+	
+	@GetMapping({"/auth/commuBoard/commuMain"})
+	public String commuMain(Model model) {
+		model.addAttribute("commu", commuService.list());
 		return "commuBoard/commuMain";
 	}
 	
