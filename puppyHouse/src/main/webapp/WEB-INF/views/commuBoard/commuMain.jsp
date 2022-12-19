@@ -25,69 +25,30 @@
         <div class="col-lg-12 pb-2">
           <a href="/commuBoard/commuSaveForm" class="btn btn-primary" style="float: right;">글 작성하기</a>
         </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card border-0 shadow-sm mb-2">
-            <img src="../img/blog-1.jpg" alt="img" class="card-img-top mb-2">
-            <div class="card-body bg-light text-center p-4">
-              <h4>asdf asdhf asdfhasd</h4>
-              <div class="d-flex justify-content-center mb-3">
-                <small class="mr-3">
-                  <i class="fa fa-user text-primary"></i> Admin
-                </small>
-                <small class="mr-3">
-                  <i class="fa fa-folder text-primary"></i> folder
-                </small>
-                <small class="mr-3">
-                  <i class="fa fa-comments text-primary"></i> commnets
-                </small>
-              </div>
-              <p>abcdfefasdf asdf efs fas d fa sdf a sdf as df</p>
-              <a href="" class="btn btn-primary px-4 mx-auto my-2">자세히 보기</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card border-0 shadow-sm mb-2">
-            <img src="../img/blog-2.jpg" alt="img" class="card-img-top mb-2">
-            <div class="card-body bg-light text-center p-4">
-              <h4>asdf asdhf asdfhasd</h4>
-              <div class="d-flex justify-content-center mb-3">
-                <small class="mr-3">
-                  <i class="fa fa-user text-primary"></i> Admin
-                </small>
-                <small class="mr-3">
-                  <i class="fa fa-folder text-primary"></i> folder
-                </small>
-                <small class="mr-3">
-                  <i class="fa fa-comments text-primary"></i> commnets
-                </small>
-              </div>
-              <p>abcdfefasdf asdf efs fas d fa sdf a sdf as df</p>
-              <a href="" class="btn btn-primary px-4 mx-auto my-2">자세히 보기</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card border-0 shadow-sm mb-2">
-            <img src="../img/blog-3.jpg" alt="img" class="card-img-top mb-2">
-            <div class="card-body bg-light text-center p-4">
-              <h4>asdf asdhf asdfhasd</h4>
-              <div class="d-flex justify-content-center mb-3">
-                <small class="mr-3">
-                  <i class="fa fa-user text-primary"></i> Admin
-                </small>
-                <small class="mr-3">
-                  <i class="fa fa-folder text-primary"></i> folder
-                </small>
-                <small class="mr-3">
-                  <i class="fa fa-comments text-primary"></i> commnets
-                </small>
-              </div>
-              <p>abcdfefasdf asdf efs fas d fa sdf a sdf as df</p>
-              <a href="" class="btn btn-primary px-4 mx-auto my-2">자세히 보기</a>
-            </div>
-          </div>
-        </div>
+        <c:forEach var="commu" items="${commu}">
+        	<div class="col-lg-4 mb-4">
+        		<div class="card border-0 shadow-sm mb-2">
+        			<img src="/img/blog-1.jpg" alt="img" class="card-img-top mb-2">
+        			<div class="card-body bg-light text-center p-4">
+	        			<h4>${commu.title}</h4>
+	        			<div class="d-flex justify-content-center mb-3">
+			                <small class="mr-3">
+			                  <i class="fa fa-user text-primary"></i> ${commu.users.userid}
+			                </small>
+			                <small class="mr-3">
+			                  <i class="fa fa-folder text-primary"></i> folder
+			                </small>
+			                <small class="mr-3">
+			                  <i class="fa fa-comments text-primary"></i> commnets
+			                </small> 
+		              	</div>
+		              	<p>글 미리보기,.,,,,,</p>
+		                <a href="" class="btn btn-primary px-4 mx-auto my-2">자세히 보기</a>
+        			</div>
+        		</div>
+        	</div>
+        </c:forEach>
+        
         <div class="col-md-12 mb-4">
           <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center mb-0">

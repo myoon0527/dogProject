@@ -55,7 +55,6 @@ public class Community {
 	private Users users;
 	
 	@OneToMany (mappedBy="community", fetch = FetchType.EAGER)
-	
 	private List<Reply> reply;
 	
 	@CreationTimestamp
