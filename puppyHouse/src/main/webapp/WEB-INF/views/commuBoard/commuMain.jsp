@@ -25,7 +25,7 @@
         <div class="col-lg-12 pb-2">
           <a href="/commuBoard/commuSaveForm" class="btn btn-primary" style="float: right;">글 작성하기</a>
         </div>
-        <c:forEach var="commu" items="${commu}">
+        <c:forEach var="commu" items="${commu.content}">
         	<div class="col-lg-4 mb-4">
         		<div class="card border-0 shadow-sm mb-2">
         			<img src="/img/blog-1.jpg" alt="img" class="card-img-top mb-2">
@@ -39,11 +39,11 @@
 			                  <i class="fa fa-folder text-primary"></i> folder
 			                </small>
 			                <small class="mr-3">
-			                  <i class="fa fa-comments text-primary"></i> commnets
+			                  <i class="fa fa-comments text-primary"></i> comments
 			                </small> 
 		              	</div>
 		              	<p>글 미리보기,.,,,,,</p>
-		                <a href="" class="btn btn-primary px-4 mx-auto my-2">자세히 보기</a>
+		                <a href="/auth/commuBoard/${commu.commuId}" class="btn btn-primary px-4 mx-auto my-2">자세히 보기</a>
         			</div>
         		</div>
         	</div>
@@ -52,21 +52,45 @@
         <div class="col-md-12 mb-4">
           <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center mb-0">
-              <li class="page-item">
-                <a href="" class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">«</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active"><a href="" class="page-link">1</a></li>
-              <li class="page-item"><a href="" class="page-link">2</a></li>
-              <li class="page-item"><a href="" class="page-link">3</a></li>
-              <li class="page-item">
-                <a href="" class="page-link" aria-label="Next">
-                  <span aria-hidden="true">»</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li> 
+            	<c:choose>
+            		<c:when test="${commu.first}">
+            			<li class="page-item disabled">
+            				<a class="page-link" href="?page="${commu.number-1}">
+	            				<span aria-hidden="true">«</span>
+	                  			<span class="sr-only">Previous</span>
+            				</a>
+            			</li>
+            		</c:when>
+            		<c:otherwise>
+            			<li class="page-item">
+            				<a class="page-link" href="?page=${commu.number-1}">
+            					<span aria-hidden="true">«</span>
+	                  			<span class="sr-only">Previous</span>
+            				</a>
+            			</li>
+            		</c:otherwise>
+            	</c:choose>
+	            <li class="page-item"><a href="" class="page-link">1</a></li>
+	            <li class="page-item"><a href="" class="page-link">2</a></li>
+	            <li class="page-item"><a href="" class="page-link">3</a></li>
+	            <c:choose>
+            		<c:when test="${commu.last}">
+            			<li class="page-item disabled">
+            				<a class="page-link" href="?page="${commu.number+1}">
+	            				<span aria-hidden="true">»</span>
+		                		<span class="sr-only">Next</span>
+            				</a>
+            			</li>
+            		</c:when>
+            		<c:otherwise>
+            			<li class="page-item">
+            				<a class="page-link" href="?page=${commu.number+1}">
+            					<span aria-hidden="true">»</span>
+		                		<span class="sr-only">Next</span>
+            				</a>
+            			</li>
+            		</c:otherwise>
+            	</c:choose>
             </ul>
           </nav>
         </div>

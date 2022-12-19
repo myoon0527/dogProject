@@ -1,4 +1,5 @@
-package com.cos.puppyHouse.Controller.api;
+package com.cos.puppyHouse.controller.api;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
