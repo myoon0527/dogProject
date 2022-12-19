@@ -29,7 +29,7 @@
               <p class="help-block text-dnager"></p>
             </div>
             <div class="control-group">
-              <input type="text" class="form-control" id="username" readonly>
+              <input type="text" class="form-control" id="username" value="${principal.user.userid}" readonly>
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group">
