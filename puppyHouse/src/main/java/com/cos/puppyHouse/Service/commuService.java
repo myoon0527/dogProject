@@ -25,14 +25,33 @@ public class commuService {
 		commuRepository.save(commu);
 	}
 	
+	@Transactional(readOnly=true)
 	public Page<Community> list(Pageable pageable) {
 		return commuRepository.findAll(pageable);
 	}
-	
+
+	@Transactional(readOnly=true)
 	public Community detail(int id) {
 		return commuRepository.findById(id)
 				.orElseThrow(()->{
 					return new IllegalArgumentException("글 상세보기 실패: 아이디를 찾을 수 없습니다.");
 				});
+	}
+	
+	@Transactional
+	public void delete(int id) {
+		commuRepository.deleteById(id);
+	}
+	
+	
+	@Transactional
+	public void update(int id, Community requestCommunity) {
+		Community commu = commuRepository.findById(id)
+				.orElseThrow(()->{
+					return new IllegalArgumentException("글 찾기 실패: 아이디를 찾을 수 없습니다.");
+				});
+		commu.setTitle(requestCommunity.getTitle());
+		commu.setContent(requestCommunity.getContent());
+				
 	}
 }

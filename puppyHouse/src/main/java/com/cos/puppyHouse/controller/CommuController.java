@@ -32,8 +32,14 @@ public class CommuController {
 	
 	@GetMapping("/auth/commuBoard/{id}")
 	public String findById(@PathVariable int id, Model model) {
-		model.addAttribute("commuBoard", commuService.detail(id));
+		model.addAttribute("commu", commuService.detail(id));
 		return "commuBoard/commuDetail";
+	}
+	
+	@GetMapping("/commuBoard/{id}/commuUpdate")
+	public String updateForm(@PathVariable int id, Model model) {
+		model.addAttribute("commu",commuService.detail(id));
+		return "commuBoard/commuUpdate";
 	}
 	
 }
