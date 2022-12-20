@@ -53,7 +53,7 @@
                 <p class="mt-4" style="font-family: 'Noto Sans KR'" >
                	  애견 라이프 트렌드에 맞춰 하나하나 섬세하게 봐드립니다.
                 </p>
-				  <a href="introduce.html" class="btn btn-primary px-4 mx-auto my-2"
+				  <a href="/auth/introduce" class="btn btn-primary px-4 mx-auto my-2"
                   >상세 정보</a
                 >
               </div>

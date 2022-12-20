@@ -3,6 +3,7 @@ package com.cos.puppyHouse.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,6 +18,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -54,7 +57,8 @@ public class Community {
 	@JoinColumn(name="UsersId")
 	private Users users;
 	
-	@OneToMany (mappedBy="community", fetch = FetchType.EAGER)
+	@OneToMany (mappedBy="community", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
+	@JsonIgnoreProperties({"communty"})
 	private List<Reply> reply;
 	
 	@CreationTimestamp
