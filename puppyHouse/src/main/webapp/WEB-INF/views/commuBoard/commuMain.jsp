@@ -42,7 +42,9 @@
 			                  <i class="fa fa-comments text-primary"></i> comments
 			                </small> 
 		              	</div>
-		              	<p>글 미리보기,.,,,,,</p>
+		              	<div style="overflow: hidden" class="row">
+		              		<p>${commu.content}</p>
+		              	</div>
 		                <a href="/auth/commuBoard/${commu.commuId}" class="btn btn-primary px-4 mx-auto my-2">자세히 보기</a>
         			</div>
         		</div>

@@ -11,6 +11,7 @@
 <head>
 <meta charset="ko">
 <title>PuppyHouse</title>
+	
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <!-- 아이콘 -->
 
@@ -47,6 +48,8 @@
      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5994d78f64b564c1aaf75803fce10a44"></script>
      
     <!-- Summernote -->
+    
+    <!--  -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -86,17 +89,17 @@
 			<a href="/auth/commuBoard/commuMain" class="nav-item nav-link mr-3">커뮤니티</a>
 			<a href="/auth/news/newsMain" class="nav-item nav-link mr-3">고객센터</a>
 		<c:choose>
-		<c:when test="${empty principal}">
-          </div>
-          <a href="/auth/loginForm" class="btn btn-primary px-3">로그인</a>
-		  <a href="/auth/joinForm" class="btn btn-primary px-3 ml-4">회원가입</a>
-		</c:when>
-		<c:otherwise>
-			<a href="/user/updateForm" class="nav-item nav-link mr-3">마이페이지</a>
-          </div>
-          <a href="" class="btn btn-primary px-3">애견수첩</a>
-		  <a href="" class="btn btn-primary px-3 ml-4">로그아웃</a>
-		</c:otherwise>
+			<c:when test="${empty principal}">
+	          </div>
+	          <a href="/auth/loginForm" class="btn btn-primary px-3">로그인</a>
+			  <a href="/auth/joinForm" class="btn btn-primary px-3 ml-4">회원가입</a>
+			</c:when>
+			<c:otherwise>
+				<a href="/user/updateForm" class="nav-item nav-link mr-3">마이페이지</a>
+	     </div>
+	          <a href="" class="btn btn-primary px-3">애견수첩</a>
+			  <a href="/logout" class="btn btn-primary px-3 ml-4">로그아웃</a>
+			</c:otherwise>
 		</c:choose>
         </div>
       </nav>

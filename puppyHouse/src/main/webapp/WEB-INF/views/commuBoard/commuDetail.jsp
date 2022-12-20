@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../layout/header.jsp" %>
 
   <!-- 섹션 1 start -->
@@ -51,21 +52,42 @@
           <hr>
         </div>
         <div class="col-lg-12">
-          <form action="">
-            <div class="control-group">
-              <input type="text" class="form-control" placeholder="댓글을 입력해주세요">
-              <button class="btn btn-outline-primary" style="position: absolute; right: 15px; top: 0;">등록</button>
-              <hr>
-            </div>
-          </form>
+        <c:choose>
+        	<c:when test="${empty principal}">
+        		<a href="/commuBoard/${commu.commuId}">
+        			<div class="control-group"> 
+		            <input type="text" class="form-control" id="reply-content" placeholder="댓글을 입력해주세요">
+		            <button class="btn btn-outline-primary" id="btn-reply-save" style="position: absolute; right: 15px; top: 0;">등록</button>
+              		<hr>
+        		</a>
+        	</c:when>
+        	<c:otherwise>
+        		<div class="control-group"> 
+	            <input type="text" class="form-control" id="reply-content" placeholder="댓글을 입력해주세요">
+	            <button class="btn btn-outline-primary" id="btn-reply-save" style="position: absolute; right: 15px; top: 0;">등록</button>
+           		<hr>
+        	</c:otherwise>    	
+        </c:choose>
           <!-- 댓글 반복 출력 -->
-          <div class="comment col-lg-12">
-            <div class="col-lg-12">
-              <p>username<i class="float-right">date</i></p>
-            </div>
-            <div class="col-lg-12 border-bottom">
-              <p>{comment}<a class="text-dark fas fa-window-close float-right" style="text-decoration: none;"></a></p>
-            </div>
+          <div class="card">
+          	<div class="card-header">댓글 목록</div>
+          		<div class="list-group">
+          			<c:forEach var="reply" items="${commu.reply}">
+          				<div class="list-group-item d-flex justify-content-between">
+          					<span class="replyId" id="replyId">${reply.replyId}</span>
+	          				<div>${reply.users.userid}</div>
+	          				<div>${reply.content}</div>
+	          				<div>
+	          					<fmt:formatDate value="${reply.createDate}" pattern="yyyy-MM-dd" />
+	          					<c:if test="${reply.users.userid==principal.user.userid}">
+	          						&nbsp;<button class="text-dark fas fa-window-close float-right" id="btn-reply-delete" style="text-decoration: none;"
+	          									th:onclick="|javascript:index.replyDeleteById(${commu.id},
+	          									${reply.id})|"></button>
+	          					</c:if>	
+	          				</div>
+          				</div>
+          			</c:forEach>
+          		</div> 
           </div>
         </div>
       </div>
