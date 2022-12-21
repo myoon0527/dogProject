@@ -27,8 +27,9 @@
           <span id="commuId" hidden>${commu.commuId}</span>
           <h3 class="col-lg-12 mb-2">${commu.title}</h3>
           <hr>
-          <div class="col-lg-12 mb-2">
-            작성자 : ${commu.users.userid}
+          <div class="col-lg-12 mb-2 row justify-content-between">
+            <p>작성자 : ${commu.users.userid}</p>
+            <p>조회수 : ${commu.count}</p>
           </div>
           <hr>
           <div class="col-lg-12 mb-2">
@@ -81,8 +82,7 @@
 	          					<fmt:formatDate value="${reply.createDate}" pattern="yyyy-MM-dd" />
 	          					<c:if test="${reply.users.userid==principal.user.userid}">
 	          						&nbsp;<button class="text-dark fas fa-window-close float-right" id="btn-reply-delete" style="text-decoration: none;"
-	          									th:onclick="|javascript:index.replyDeleteById(${commu.id},
-	          									${reply.id})|"></button>
+	          									onclick="replyDeleteById(${commu.commuId},${reply.replyId})"></button>
 	          					</c:if>	
 	          				</div>
           				</div>

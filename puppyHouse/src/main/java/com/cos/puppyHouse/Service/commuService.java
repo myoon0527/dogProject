@@ -46,6 +46,7 @@ public class commuService {
 
 	@Transactional(readOnly=true)
 	public Community detail(int id) {
+		commuRepository.updateCount(id);
 		return commuRepository.findById(id)
 				.orElseThrow(()->{
 					return new IllegalArgumentException("글 상세보기 실패: 아이디를 찾을 수 없습니다.");
