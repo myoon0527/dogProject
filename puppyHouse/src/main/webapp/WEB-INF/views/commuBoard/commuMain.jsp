@@ -36,7 +36,7 @@
 			                  <i class="fa fa-user text-primary"></i> ${commu.users.userid}
 			                </small>
 			                <small class="mr-3">
-			                  <i class="fa fa-folder text-primary"></i> folder
+			                  <i class="fa fa-heart text-primary"></i> folder
 			                </small>
 			                <small class="mr-3">
 			                  <i class="fa fa-comments text-primary"></i> comments

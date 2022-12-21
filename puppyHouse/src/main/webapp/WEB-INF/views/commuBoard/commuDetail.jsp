@@ -27,8 +27,9 @@
           <span id="commuId" hidden>${commu.commuId}</span>
           <h3 class="col-lg-12 mb-2">${commu.title}</h3>
           <hr>
-          <div class="col-lg-12 mb-2">
-            작성자 : ${commu.users.userid}
+          <div class="col-lg-12 mb-2 row justify-content-between">
+            <p>작성자 : ${commu.users.userid}</p>
+            <p>조회수 : ${commu.count}</p>
           </div>
           <hr>
           <div class="col-lg-12 mb-2">

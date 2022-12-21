@@ -14,9 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -59,8 +61,12 @@ public class Community {
 	
 	@OneToMany (mappedBy="community", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	@JsonIgnoreProperties({"communty"})
+	@OrderBy("replyid")
 	private List<Reply> reply;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
+	
+	@ColumnDefault("0")
+	private int replycount;
 }
