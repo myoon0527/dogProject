@@ -81,8 +81,7 @@
 	          					<fmt:formatDate value="${reply.createDate}" pattern="yyyy-MM-dd" />
 	          					<c:if test="${reply.users.userid==principal.user.userid}">
 	          						&nbsp;<button class="text-dark fas fa-window-close float-right" id="btn-reply-delete" style="text-decoration: none;"
-	          									th:onclick="|javascript:index.replyDeleteById(${commu.id},
-	          									${reply.id})|"></button>
+	          									onclick="replyDeleteById(${commu.commuId},${reply.replyId})"></button>
 	          					</c:if>	
 	          				</div>
           				</div>

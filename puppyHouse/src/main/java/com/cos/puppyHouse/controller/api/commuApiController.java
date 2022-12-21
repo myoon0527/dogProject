@@ -38,9 +38,9 @@ public class commuApiController {
 	}
 	
 	//댓글 삭제
-	@DeleteMapping("/api/commu/${commuid}/reply/${replyid}")
-	public ResponseDto<Integer> replyDelete(@PathVariable int replyId) {
-		commuService.replyDelete(replyId);
+	@DeleteMapping("/api/commu/{commuid}/reply/{replyid}")
+	public ResponseDto<Integer> replyDelete(@PathVariable int replyid) {
+		commuService.replyDelete(replyid);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
 	

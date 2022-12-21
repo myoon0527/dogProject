@@ -12,9 +12,6 @@ let index={
 		$("#btn-reply-save").on("click",()=>{
 			this.replySave();
 		});
-		$("#btn-reply-delete").on("click",()=>{
-			this.replyDeleteById();
-		});
 	},
 	
 	save: function() {
@@ -71,23 +68,7 @@ let index={
 		});
 	},
 	
-	replyDeleteById: function(commuId, replyId) {
-		//var id = $("#commuId").text(); 
-		//var id2 = $("#replyId").text(); 
-		//console.log(id2);
-		
-		
-		$.ajax({
-			type:"DELETE",
-			url:`/api/commu/${commuId}/reply/${replyId}`,
-			dataType:"json"
-		}).done(function(resp){
-			alert("댓글 삭제 완료");
-			location.href=`/auth/commuBoard/${commuId}`;
-		}).fail(function(error){
-			alert(JSON.stringify(error));
-		});
-	},
+	
 	
 	update: function() {
 		let id=$("#commuId").val();
@@ -110,4 +91,23 @@ let index={
 		});
 	},
 }
+
+
+function replyDeleteById(commuId, replyId) {
+		//var id = $("#commuId").text(); 
+		//var id2 = $("#replyId").text(); 
+		console.log(replyId);
+		console.log(commuId);
+		
+		$.ajax({
+			type:"DELETE",
+			url:`/api/commu/${commuId}/reply/${replyId}`,
+			dataType:"json"
+		}).done(function(resp){
+			alert("댓글 삭제 완료");
+			location.href=`/auth/commuBoard/${commuId}`;
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		});
+	}
 index.init();
