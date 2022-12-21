@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cos.puppyHouse.Service.commuService;
+import com.cos.puppyHouse.Service.likeService;
 import com.cos.puppyHouse.config.auth.PrincipalDetail;
 import com.cos.puppyHouse.dto.ResponseDto;
 import com.cos.puppyHouse.model.Community;
+import com.cos.puppyHouse.model.Like;
 import com.cos.puppyHouse.model.Reply;
 
 @RestController
@@ -22,6 +24,9 @@ public class commuApiController {
 	
 	@Autowired
 	private commuService commuService;
+	
+	@Autowired
+	private likeService likeService;
 	
 	//게시글 작성
 	@PostMapping("/api/commu")
@@ -60,4 +65,10 @@ public class commuApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
 	
+	//좋아요
+	@PostMapping("/api/commu/{CommunityId}/likes")
+	public ResponseDto<Integer> likes(@PathVariable int CommunityId, @RequestBody Like likes, @AuthenticationPrincipal PrincipalDetail principal) {
+		likeService.likes(CommunityId, likes, principal.getUser());
+		return new ResponseDto<Integer>(HttpStatus.CREATED.value(),1);
+	}
 }

@@ -1,5 +1,6 @@
 package com.cos.puppyHouse.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,19 +17,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@Table(name="like")
 @SequenceGenerator(
 		name = "USER_SEQ_GENERATOR7"
 		, sequenceName = "USER_SEQ7"
 		, initialValue = 1
 		, allocationSize = 1
 		)
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table(name="likes")
+@Entity
 public class Like {
 	
 	@Id
@@ -40,6 +40,6 @@ public class Like {
 	private Community community;
 	
 	@ManyToOne
-	@JoinColumn(name = "UsersId")
+	@JoinColumn(name = "UsersId", unique=true)
 	private Users users;
 }

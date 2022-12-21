@@ -12,6 +12,9 @@ let index={
 		$("#btn-reply-save").on("click",()=>{
 			this.replySave();
 		});
+		$("#btn-likes").on("click",()=>{
+			this.likes();
+		});
 	},
 	
 	save: function() {
@@ -90,8 +93,23 @@ let index={
 			alert(JSON.stringify(error));
 		});
 	},
+	
+	
 }
 
+function likes(CommunityId, likes_state) {
+		if(!likes_state) {
+			$.ajax({
+				type:"POST",
+				url: `/api/commu/${CommunityId}/likes`,
+				dataType: "json"
+			}).done(function(resp){
+				alert("좋아요 완료");
+			}).fail(function(error){
+				alert(JSON.stringify(error));
+			});
+		}
+	}
 
 function replyDeleteById(commuId, replyId) {
 		//var id = $("#commuId").text(); 

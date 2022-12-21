@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
@@ -70,4 +71,12 @@ public class Community {
 	
 	@ColumnDefault("0")
 	private int replycount;
+	
+	@OneToMany (mappedBy="community", fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
+	private List<Like> likes;
+	
+	@Transient
+	private boolean likes_state;
+	
+	
 }

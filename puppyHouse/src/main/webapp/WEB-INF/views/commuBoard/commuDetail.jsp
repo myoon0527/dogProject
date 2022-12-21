@@ -38,9 +38,10 @@
           <hr>
         </div>
         <div class="col-lg-12">
-          <a href="" class="text-primary font-weight-bold navbar-brand mb-3" style="font-size: 25px;">
+          <button class="text-primary font-weight-bold navbar-brand mb-3" style="font-size: 25px;"
+          	onclick="likes(${commu.commuId},${like.likes_state})">
             <i class="fas fa-heart"></i>
-          </a>
+          </button>
           <em>{like-count}</em> &nbsp;&nbsp;&nbsp;&nbsp;
           <i class="text-primary font-weight-bold navbar-brand fas fa-comment" style="font-size: 25px;"></i>
           <em>{comment-count}</em>
