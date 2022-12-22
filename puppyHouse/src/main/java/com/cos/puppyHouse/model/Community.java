@@ -73,10 +73,8 @@ public class Community {
 	private int replycount;
 	
 	@OneToMany (mappedBy="community", fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
-	private List<Like> likes;
+	private List<Likes> likes;
 	
-	@Transient
-	private boolean likes_state;
-	
-	
+	@ColumnDefault("0")
+	private int likescount;
 }

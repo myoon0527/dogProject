@@ -13,7 +13,7 @@ let index={
 			this.replySave();
 		});
 		$("#btn-likes").on("click",()=>{
-			this.likes();
+			this.addLike();
 		});
 	},
 	
@@ -51,6 +51,23 @@ let index={
 		}).done(function(resp){
 			alert("댓글 작성 완료");
 			location.href="/auth/commuBoard/"+id;
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		});
+	},
+	
+	addLike: function() {
+		var commuid = $("#commuId").text();
+
+		console.log(commuid);
+		$.ajax({
+			type:"POST",
+			url:"/api/like/"+commuid,
+			contentType:"application/json; charset=utf-8",
+			dataType:"json"
+		}).done(function(resp){
+			alert("좋아요 완료");
+			location.href="/auth/commuBoard/"+commuid;
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});

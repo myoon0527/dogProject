@@ -66,6 +66,6 @@ public class Users {
 	private Timestamp createDate;
 	
 	@OneToMany (mappedBy="community", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
-	private List<Like> likes;
+	private List<Likes> likes;
 	
 }

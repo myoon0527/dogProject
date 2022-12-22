@@ -12,6 +12,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,7 +31,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Table(name="likes")
 @Entity
-public class Like {
+public class Likes {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USER_SEQ_GENERATOR7")
@@ -42,4 +44,12 @@ public class Like {
 	@ManyToOne
 	@JoinColumn(name = "UsersId", unique=true)
 	private Users users;
+	
+	@ColumnDefault("0")
+	private int likes_state;
+	
+	public Likes(Community commu, Users user) {
+		this.community = commu;
+		this.users = user;
+	}
 }
