@@ -38,7 +38,7 @@
           <hr>
         </div>
         <div class="col-lg-12">
-          <button class="text-primary font-weight-bold navbar-brand mb-3" id="btn-likes" style="font-size: 25px;">
+          <button class="text-primary font-weight-bold navbar-brand mb-3 btn" id="btn-likes" style="font-size: 25px;">
             <i class="fas fa-heart"></i>
           </button>
           <em>{like-count}</em> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -81,7 +81,7 @@
 	          				<div>
 	          					<fmt:formatDate value="${reply.createDate}" pattern="yyyy-MM-dd" />
 	          					<c:if test="${reply.users.userid==principal.user.userid}">
-	          						&nbsp;<button class="text-dark fas fa-window-close float-right" id="btn-reply-delete" style="text-decoration: none;"
+	          						&nbsp;<button class="text-dark fas fa-window-close float-right btn" style="text-decoration: none;"
 	          									onclick="replyDeleteById(${commu.commuId},${reply.replyId})"></button>
 	          					</c:if>	
 	          				</div>

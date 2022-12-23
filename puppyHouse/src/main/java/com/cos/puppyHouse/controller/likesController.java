@@ -28,7 +28,7 @@ public class likesController {
 	private likeService likeService;
 	
 	//좋아요 누르기
-	@PostMapping("/api/like/{id}")
+	@PostMapping("/api/like/{commuid}")
 	public ResponseDto<Integer> addLike(@PathVariable int id, @RequestBody Likes likes, @AuthenticationPrincipal PrincipalDetail principal) {
 		likeService.likes(id, likes, principal.getUser());
 		
