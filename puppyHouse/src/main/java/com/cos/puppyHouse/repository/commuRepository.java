@@ -12,4 +12,6 @@ public interface commuRepository extends JpaRepository<Community,Integer>{
 	@Modifying
 	@Query("update Community commu set commu.count = commu.count + 1 where commu.commuId = :id")
 	void updateCount(int id);
+	
+	
 }
