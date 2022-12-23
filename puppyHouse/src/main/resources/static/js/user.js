@@ -2,6 +2,9 @@ let index = {
 	init: function() {
 		$("#btn-save").on("click",()=>{
 			this.save();
+		}),
+		$("#btn-update").on("click",()=>{
+			this.update();
 		});
 	},
 	
@@ -14,7 +17,6 @@ let index = {
 			phone: $("#userphone").val(),
 			addr: $("#useraddr").val()
 		};
-		console.log(data)
 		$.ajax({
 			type:"POST",
 			url:"/auth/joinProc",
@@ -27,8 +29,31 @@ let index = {
 			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
+		});	
+	},
+	update: function(){
+		let id=$("#id").val();
+		let data={  
+			id: $("#id").val(),
+			username: $("#username").val(),
+			userid: $("#userid").val(),
+			userpassword: $("#userpassword").val(),
+			phone: $("#phone").val(),
+			email: $("#email").val(),
+			addr: $("#addr").val()
+		};
+		$.ajax({
+			type:"PUT",
+			url:"/user/"+id,
+			data:JSON.stringify(data),  
+			contentType:"application/json; charset=utf-8",
+			dataType:"json"
+		}).done(function(resp){
+			alert("회원수정이 완료되었습니다.");
+			location.href="/";
+		}).fail(function(error){
+			alert(JSON.stringify(error));
 		});
-		
 	}
 }
 index.init();
