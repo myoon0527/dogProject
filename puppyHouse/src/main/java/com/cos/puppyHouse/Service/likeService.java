@@ -39,11 +39,12 @@ public class likeService {
 	
 	//2 좋아요 누르기
 	@Transactional
-	public void likes(int id, Likes requestLikes, Users user) {
+	public void likes(int id, Users user) {
 		Community commu = commuRepository.findById(id)
 				.orElseThrow(()->{
 					return new IllegalArgumentException("좋아요 실패");
 				});
+		Likes requestLikes = new Likes();
 		requestLikes.setUsers(user);
 		requestLikes.setCommunity(commu);
 		likesRepository.save(requestLikes);
