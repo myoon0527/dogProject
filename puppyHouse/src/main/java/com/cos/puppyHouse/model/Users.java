@@ -3,6 +3,7 @@ package com.cos.puppyHouse.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -64,7 +65,7 @@ public class Users {
 	@CreationTimestamp
 	private Timestamp createDate;
 	
-	@OneToMany (mappedBy="community",fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
+	@OneToMany (mappedBy="community",fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
 	private List<Likes> likes;
 
 	@OneToMany (mappedBy="users", fetch = FetchType.EAGER)
