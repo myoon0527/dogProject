@@ -38,25 +38,27 @@
           <hr>
         </div>
         <div class="col-lg-12">
+        	
         	<c:set var="like_state" value="false" />
         	<c:forEach	var="likes" items="${commu.likes}">
         		<c:if test="${likes.users.userid == principal.user.userid}">
         			<c:set var="like_state" value="true" />
         		</c:if>
+        		<span id="likesId" hidden>${likes.id}</span>
         	</c:forEach>
         	<c:choose>
         		<c:when test="${like_state == true}">
-        			<button class="text-primary font-weight-bold navbar-brand mb-3 btn" id="btn-liked" style="font-size: 25px;">
+        			<button class="text-primary font-weight-bold navbar-brand mb-3 btn" id="btn-unliked" style="font-size: 25px;">
 		            	<i class="fas fa-heart"></i>
-		          	</button>
+		          	</button>  	
         		</c:when>
         		<c:otherwise>
-        		<button class="text-primary font-weight-bold navbar-brand mb-3 btn" id="btn-unliked" style="font-size: 25px;">
-	            	<i class="far fa-heart"></i>
-	          	</button>
-        	</c:otherwise>
+	        		<button class="text-primary font-weight-bold navbar-brand mb-3 btn" id="btn-liked" style="font-size: 25px;">
+		            	<i class="far fa-heart"></i>
+		          	</button>
+        		</c:otherwise>
         	</c:choose>
-          <em>{like-count}</em> &nbsp;&nbsp;&nbsp;&nbsp;
+          <em>${commu.likescount}</em> &nbsp;&nbsp;&nbsp;&nbsp;
           <i class="text-primary font-weight-bold navbar-brand fas fa-comment" style="font-size: 25px;"></i>
           <em>{comment-count}</em>
           <c:if test="${commu.users.userid==principal.user.userid}">

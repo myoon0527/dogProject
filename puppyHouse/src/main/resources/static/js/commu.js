@@ -16,7 +16,7 @@ let index={
 			this.addLike();
 		});
 		$("#btn-unliked").on("click",()=>{
-			this.addLike();
+			this.deleteLike();
 		});
 	},
 	
@@ -76,6 +76,22 @@ let index={
 		});
 	},
 	
+	deleteLike: function() {
+		var id = $("#likesId").text();
+		var commuid = $("#commuId").text();
+		
+		$.ajax({
+			type:"DELETE",
+			url:"/api/like/"+id+"/delete/"+commuid,
+			dataType:"json"
+		}).done(function(resp){
+			alert("좋아요 취소 완료");
+			location.href="/auth/commuBoard/"+commuid;
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		});
+	},
+	
 	deleteById: function() {
 		var id = $("#commuId").text();
 		
@@ -117,19 +133,6 @@ let index={
 	
 }
 
-function likes(CommunityId, likes_state) {
-		if(!likes_state) {
-			$.ajax({
-				type:"POST",
-				url: `/api/commu/${CommunityId}/likes`,
-				dataType: "json"
-			}).done(function(resp){
-				alert("좋아요 완료");
-			}).fail(function(error){
-				alert(JSON.stringify(error));
-			});
-		}
-	}
 
 function replyDeleteById(commuId, replyId) {
 		//var id = $("#commuId").text(); 

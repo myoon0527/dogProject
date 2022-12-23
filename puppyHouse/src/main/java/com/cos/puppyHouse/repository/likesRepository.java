@@ -10,8 +10,12 @@ import com.cos.puppyHouse.model.Likes;
 public interface likesRepository extends JpaRepository<Likes, Integer>{
 	
 	@Modifying
-	@Query(value = "update Likes likes set likes.likes_state = likes.likes_state + 1 where likes.CommunityId = :id", nativeQuery = true)
-	void updateLikes_state(int id);
+	@Query("update Community commu set commu.likescount = commu.likescount + 1 where commu.commuId = :id")
+	void plusLikesCount(int id);
+	
+	@Modifying
+	@Query("update Community commu set commu.likescount = commu.likescount - 1 where commu.commuId = :id")
+	void minusLikesCount(int id);
 	
 	@Modifying
 	@Query(value = "INSERT INTO likes(id, CommunityId, UsersId) VALUES(USER_SEQ7.nextval, :CommunityId, :UsersId)", nativeQuery = true)
