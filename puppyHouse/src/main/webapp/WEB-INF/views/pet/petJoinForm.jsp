@@ -28,7 +28,10 @@
         <div class="contact-form">
           <div id="success"></div>
           <form>
-          <input type="text" id="petId" value="${pets.petId}"/>
+          <input type="hidden" id="petId" value="${pets.petId}"/>
+          <input type="text" id="userid" value="${pets.users.userid}"/>
+          <input type="text" id="userpwd" value="${pets.users.userpassword}"/>
+          
              <div class="row justify-content-center">
               <div class="control-group">
                 <div class="border border-2 img-fluid" style="border-radius: 70%; width: 150px; height: 150px; overflow: hidden; background-color: white;">

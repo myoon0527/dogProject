@@ -6,6 +6,9 @@ let index={
 	},
 	
 	save: function(){
+		let userid=$("#userid").text();
+		let userpwd=$("#userpwd").text();
+		
 		let data={
 			petId: $("#petId").val(),
 			petName: $("#petName").val(),
@@ -16,6 +19,7 @@ let index={
 			weight: $("#weight").val(),
 			allergy: $("#allergy").val(),
 			etc: $("#etc").val()
+			
 		};
 		console.log(data);
 		$.ajax({
