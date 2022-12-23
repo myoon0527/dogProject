@@ -6,9 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.cos.puppyHouse.model.Likes;
-import com.cos.puppyHouse.model.UserCommunity;
 
-public interface likesRepository extends JpaRepository<Likes, UserCommunity>{
+public interface likesRepository extends JpaRepository<Likes, Integer>{
 	
 	@Modifying
 	@Query(value = "update Likes likes set likes.likes_state = likes.likes_state + 1 where likes.CommunityId = :id", nativeQuery = true)

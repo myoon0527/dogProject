@@ -49,4 +49,8 @@ public class likeService {
 		requestLikes.setCommunity(commu);
 		likesRepository.save(requestLikes);
 	}
+	@Transactional
+	public void insertLikes(int id, int userid) {
+		likesRepository.insertLikes(id, userid);
+	}
 }

@@ -72,7 +72,7 @@ public class Community {
 	@ColumnDefault("0")
 	private int replycount;
 	
-	@OneToMany (mappedBy="community", fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
+	@OneToMany (mappedBy="community", cascade=CascadeType.REMOVE)
 	private List<Likes> likes;
 	
 	@ColumnDefault("0")

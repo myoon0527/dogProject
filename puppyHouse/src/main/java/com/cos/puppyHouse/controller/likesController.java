@@ -16,12 +16,7 @@ import com.cos.puppyHouse.repository.likesRepository;
 @RestController
 public class likesController {
 	
-	@Autowired
-	private likesRepository likesRepository;
-	
-	@Autowired
-	private commuRepository commuRepository;
-	
+
 	@Autowired
 	private likeService likeService;
 	
@@ -29,7 +24,8 @@ public class likesController {
 	@PostMapping("/api/like/{id}")
 	public ResponseDto<Integer> addLike(@PathVariable int id,@AuthenticationPrincipal PrincipalDetail principal) {
 	System.out.println("api/like/ : "+ id +"," + principal.getUser());
-		likeService.likes(id,principal.getUser());
+		//likeService.likes(id,principal.getUser());
+		likeService.insertLikes(id, principal.getUser().getId());
 		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
