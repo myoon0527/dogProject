@@ -47,5 +47,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.loginProcessingUrl("/auth/loginProc")
 			.defaultSuccessUrl("/");
 	}
-	
+
 }

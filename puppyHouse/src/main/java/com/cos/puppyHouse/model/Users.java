@@ -3,7 +3,6 @@ package com.cos.puppyHouse.model;
 import java.sql.Timestamp;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -19,9 +18,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Table(name="users")
 @SequenceGenerator(
@@ -30,10 +29,10 @@ import lombok.NoArgsConstructor;
 		, initialValue = 1
 		, allocationSize = 1
 		)
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 
 public class Users {
@@ -67,5 +66,8 @@ public class Users {
 	
 	@OneToMany (mappedBy="community",fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	private List<Likes> likes;
+
+	@OneToMany (mappedBy="users", fetch = FetchType.EAGER)
+	private List<Pet> Pet;
 	
 }

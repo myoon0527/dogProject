@@ -16,7 +16,10 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
-        
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
   jpa:
     open-in-view: true
     hibernate:
@@ -32,3 +35,6 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+      
+#file:
+#  path: C:/image/
