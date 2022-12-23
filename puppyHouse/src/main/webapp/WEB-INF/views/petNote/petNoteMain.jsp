@@ -25,17 +25,23 @@
         <div class="contact-form">
             <form name="sentMessage" id="contactForm" novalidate="novalidate">
               <div class="row">
-                <div class="col-12 mb-3 ml-4"><button class="btn btn-info btn float-right" onclick="location.href='/petNote/petUpdateForm'">수정</button><button class="btn btn-info btn float-right mr-1">추가하기</button></div>
+                <div class="col-12 mb-3 ml-4"><button type="button" class="btn btn-info btn float-right" onclick="location.href='/petNote/petUpdateForm'">수정</button><button type="button" class="btn btn-info btn float-right mr-1" onclick="location.href='/petNote/petImg'">추가하기</button></div>
               </div>
                 <div class="row justify-content-center mb-3">
                   <div class="control-group">
                     <div class="border border-2 img-fluid" style="border-radius: 70%; width: 150px; height: 150px; overflow: hidden;">
-                      <img src="../img/dogImg/icon/paws.png" alt="프로필 사진" style="width: 100%; height: 100%; object-fit: cover; background-color: white;">
+                      <img src="/images/${pets.imgName}" alt="프로필 사진" style="width: 100%; height: 100%; object-fit: cover; background-color: white;">
                     </div>
                   </div>
                </div>
               <div class="text-center pb-2">
-                <h5 class="mb-4 font-weight-bold fs-10"><select class="bg-light" style="border: none;outline: none;"><option>나비</option></select></h5>
+                <h5 class="mb-4 font-weight-bold fs-10">
+                	<select class="bg-light" id="sel" name="sel" style="border: none;outline: none;" onchange=changeval() >
+                	<!--  <option value="">강아지 이름 선택</option> -->
+                	<c:forEach var="pet" items="${principal.user.pet}">
+                		<option value="/petNote/${pet.petId}" <c:if test='${pet.petId eq petId}'>selected</c:if>>${pet.petName}  </option>
+                	</c:forEach>
+                	</select></h5>
               </div>
             <div class="row">
               <div class="row justify-content-center">
@@ -101,5 +107,17 @@
   </div>
 </div>
 <!-- dogMain end -->
+
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script type="text/javascript" >
+function changeval(){
+	var value = document.getElementById("sel").value;
+	location.href= value;
+	//var petvalue = $('#sel option:selected').val();
+}
+</script>
+</script>
 
 <%@ include file="../layout/footer.jsp" %> 
