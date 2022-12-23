@@ -55,6 +55,7 @@
   
   <!-- isotope -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -84,7 +85,7 @@
             <a href="/auth/introduce" class="nav-item nav-link mr-3">소개</a>
             <a href="/auth/reserveMain" class="nav-item nav-link mr-3">예약</a>
 			<a href="/auth/commuBoard/commuMain" class="nav-item nav-link mr-3">커뮤니티</a>
-			<a href="/auth/news/newsMain" class="nav-item nav-link mr-3">고객센터</a>
+			<a href="/auth/news/NOTICE" class="nav-item nav-link mr-3">고객센터</a>
 		<c:choose>
 		<c:when test="${empty principal}">
           </div>
@@ -95,7 +96,7 @@
 			<a href="/user/updateForm" class="nav-item nav-link mr-3">마이페이지</a>
           </div>
           <a href="" class="btn btn-primary px-3">애견수첩</a>
-		  <a href="" class="btn btn-primary px-3 ml-4">로그아웃</a>
+		  <a href="/logout" class="btn btn-primary px-3 ml-4">로그아웃</a>
 		</c:otherwise>
 		</c:choose>
         </div>
