@@ -79,7 +79,7 @@ let index={
 	deleteLike: function() {
 		var id = $("#likesId").text();
 		var commuid = $("#commuId").text();
-		
+		console.log('likesId'+id)
 		$.ajax({
 			type:"DELETE",
 			url:"/api/like/"+id+"/delete/"+commuid,

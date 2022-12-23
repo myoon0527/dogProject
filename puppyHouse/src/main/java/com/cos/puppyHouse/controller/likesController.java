@@ -29,8 +29,9 @@ public class likesController {
 	}
 	
 	//좋아요 취소
-	@DeleteMapping("/api/like/{commuid}/delete/{id}")
-	public ResponseDto<Integer> deleteLike(@PathVariable int commuid, @PathVariable int id) {
+	@DeleteMapping("/api/like/{id}/delete/{commuid}")
+	public ResponseDto<Integer> deleteLike(@PathVariable int id, @PathVariable int commuid) {
+		System.out.println("deletelikecontroller"+commuid+", "+id);
 		likeService.deleteLikes(id, commuid);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
