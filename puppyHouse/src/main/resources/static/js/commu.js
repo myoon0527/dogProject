@@ -12,7 +12,10 @@ let index={
 		$("#btn-reply-save").on("click",()=>{
 			this.replySave();
 		});
-		$("#btn-likes").on("click",()=>{
+		$("#btn-liked").on("click",()=>{
+			this.addLike();
+		});
+		$("#btn-unliked").on("click",()=>{
 			this.addLike();
 		});
 	},

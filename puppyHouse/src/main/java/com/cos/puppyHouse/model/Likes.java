@@ -1,8 +1,6 @@
 package com.cos.puppyHouse.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,19 +17,27 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(
+		uniqueConstraints = {
+				@UniqueConstraint(
+						name="likes",
+						columnNames = {"CommunityId", "UsersId"}
+			)			
+		}
+)
 @SequenceGenerator(
 		name = "USER_SEQ_GENERATOR7"
 		, sequenceName = "USER_SEQ7"
 		, initialValue = 1
 		, allocationSize = 1
 		)
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@Table(name="likes")
-@Entity
-public class Likes {
+public class Likes{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USER_SEQ_GENERATOR7")
@@ -42,7 +48,7 @@ public class Likes {
 	private Community community;
 	
 	@ManyToOne
-	@JoinColumn(name = "UsersId", unique=true)
+	@JoinColumn(name = "UsersId")
 	private Users users;
 	
 	@ColumnDefault("0")
