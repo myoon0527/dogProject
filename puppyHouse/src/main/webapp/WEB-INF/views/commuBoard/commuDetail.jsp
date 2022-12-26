@@ -44,8 +44,8 @@
         	<c:forEach	var="likes" items="${commu.likes}">
         		<c:if test="${likes.users.userid == principal.user.userid}">
         			<c:set var="like_state" value="true" />
-        		</c:if>
         		<span id="likesId" hidden>${likes.id}</span>
+        		</c:if>
         	</c:forEach>
         	<c:choose>
         		<c:when test="${like_state == true}">
