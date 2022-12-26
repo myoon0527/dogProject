@@ -24,8 +24,8 @@ public class likeService {
 	
 	//좋아요 취소
 	@Transactional
-	public void deleteLikes(int id, int commuid) {
-		System.out.println("deletelike"+commuid);
+	public void deleteLikes(int id, int commuid, int userid) {
+		System.out.println("deletelike commuid:"+commuid+" userid:" + userid);
 		Community commu = commuRepository.findById(commuid)
 				.orElseThrow(()->{
 					return new IllegalArgumentException("댓글 쓰기 실패: 게시글 아이디를 찾을 수 없습니다.");

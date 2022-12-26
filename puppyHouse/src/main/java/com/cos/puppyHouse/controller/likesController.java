@@ -29,10 +29,10 @@ public class likesController {
 	}
 	
 	//좋아요 취소
-	@DeleteMapping("/api/like/{id}/delete/{commuid}")
-	public ResponseDto<Integer> deleteLike(@PathVariable int id, @PathVariable int commuid) {
-		System.out.println("deletelikecontroller"+commuid+", "+id);
-		likeService.deleteLikes(id, commuid);
+	@DeleteMapping("/api/like/{id}/delete/{commuid}/{userid}")
+	public ResponseDto<Integer> deleteLike(@PathVariable int id, @PathVariable int commuid, @PathVariable int userid) {
+		System.out.println("deletelikecontroller" + commuid + ", " + id);
+		likeService.deleteLikes(id, commuid, userid);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
 }
