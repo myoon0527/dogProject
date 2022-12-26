@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.cos.puppyHouse.Service.UserService;
 import com.cos.puppyHouse.config.auth.PrincipalDetailService;
 
 @Configuration
@@ -47,6 +48,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.loginPage("/auth/loginForm")
 			.loginProcessingUrl("/auth/loginProc")
 			.defaultSuccessUrl("/");
+		
+		http.rememberMe()
+			.rememberMeParameter("remember")
+			.userDetailsService(principalDetailService);
+			
 	}
 	
 	@Bean
