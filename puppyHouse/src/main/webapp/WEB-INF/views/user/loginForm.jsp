@@ -34,7 +34,7 @@
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group">
-              <input type="checkbox" name="remember"> 로그인상태유지
+              <input type="checkbox" name="remember" id="rememberid"> 로그인상태유지
               <a href="" style="float: right;">아이디 / 비밀번호 찾기</a>
               <p class="help-block text-danger"></p>
             </div>
@@ -48,5 +48,6 @@
     </div>
   </div>
   <!-- 섹션 2 end -->
+  <script type="text/javascript" src="/js/remember.js"></script>
 
 <%@ include file="../layout/footer.jsp" %>  
