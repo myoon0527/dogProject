@@ -23,22 +23,28 @@
     <div class="container">
       <div class="row pb-2 justify-content-center">
         <div class="col-lg-9">
-          <form action="">
-            <div class="control-group">
-              <input type="text" class="form-control" id="title" placeholder="Title">
-              <p class="help-block text-dnager"></p>
-            </div>
-            <div class="control-group">
-              <input type="text" class="form-control" id="username" value="${principal.user.userid}" readonly>
-              <p class="help-block text-danger"></p>
-            </div>
-            <div class="control-group">
-              <textarea class="form-control summernote" id="content" rows="10"></textarea>
-              <p class="help-block text-dnager"></p>
-            </div>
-            
+           <div class="control-group">
+             <input type="text" class="form-control" id="title" placeholder="Title">
+             <p class="help-block text-dnager"></p>
+           </div>
+           <div class="control-group">
+             <input type="text" class="form-control" id="username" value="${principal.user.userid}" readonly>
+             <p class="help-block text-danger"></p>
+           </div>
+           <div class="control-group">
+             <textarea class="form-control summernote" id="content" rows="10"></textarea>
+             <p class="help-block text-dnager"></p>
+           </div>
+           <div class="border border1 img-fluid" style="border-radius: 70%; width: 230px; height: 220px; overflow: hidden;">
+	 			<img class="img-fluid w-100" id="user_image" src="/img/dog.png" alt="프로필 사진" style="width: 100%; height: 100%; object-fit: cover;">
+		   </div>
+          <form action="/commu/saveImg" method="POST" enctype="multipart/form-data">
+          	<div class="text-center">
+          	    <label for="file" class="border border-2 btn btn-light py-2 px-4" style="padding: 8px; margin-top: 15px;">사진 첨부</label>
+				<input type="file" class="d-none" id="file" name="file" accept="image/jpeg, image/png" onchange="PreviewImage();">  
+				<input type="submit" class="border border-2 btn btn-light py-2 px-4" value="등록하기">    		 	 	
+          	</div>
           </form>
-          <button id="btn-save" class="btn btn-primary py-2 px-4" type="submit">등록</button>
         </div>
       </div>
     </div>
@@ -49,6 +55,18 @@
       height: 300
     })
   </script>
+  <script type="text/javascript" >
+	function PreviewImage() {
+        // 파일리더 생성 
+        var preview = new FileReader();
+        preview.onload = function (e) {
+        // img id 값 
+        document.getElementById("user_image").src = e.target.result;
+    };
+    // input id 값 
+    preview.readAsDataURL(document.getElementById("file").files[0]);
+ };
+	</script>
   <script type="text/javascript" src="/js/commu.js"></script>
   <!-- 섹션 2 end -->
 

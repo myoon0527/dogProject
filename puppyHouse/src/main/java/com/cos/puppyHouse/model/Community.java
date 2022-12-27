@@ -76,4 +76,11 @@ public class Community {
 	
 	@ColumnDefault("0")
 	private int likescount;
+	
+	//이미지
+	private String imgOriName;
+	
+	private String imgName;
+	
+	private String imgUrl;
 }

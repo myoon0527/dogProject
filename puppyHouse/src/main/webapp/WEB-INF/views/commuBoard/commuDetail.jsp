@@ -37,9 +37,14 @@
             <div>${commu.content}</div>
           </div>
           <hr>
+          <div class="col-lg-12 mb-2">
+            <div class="border border-2 img-fluid" style="border-radius: 70%; width: 150px; height: 150px; overflow: hidden; background-color: white;">
+              <img src="/images/${commu.imgName}" alt="프로필 사진" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+          <hr>
         </div>
         <div class="col-lg-12">
-        	
         	<c:set var="like_state" value="false" />
         	<c:forEach	var="likes" items="${commu.likes}">
         		<c:if test="${likes.users.userid == principal.user.userid}">

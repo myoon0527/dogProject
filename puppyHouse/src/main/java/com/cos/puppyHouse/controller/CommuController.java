@@ -52,6 +52,6 @@ public class CommuController {
 	@GetMapping("/commuBoard/{id}")
 	public String reply(@PathVariable int id, Model model) {
 		model.addAttribute("commu", commuService.detail(id));
-		return "commuBoard/commuDetail";
+		return "commuBoard/commuDetail.jsp";
 	}
 }
