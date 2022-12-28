@@ -23,8 +23,10 @@
     <div class="container">
       <div class="row pb-2 justify-content-center">
         <div class="col-lg-9">
+         <form action="/commu/saveImg" method="POST" enctype="multipart/form-data">
            <div class="control-group">
-             <input type="text" class="form-control" id="title" placeholder="Title">
+          
+             <input type="text" class="form-control" id="title" name="title" placeholder="Title">
              <p class="help-block text-dnager"></p>
            </div>
            <div class="control-group">
@@ -32,13 +34,13 @@
              <p class="help-block text-danger"></p>
            </div>
            <div class="control-group">
-             <textarea class="form-control summernote" id="content" rows="10"></textarea>
+             <textarea class="form-control summernote" id="content" name="content" rows="10"></textarea>
              <p class="help-block text-dnager"></p>
            </div>
            <div class="border border1 img-fluid" style="border-radius: 70%; width: 230px; height: 220px; overflow: hidden;">
 	 			<img class="img-fluid w-100" id="user_image" src="/img/dog.png" alt="프로필 사진" style="width: 100%; height: 100%; object-fit: cover;">
 		   </div>
-          <form action="/commu/saveImg" method="POST" enctype="multipart/form-data">
+          
           	<div class="text-center">
           	    <label for="file" class="border border-2 btn btn-light py-2 px-4" style="padding: 8px; margin-top: 15px;">사진 첨부</label>
 				<input type="file" class="d-none" id="file" name="file" accept="image/jpeg, image/png" onchange="PreviewImage();">  
