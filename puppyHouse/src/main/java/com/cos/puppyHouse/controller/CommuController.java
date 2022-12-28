@@ -3,17 +3,16 @@ package com.cos.puppyHouse.controller;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.taglibs.standard.extra.spath.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpHeaders;
@@ -104,22 +103,31 @@ public class CommuController {
 		
 		return "redirect:/auth/commuBoard/commuMain";
 	}
-		
-	@GetMapping("/auth/image")
+	
+	
+	//이미지 출력
+	@GetMapping("/auth/images")
 	public ResponseEntity<Resource> display(@Param("imgName") String imgName) {
 		String path = "C:\\image\\";
 		Resource resource = new FileSystemResource(path+imgName);
+		
 		if(!resource.exists()) {
 			return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
 		}
+		
 		HttpHeaders header = new HttpHeaders();
+
 		Path filePath = null;
 		try {
 			filePath=(Path) Paths.get(path+imgName);
-			header.add("Content-Type", Files.probeContentType((java.nio.file.Path) filePath));
+			header.add("Content-Type", Files.probeContentType(filePath));
+			
 		}catch(IOException e) {
 			e.printStackTrace();
+			
 		}
-		return new ResponseEntity<Resource>(resource,header, HttpStatus.OK);
+		return new ResponseEntity<Resource>(resource, header, HttpStatus.OK);
 	}
+	
+
 }
