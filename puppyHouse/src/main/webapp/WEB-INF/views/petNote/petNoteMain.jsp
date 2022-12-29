@@ -38,7 +38,7 @@
                 <h5 class="mb-4 font-weight-bold fs-10">
                 	<select class="bg-light" id="sel" name="sel" style="border: none;outline: none;" onchange=changeval() >
                 	<!--  <option value="">강아지 이름 선택</option> -->
-                	<c:forEach var="pet" items="${principal.user.pet}">
+                	<c:forEach var="pet" items="${loginUserPet}">
                 		<option value="/petNote/${pet.petId}" <c:if test='${pet.petId eq petId}'>selected</c:if>>${pet.petName}  </option>
                 	</c:forEach>
                 	</select></h5>

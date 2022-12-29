@@ -68,7 +68,7 @@ public class Users {
 	@OneToMany (mappedBy="community",fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
 	private List<Likes> likes;
 
-	@OneToMany (mappedBy="users", fetch = FetchType.EAGER)
+	@OneToMany (mappedBy="users", fetch = FetchType.LAZY)
 	private List<Pet> Pet;
 	
 }

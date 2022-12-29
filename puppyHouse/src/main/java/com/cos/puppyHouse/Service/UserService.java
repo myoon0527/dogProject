@@ -40,4 +40,13 @@ public class UserService {
 		persistance.setAddr(user.getAddr());
 		
 	}
+	//user 한명만 가져오는거 추가
+	@Transactional
+	public Users oneUser(Users user) {
+		Users persistance = userRepository.findById(user.getId()).orElseThrow(() -> {
+			return new IllegalArgumentException("회원 찾기 실패");
+		});
+		return persistance;
+		
+	}
 }

@@ -88,11 +88,11 @@
 						</div>
 						<div id="petJoinContent">
 							<c:choose>
-								<c:when test="${empty loginUser.pet}">
+								<c:when test="${empty principal.user.pet}">
 									<a href="/petNote/petJoinBtn" class="btn btn-primary px-3">애견수첩</a> 
 								</c:when>
 								<c:otherwise>
-								<c:forEach var="pet" items="${loginUserPet}" begin="0" end="0">
+								<c:forEach var="pet" items="${principal.user.pet}" begin="0" end="0">
 									<a href="/petNote/${pet.petId}" class="btn btn-primary px-3">애견수첩</a> 
 								</c:forEach>
 								</c:otherwise>
