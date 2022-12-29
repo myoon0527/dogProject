@@ -10,7 +10,6 @@ import com.cos.puppyHouse.model.Community;
 import com.cos.puppyHouse.model.Reply;
 import com.cos.puppyHouse.model.Users;
 import com.cos.puppyHouse.repository.commuRepository;
-import com.cos.puppyHouse.repository.likesRepository;
 import com.cos.puppyHouse.repository.replyRepository;
 
 @Service
@@ -22,9 +21,8 @@ public class commuService {
 	@Autowired
 	private replyRepository replyRepository;
 	
-	@Autowired
-	private likesRepository likesRepository;
-		
+	
+	//게시글 작성
 	@Transactional
 	public void write(Community commu, Users user) {
 		commu.setCount(0);
@@ -32,6 +30,7 @@ public class commuService {
 		commuRepository.save(commu);
 	}
 	
+	//댓글 작성
 	@Transactional
 	public void writeReply(int id, Reply requestReply, Users user) {
 		Community commu = commuRepository.findById(id)
@@ -41,6 +40,7 @@ public class commuService {
 		requestReply.setUsers(user);
 		requestReply.setCommunity(commu);
 		replyRepository.save(requestReply);
+		replyRepository.plusReplyCount(id);
 	}
 	
 	@Transactional(readOnly=true)
@@ -59,17 +59,30 @@ public class commuService {
 		
 	}
 	
+	//게시글 삭제
 	@Transactional
 	public void delete(int id) {
 		commuRepository.deleteById(id);
 	}
 	
+	//댓글 삭제
 	@Transactional
-	public void replyDelete(int replyId) {
+	public void replyDelete(int commuId, int replyId) {
+		Community commu = commuRepository.findById(commuId)
+				.orElseThrow(()->{
+					return new IllegalArgumentException("댓글 삭제 실패: 게시글 아이디를 찾을 수 없습니다.");
+		});
+
+		int cnt=commu.getReplycount();
+		if(cnt>0) {
+			cnt--;
+			commu.setReplycount(cnt);
+		}
 		replyRepository.deleteById(replyId);
 	}
 	
 	
+	//게시글 수정
 	@Transactional
 	public void update(int id, Community requestCommunity) {
 		Community commu = commuRepository.findById(id)
@@ -80,4 +93,6 @@ public class commuService {
 		commu.setContent(requestCommunity.getContent());
 				
 	}
+	
+	
 }

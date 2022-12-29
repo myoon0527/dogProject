@@ -79,10 +79,11 @@ let index={
 	deleteLike: function() {
 		var id = $("#likesId").text();
 		var commuid = $("#commuId").text();
+		var userid = $("#userId").text();
 		console.log('likesId'+id)
 		$.ajax({
 			type:"DELETE",
-			url:"/api/like/"+id+"/delete/"+commuid,
+			url:"/api/like/"+id+"/delete/"+commuid+"/"+userid,
 			dataType:"json"
 		}).done(function(resp){
 			alert("좋아요 취소 완료");

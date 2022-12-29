@@ -19,9 +19,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Table(name="users")
 @SequenceGenerator(
@@ -30,10 +30,10 @@ import lombok.NoArgsConstructor;
 		, initialValue = 1
 		, allocationSize = 1
 		)
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 
 public class Users {
@@ -65,7 +65,10 @@ public class Users {
 	@CreationTimestamp
 	private Timestamp createDate;
 	
-	@OneToMany (mappedBy="community",fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
+	@OneToMany (mappedBy="community",fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
 	private List<Likes> likes;
+
+	@OneToMany (mappedBy="users", fetch = FetchType.EAGER)
+	private List<Pet> Pet;
 	
 }

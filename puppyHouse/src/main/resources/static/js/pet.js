@@ -1,4 +1,3 @@
-
 let index={
 	init: function(){
 		$("#pet_btn_save").on("click",()=>{

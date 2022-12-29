@@ -36,10 +36,10 @@
 			                  <i class="fa fa-user text-primary"></i> ${commu.users.userid}
 			                </small>
 			                <small class="mr-3">
-			                  <i class="fa fa-heart text-primary"></i> folder
+			                  <i class="fa fa-heart text-primary"></i> ${commu.likescount}
 			                </small>
 			                <small class="mr-3">
-			                  <i class="fa fa-comments text-primary"></i> comments
+			                  <i class="fa fa-comments text-primary"></i> ${commu.replycount}
 			                </small> 
 		              	</div>
 		              	<div style="overflow: hidden" class="row">

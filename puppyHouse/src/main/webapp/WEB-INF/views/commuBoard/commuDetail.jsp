@@ -25,6 +25,7 @@
       <div class="row pb-2">
         <div class="col-lg-12 mb-2">
           <span id="commuId" hidden>${commu.commuId}</span>
+          <span id="userId" hidden>${principal.user.id}</span> 
           <h3 class="col-lg-12 mb-2">${commu.title}</h3>
           <hr>
           <div class="col-lg-12 mb-2 row justify-content-between">
@@ -60,7 +61,7 @@
         	</c:choose>
           <em>${commu.likescount}</em> &nbsp;&nbsp;&nbsp;&nbsp;
           <i class="text-primary font-weight-bold navbar-brand fas fa-comment" style="font-size: 25px;"></i>
-          <em>{comment-count}</em>
+          <em>${commu.replycount}</em>
           <c:if test="${commu.users.userid==principal.user.userid}">
           	<div class="float-lg-right float-md-right">
 	            <a href="/commuBoard/${commu.commuId}/commuUpdate" class="btn btn-link" style="text-decoration: none; background-color: #dee2e6">수정</a>
@@ -113,6 +114,3 @@
    <script type="text/javascript" src="/js/commu.js"></script>
   <!-- 섹션 2 end -->
 <%@ include file="../layout/footer.jsp" %>
-
-
-

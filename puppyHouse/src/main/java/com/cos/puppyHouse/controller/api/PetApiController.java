@@ -22,6 +22,8 @@ public class PetApiController {
 	@Autowired
 	private PetService petService;
 	
+	@Autowired
+	private AuthenticationManager authenticationManager;
 	
 	@RequestMapping(value = "/api/pet", method = { RequestMethod.PUT })
 //	public ResponseDto<Integer> save(@RequestParam("petId")String petId,@RequestParam("petName")String petName,@RequestParam("petage")String petage,@RequestParam("species")String species,@RequestParam("gender")String gender,@RequestParam("neutered")String neutered,@RequestParam("weight")String weight,@RequestParam("etc")String etc,@RequestParam("allergy")String allergy,@RequestParam("passwrd")String passwrd,@AuthenticationPrincipal PrincipalDetail principal){
