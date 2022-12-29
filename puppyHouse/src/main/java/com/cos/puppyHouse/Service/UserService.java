@@ -1,5 +1,7 @@
 package com.cos.puppyHouse.Service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -38,6 +40,28 @@ public class UserService {
 		persistance.setPhone(user.getPhone());
 		persistance.setEmail(user.getEmail());
 		persistance.setAddr(user.getAddr());
+		
+	}
+	
+	@Transactional
+	public Users findUserId(String username, String phone) {
+		Users user = userRepository.findByUsernameAndPhone(username,phone);
+		return user;
+	}
+	
+	@Transactional
+	public Users findUserPassword(String userid, String username, String phone) {
+		Users user = userRepository.findByUseridAndUsernameAndPhone(userid,username,phone);
+		return user;
+	}
+	@Transactional
+	public void resetUserPassword(Users user) {
+		Users persistance = userRepository.findById(user.getId()).orElseThrow(() -> {
+			return new IllegalArgumentException("회원 찾기 실패");
+		});
+		String rawPassword = user.getUserpassword();
+		String encPassword = encodeer.encode(rawPassword);
+		persistance.setUserpassword(encPassword);
 		
 	}
 }
