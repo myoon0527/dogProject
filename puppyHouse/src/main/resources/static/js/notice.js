@@ -34,6 +34,7 @@ let index={
 	
 	deleteById: function() {
 		var id=$("#id").val();
+		var roles=$("#roles").val();
 		console.log(id);
 		$.ajax({
 			type:"DELETE",
@@ -41,7 +42,7 @@ let index={
 			dataType:"json"
 		}).done(function(resp){
 			alert("삭제가 완료되었습니다.");
-			location.href="/auth/news/NOTICE";
+			location.href="/auth/news/"+roles;
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});
