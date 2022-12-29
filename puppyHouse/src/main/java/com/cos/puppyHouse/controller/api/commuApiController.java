@@ -1,6 +1,10 @@
 package com.cos.puppyHouse.controller.api;
 
 
+import java.io.File;
+
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -9,13 +13,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cos.puppyHouse.Service.commuService;
 import com.cos.puppyHouse.config.auth.PrincipalDetail;
 import com.cos.puppyHouse.dto.ResponseDto;
 import com.cos.puppyHouse.model.Community;
 import com.cos.puppyHouse.model.Reply;
+import com.cos.puppyHouse.repository.commuRepository;
 
 @RestController
 public class commuApiController {
@@ -23,6 +33,8 @@ public class commuApiController {
 	@Autowired
 	private commuService commuService;
 	
+	@Autowired
+	private commuRepository commuRepository;
 	
 	//게시글 작성
 	@PostMapping("/api/commu")
@@ -60,6 +72,8 @@ public class commuApiController {
 		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
+	
+	
 	
 	
 }

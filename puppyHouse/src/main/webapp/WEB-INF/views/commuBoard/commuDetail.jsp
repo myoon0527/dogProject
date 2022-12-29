@@ -37,15 +37,30 @@
             <div>${commu.content}</div>
           </div>
           <hr>
+          <div class="col-lg-12 mb-2">
+          	<c:choose>
+          		<c:when test="${commu.imgOriName == null}">
+          			<div class="border border-2 img-fluid" style="display: none;">
+		           		<img src="/auth/images?imgName=${commu.imgName}" alt="프로필 사진" style="width: 100%; height: 100%; object-fit: cover;">
+		         	</div>
+          		</c:when>
+          		<c:otherwise>
+          			<div class="border border-2 img-fluid" style="width: 300px; height: 300px; overflow: hidden; background-color: white;">
+		           		<img src="/auth/images?imgName=${commu.imgName}" alt="프로필 사진" style="width: 100%; height: 100%; object-fit: cover;">
+		         	</div>
+		         	<hr>
+          		</c:otherwise>
+          	</c:choose>
+          </div>	
+          
         </div>
         <div class="col-lg-12">
-        	
         	<c:set var="like_state" value="false" />
         	<c:forEach	var="likes" items="${commu.likes}">
         		<c:if test="${likes.users.userid == principal.user.userid}">
         			<c:set var="like_state" value="true" />
+        			<span id="likesId" hidden>${likes.id}</span>
         		</c:if>
-        		<span id="likesId" hidden>${likes.id}</span>
         	</c:forEach>
         	<c:choose>
         		<c:when test="${like_state == true}">

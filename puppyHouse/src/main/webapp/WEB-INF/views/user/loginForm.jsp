@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../layout/header.jsp" %>  
+
+<%@ include file="../layout/header.jsp" %> 
 
   <!-- 섹션 1 start -->
   <div class="container-fluid bg-primary mb-5">
@@ -33,7 +34,7 @@
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group">
-              <input type="checkbox" name="remember"> 로그인상태유지
+              <input type="checkbox" name="remember" id="rememberid"> 로그인상태유지
               <a href="" style="float: right;">아이디 / 비밀번호 찾기</a>
               <p class="help-block text-danger"></p>
             </div>
@@ -47,5 +48,6 @@
     </div>
   </div>
   <!-- 섹션 2 end -->
+  <script type="text/javascript" src="/js/remember.js"></script>
 
 <%@ include file="../layout/footer.jsp" %>  
