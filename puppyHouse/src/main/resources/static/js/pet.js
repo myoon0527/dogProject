@@ -1,3 +1,4 @@
+
 let index={
 	init: function(){
 		$("#pet_btn_save").on("click",()=>{
@@ -6,6 +7,7 @@ let index={
 	},
 	
 	save: function(){
+
 		let data={
 			petId: $("#petId").val(),
 			petName: $("#petName").val(),
@@ -19,7 +21,7 @@ let index={
 		};
 		console.log(data);
 		$.ajax({
-			type:"PUT",
+			type:"put",
 			url:"/api/pet",
 			data:JSON.stringify(data),
 			contentType:"application/json; charset=utf-8",
@@ -27,6 +29,7 @@ let index={
 		}).done(function(resp){
 			alert("강아지 정보가 등록되었습니다.");
 			location.href="/";
+			
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		})

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -19,7 +20,10 @@ import org.hibernate.annotations.CreationTimestamp;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Table(name="pet")
 @SequenceGenerator(
@@ -28,31 +32,48 @@ import lombok.NoArgsConstructor;
 		, initialValue = 1
 		, allocationSize = 1
 		)
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 public class Pet {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USER_SEQ_GENERATOR2")
 	private int petId;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	public Pet(int petId, String petName, String species, int age, String gender, String weight, String allergy,
+			String etc, String neutered) {
+		super();
+		this.petId = petId;
+		this.petName = petName;
+		this.species = species;
+		this.age = age;
+		this.gender = gender;
+		this.weight = weight;
+		this.allergy = allergy;
+		this.etc = etc;
+		this.neutered = neutered;
+	}
+
+	@ManyToOne
 	@JoinColumn(name="UsersId")
 	private Users users;
 	
-	@Column(nullable=false, length=30)
+	@Column(length=30)
 	private String petName;
 	
-	@Column(nullable=false, length=100)
+	@Column(length=100)
 	private String species;
 	
-	@Column(nullable=false, length=30)
+	@Column(length=30)
 	private int age;
 	
-	@Column(nullable=false, length=30)
+	@Column(length=30)
 	private String gender;
+	
+	@Column(length=30)
+	private String weight;
 	
 	@Column(length=100)
 	private String allergy;
@@ -60,12 +81,16 @@ public class Pet {
 	@Column(length=100)
 	private String etc;
 	
-	@Column(nullable=false, length=30)
+	@Column(length=30)
 	private String neutered;
-	
-	@Column(nullable=false, length=50)
-	private String petImg;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
+	
+	//이미지 필드
+	private String imgOriName;
+	
+	private String imgName;
+	
+	private String imgUrl;
 }

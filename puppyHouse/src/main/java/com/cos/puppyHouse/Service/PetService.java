@@ -35,6 +35,9 @@ public class PetService {
 		persistance.setNeutered(pet.getNeutered());
 	}
 	
+	public List<Pet> 강아지정보(){
+		return petRepository.findAll();
+	}
 	
 	public Pet 강아지수첩상세보기(int petId) {
 		System.out.println("상세보기 서비스 호출");

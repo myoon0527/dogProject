@@ -26,6 +26,22 @@ public class petNoteController {
 	@Autowired
 	private PetService petService;
 	
+	
+	@GetMapping("/petNote/pets")
+	public String petsname(Model model) {
+		model.addAttribute("petname",petService.강아지정보());
+		return "petNote/PetNoteWrite";
+		
+	}
+	
+	@GetMapping("/petNote/petMain")
+	public String petsMain(Model model) {
+		model.addAttribute("petname",petService.강아지정보());
+		return "petNote/petNoteMain";
+		
+	}
+	
+	
 	@GetMapping("/petNote/{petId}")
 	public String findById(@PathVariable int petId, Model model) {
 		System.out.println("수첩상세보기 호출");
@@ -35,6 +51,15 @@ public class petNoteController {
 		return "petNote/petNoteMain";
 	}
 	
+//	@GetMapping("/reserve/{reservId}")
+//	public String reservId(@PathVariable int reservId, Model model, @AuthenticationPrincipal PrincipalDetail principal) {
+//		System.out.println("매니저 예약 강아지 controller 호출");
+//		model.addAttribute("loginuserreserv",principal.getUser().getReserv());
+//		model.addAttribute("reservId",reservId);
+//		model.addAttribute("reserv",reserveService.예약강아지목록상세보기(reservId));
+//		return "petNote/petNoteMain";
+//	}
+//	
 	
 	@Autowired
 	private PetRepository petRepository;
