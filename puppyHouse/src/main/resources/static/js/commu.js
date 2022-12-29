@@ -41,10 +41,10 @@ let index={
 	
 	replySave: function() {
 		var id = $("#commuId").text();
+		var userid = $("#userId").text();
 		let data={
 			content: $("#reply-content").val()
 		};
-		console.log(id);
 		$.ajax({
 			type:"POST",
 			url:"/api/commu/"+id+"/reply",
@@ -55,7 +55,13 @@ let index={
 			alert("댓글 작성 완료");
 			location.href="/auth/commuBoard/"+id;
 		}).fail(function(error){
-			alert(JSON.stringify(error));
+			if(userid){
+				alert("내용을 입력해주세요");
+				console.log("userid: " + userid);
+			}
+			else {
+				alert("로그인이 필요합니다");
+			}
 		});
 	},
 	

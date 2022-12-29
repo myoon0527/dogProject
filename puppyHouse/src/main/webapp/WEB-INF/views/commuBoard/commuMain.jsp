@@ -28,7 +28,18 @@
         <c:forEach var="commu" items="${commu.content}">
         	<div class="col-lg-4 mb-4">
         		<div class="card border-0 shadow-sm mb-2">
-        			<img src="/img/blog-1.jpg" alt="img" class="card-img-top mb-2">
+        			<c:choose>
+		          		<c:when test="${commu.imgOriName == null}">
+		          			<div class="border border-2 img-fluid" style="width: 100%; height: 300px; overflow: hidden; background-color: white;">
+				           		<img src="/auth/images?imgName=${commu.imgName}" alt="사진 없음" style="width: 100%; height: 100%; object-fit: cover;">
+				         	</div>
+		          		</c:when>
+		          		<c:otherwise>
+		          			<div class="border border-2 img-fluid" style="width: 100%; height: 300px; overflow: hidden; background-color: white;">
+				           		<img src="/auth/images?imgName=${commu.imgName}" alt="사진" style="width: 100%; height: 100%; object-fit: cover;">
+				         	</div>
+		          		</c:otherwise>
+		          	</c:choose> 
         			<div class="card-body bg-light text-center p-4">
 	        			<h4>${commu.title}</h4>
 	        			<div class="d-flex justify-content-center mb-3">

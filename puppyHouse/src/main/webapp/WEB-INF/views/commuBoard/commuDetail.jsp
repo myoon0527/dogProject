@@ -46,7 +46,7 @@
           		</c:when>
           		<c:otherwise>
           			<div class="border border-2 img-fluid" style="width: 300px; height: 300px; overflow: hidden; background-color: white;">
-		           		<img src="/auth/images?imgName=${commu.imgName}" alt="프로필 사진" style="width: 100%; height: 100%; object-fit: cover;">
+		           		<img src="/auth/images?imgName=${commu.imgName}" alt="사진" style="width: 100%; height: 100%; object-fit: cover;">
 		         	</div>
 		         	<hr>
           		</c:otherwise>
