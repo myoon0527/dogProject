@@ -53,7 +53,7 @@
 			                  <i class="fa fa-comments text-primary"></i> ${commu.replycount}
 			                </small> 
 		              	</div>
-		              	<div style="overflow: hidden" class="row">
+		              	<div style="overflow: hidden; height: 40px;" class="row justify-content-center">
 		              		<p>${commu.content}</p>
 		              	</div>
 		                <a href="/auth/commuBoard/${commu.commuId}" class="btn btn-primary px-4 mx-auto my-2">자세히 보기</a>

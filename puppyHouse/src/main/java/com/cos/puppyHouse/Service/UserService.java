@@ -49,4 +49,12 @@ public class UserService {
 		return persistance;
 		
 	}
+	
+	@Transactional
+	public int idCheck(String id) {
+		int result = userRepository.idCheck(id);
+		return result;
+	}
+	
+	
 }

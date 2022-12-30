@@ -26,37 +26,46 @@
           <form action="" name="sentMessage" id="joinForm">
             <div class="control-group">
               <input type="text" class="form-control" id="username" placeholder="Your Name">
+              <div class="valid-feedback" style="display: block">이름을 입력하세요</div>
               <p class="help-block text-danger"></p> 
             </div>
             <div class="control-group">
-              <input type="text" class="form-control" id="userid" placeholder="Your ID">
+              <input type="text" class="form-control" id="userid" placeholder="Your ID" onkeyup="CV_checkIdPattern()">
+              <div class="valid-feedback" id="idchk" style="display: block">아이디를 입력하세요</div>
               <p class="help-block text-danger"></p> 
             </div>
             <div class="control-group">
-              <input type="password" class="form-control" id="userpwd" placeholder="Your Password">
+              <input type="password" class="form-control" id="userpwd" name="pw" placeholder="Your Password" onkeyup="CV_checkPasswordPattern()">
+              <div class="valid-feedback" id="pwdchk" style="display: block">비밀번호를 입력하세요</div>
               <p class="help-block text-danger"></p> 
             </div>
             <div class="control-group">
               <input type="email" class="form-control" id="useremail" placeholder="Your Email">
+              <div class="valid-feedback" id="emailchk" style="display: block">이메일을 입력하세요</div>
               <p class="help-block text-danger"></p> 
             </div>
             <div class="control-group">
               <input type="text" class="form-control" id="userphone" placeholder="Your Phone Number">
+              <div class="valid-feedback" style="display: block">전화번호를 입력하세요</div>
               <p class="help-block text-danger"></p> 
             </div>
             <div class="control-group">
               <input type="text" class="form-control" id="useraddr" placeholder="Your Address">
+              <div class="valid-feedback" style="display: block">주소를 입력하세요</div>
               <p class="help-block text-danger"></p> 
             </div>
             
           </form>
           <div>
-              <input type="button" class="btn btn-primary py-2 px-4" id="btn-save">회원가입</input>
+              <input type="button" class="btn btn-primary py-2 px-4" id="btn-save" value="회원가입"></input>
           </div>
           <script src="/js/user.js"></script>
+	       	
         </div>
       </div>
     </div>
   </div>
+  <script type="text/javascript" src="/js/joinCheck.js?v=<%=new java.util.Date().getTime()%>"></script>
   <!-- 섹션 2 end -->
+  
   <%@ include file="../layout/footer.jsp" %>  

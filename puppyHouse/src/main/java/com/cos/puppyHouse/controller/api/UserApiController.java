@@ -42,4 +42,11 @@ public class UserApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
 	
+	@PostMapping("/auth/idCheck/{id}")
+	public ResponseDto<Integer> idCheck(@PathVariable String id) {
+		System.out.println("idcheck 확인"+id);
+		int result = userService.idCheck(id);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(),result);
+	}
+
 }
