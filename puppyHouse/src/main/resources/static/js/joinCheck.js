@@ -30,6 +30,7 @@ function CV_checkPasswordPattern() {
 function CV_checkIdPattern(){
 	let x = document.getElementById("idchk");
 	var str = document.getElementById("userid").value;
+	let isIdValid=this.value;
 	
 	var pattern1 = /[0-9]/; // 숫자
 	var pattern2 = /[a-zA-Z]/; // 문자
@@ -52,11 +53,13 @@ function CV_checkIdPattern(){
 				console.log(resp.data)
 				if(resp.data == 1) {
 					x.innerText = "이미 사용중인 아이디 입니다."
-					document.getElementById("idchk").className = "invalid-feedback";
+					 this.classList.remove("is-valid");
+         			 this.classList.add("is-invalid");
 				}
 				else {
 					x.innerText = "굿!"
-					document.getElementById("idchk").className = "valid-feedback";
+					this.classList.remove("is-invalid");
+         			this.classList.add("is-valid");
 				}
 			}).fail(function(error){
 				alert(JSON.stringify(error));
