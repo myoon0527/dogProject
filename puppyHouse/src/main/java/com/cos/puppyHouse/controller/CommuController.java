@@ -147,4 +147,36 @@ public class CommuController {
 		return new ResponseEntity<Resource>(resource, header, HttpStatus.OK);
 	}
 
+	// 이미지 수정
+		@RequestMapping(value = "/commu/updateImg/{id}", method = { RequestMethod.POST })
+		public String updateImg(@PathVariable int id, Community commu, @RequestParam(value = "file", required = false) MultipartFile file,
+				@AuthenticationPrincipal PrincipalDetail principal) throws Exception {
+			
+			System.out.println("api/board" + commu.getTitle() + ", " + file);
+			String sourceFileName = file.getOriginalFilename(); // getOriginalFilename() 업로드되는 파일에서 확장자를 포함한 파일의 이름을 반환
+			String sourceFileNameException = FilenameUtils.getExtension(sourceFileName).toLowerCase(); // getExtensio():
+																										// 파일명이 test.png 라면
+																										// "png" 가 리턴되고
+																										// "a/b/c.png" 의
+																										// 경우에도 png만 리턴.
+			File destinationFile; // toLowerCase(): 문자열을 소문자로 변환해서 반환.
+			String destinationFileName;
+			String fileUrl = "C:\\image\\"; // 서버 이미지 받기.(윈도우)
+
+			do {
+				destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + sourceFileNameException; // 랜덤 문자열 생성
+				destinationFile = new File(fileUrl + destinationFileName); // (파일 위치 + 랜덤 문자열) 객체생성
+			} while (destinationFile.exists());
+
+			destinationFile.getParentFile().mkdirs(); // 부모 폴더 생성이 되지 않으면 파일 생성 오류 발생. 재귀적 부모 폴더 생성 코드 추가해준다.
+
+			file.transferTo(destinationFile); // 원하는 위치에 저장
+
+			commu.setImgName(destinationFileName);
+			commu.setImgOriName(sourceFileName);
+			commu.setImgUrl(fileUrl);
+			commuService.update(id, commu);
+
+			return "redirect:/auth/commuBoard/commuMain";
+		}
 }

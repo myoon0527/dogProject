@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cos.puppyHouse.controller.CommuController;
 import com.cos.puppyHouse.model.Community;
 import com.cos.puppyHouse.model.Reply;
 import com.cos.puppyHouse.model.Users;
@@ -20,7 +21,6 @@ public class commuService {
 	
 	@Autowired
 	private replyRepository replyRepository;
-	
 	
 	//게시글 작성
 	@Transactional
@@ -90,8 +90,7 @@ public class commuService {
 					return new IllegalArgumentException("글 찾기 실패: 아이디를 찾을 수 없습니다.");
 				});
 		commu.setTitle(requestCommunity.getTitle());
-		commu.setContent(requestCommunity.getContent());
-				
+		commu.setContent(requestCommunity.getContent());	
 	}
 	
 	

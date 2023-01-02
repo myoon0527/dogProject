@@ -38,7 +38,7 @@
              <p class="help-block text-dnager"></p>
            </div>
            <div class="border border1 img-fluid" style="border-radius: 70%; width: 230px; height: 220px; overflow: hidden;">
-	 			<img class="img-fluid w-100" id="user_image" src="/img/dog.png" alt="프로필 사진" style="width: 100%; height: 100%; object-fit: cover;">
+	 			<img class="img-fluid w-100" id="user_image" src="/img/dog.png" alt="사진" style="width: 100%; height: 100%; object-fit: cover;">
 		   </div>
           
           	<div class="text-center">
