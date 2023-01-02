@@ -148,7 +148,7 @@ public class CommuController {
 	}
 
 	// 이미지 수정
-		@RequestMapping(value = "/commu/updateImg/{id}", method = { RequestMethod.POST })
+		@RequestMapping(value = "/commu/updateImg/{id}", method = { RequestMethod.GET })
 		public String updateImg(@PathVariable int id, Community commu, @RequestParam(value = "file", required = false) MultipartFile file,
 				@AuthenticationPrincipal PrincipalDetail principal) throws Exception {
 			

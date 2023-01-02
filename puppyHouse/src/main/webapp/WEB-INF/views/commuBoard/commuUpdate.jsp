@@ -23,7 +23,7 @@
     <div class="container">
       <div class="row pb-2 justify-content-center">
         <div class="col-lg-9">
-          <form action="/commu/updateImg/${commu.commuId}">
+          <form action="/commu/updateImg/${commu.commuId}" method="GET" enctype="multipart/form-data">
             <div class="control-group">
               <input type="text" class="form-control" id="title" value="${commu.title}" placeholder="Title">
               <p class="help-block text-dnager"></p>
@@ -79,5 +79,6 @@
     preview.readAsDataURL(document.getElementById("file").files[0]);
  };
 	</script>
+	<script type="text/javascript" src="/js/commu.js"></script>
   <!-- 섹션 2 end -->
 <%@ include file="../layout/footer.jsp" %>
