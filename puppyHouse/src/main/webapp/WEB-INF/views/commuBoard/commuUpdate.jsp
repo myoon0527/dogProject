@@ -23,17 +23,17 @@
     <div class="container">
       <div class="row pb-2 justify-content-center">
         <div class="col-lg-9">
-          <form action="/commu/updateImg/${commu.commuId}" method="GET" enctype="multipart/form-data">
+          <form action="/commu/updateImg/${commu.commuId}" method="POST" enctype="multipart/form-data">
             <div class="control-group">
-              <input type="text" class="form-control" id="title" value="${commu.title}" placeholder="Title">
+              <input type="text" class="form-control" id="title" name="title" value="${commu.title}" placeholder="Title">
               <p class="help-block text-dnager"></p>
             </div>
             <div class="control-group">
-              <input type="text" class="form-control" id="username" value="${principal.user.userid}" readonly>
+              <input type="text" class="form-control" id="username" name="username" value="${principal.user.userid}" readonly>
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group">
-              <textarea class="form-control summernote" id="summernote" rows="10">${commu.content}</textarea>
+              <textarea class="form-control summernote" id="summernote" name="content" rows="10">${commu.content}</textarea>
               <p class="help-block text-dnager"></p>
             </div>
             <div class="col-lg-12 mb-2">
