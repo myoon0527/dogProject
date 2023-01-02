@@ -34,7 +34,7 @@
             </div>
               <div class="control-group">
              <label class="form-label" for="userid">아이디</label>
-              <input type="text" class="form-control mb-2" name="userid" id="userid"  placeholder="Your id" required onkeyup="CV_checkIdPattern()">
+              <input type="text" class="form-control mb-2" name="userid" id="userid"  placeholder="Your id" required>
              <div class="invalid-feedback my-2" id="idchk"></div>
             </div>
        		<div class="control-group">
@@ -64,6 +64,7 @@
           </div>
           
           <script src="/js/joinCheck.js"></script>
+          <script src="/js/user.js"></script>
         </div>
       </div>
     </div>

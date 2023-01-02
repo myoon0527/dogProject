@@ -51,8 +51,8 @@ public class UserService {
 	}
 	
 	@Transactional
-	public int idCheck(String id) {
-		int result = userRepository.idCheck(id);
+	public long idCheck(String id) {
+		long result = userRepository.countByUserid(id);
 		return result;
 	}
 	

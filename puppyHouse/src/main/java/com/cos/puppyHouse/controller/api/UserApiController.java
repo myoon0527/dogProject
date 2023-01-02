@@ -45,7 +45,7 @@ public class UserApiController {
 	@PostMapping("/auth/idCheck/{id}")
 	public ResponseDto<Integer> idCheck(@PathVariable String id) {
 		System.out.println("idcheck 확인"+id);
-		int result = userService.idCheck(id);
+		int result = (int)userService.idCheck(id);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),result);
 	}
 

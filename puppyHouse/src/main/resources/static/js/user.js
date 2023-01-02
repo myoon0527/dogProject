@@ -83,23 +83,7 @@ index.init();
       }
    });
    
-      //  id 인 input 요소에 input 이벤트가 일어났을때 실행할 함수 등록 
-   document.querySelector("#userid").addEventListener("input", function(){
-      //1. 입력한 value 값을 읽어온다.
-        let isIdValid=this.value;
-      //2. 유효성(5글자이상 10글자 이하)을 검증한다.
-      //	var pattern1 = /[0-9]/; // 숫자
-		//var pattern2 = /[a-zA-Z]/; // 문자
-		//var pattern3 = /[~!@#$%^&*()_+|<>?:{}]/; // 특수문자
-      //3. 유효하다면 input 요소에 is-valid 클래스 추가, 아니라면 is-invalid 클래스 추가
-      if(isIdValid){
-         this.classList.remove("is-invalid");
-         this.classList.add("is-valid");
-      }else{
-         this.classList.remove("is-valid");
-         this.classList.add("is-invalid");
-      }
-   });
+ 
    
  
        // pwd 인 input 요소에 input 이벤트가 일어났을때 실행할 함수 등록 
@@ -118,6 +102,49 @@ index.init();
       }
    });
    
+   
+   //  id 인 input 요소에 input 이벤트가 일어났을때 실행할 함수 등록 
+   document.querySelector("#userid").addEventListener("input", function(){
+		let x = document.getElementById("idchk");
+        let isIdValid=this.value;
+     
+      if(isIdValid){
+		let id=$("#userid").val();
+		let z = document.getElementById("userid").value;
+		console.log(id);
+		$.ajax({
+			type:"POST",
+			url:"/auth/idCheck/"+id,
+			contentType:"application/json; charset=utf-8",
+			dataType:"json"
+			}).done(function(resp){
+				console.log(resp.data)
+				if(resp.data == 1) {
+					 x.innerText = "이미 사용중인 아이디 입니다."
+					 this.classList.remove("is-valid");
+         			 this.classList.add("is-invalid");
+         			 return false;
+				}
+				else {
+					x.innerText = "굿!"
+					x.classList.remove("is-invalid");
+					x.classList.remove("invalid-feedback");
+         			x.classList.add("is-valid");
+         			x.classList.add("valid-feedback");
+         			return true;
+				}
+			}).fail(function(error){
+				alert(JSON.stringify(error));
+			});
+	
+      }else{
+         this.classList.remove("is-valid");
+         this.classList.add("is-invalid");
+         x.innerText = "아이디는 필수 입력 값입니다."
+      }
+      
+   });
+  
   
          // email 인 input 요소에 input 이벤트가 일어났을때 실행할 함수 등록 
    document.querySelector("#useremail").addEventListener("input", function(){

@@ -11,9 +11,7 @@ import com.cos.puppyHouse.model.Users;
 public interface UserRepository extends JpaRepository<Users, Integer>{
 	Optional<Users> findByUserid(String userId);
 	
-	@Modifying
-	@Query(value = "select count(userid) from users where userid= :id", nativeQuery=true)
-	int idCheck(String id);
+    Long countByUserid(String id);
 	
 	
 }
