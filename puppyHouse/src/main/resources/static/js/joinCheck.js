@@ -41,7 +41,6 @@ function CV_checkIdPattern(){
 		document.getElementById("idchk").className = "invalid-feedback";
 		return false;
 	} else {
-		console.log("hi");
 		let id=$("#userid").val();
 		console.log(id);
 		$.ajax({
@@ -50,7 +49,8 @@ function CV_checkIdPattern(){
 			contentType:"application/json; charset=utf-8",
 			dataType:"json"
 			}).done(function(resp){
-				if(resp == 1) {
+				console.log(resp.data)
+				if(resp.data == 1) {
 					x.innerText = "이미 사용중인 아이디 입니다."
 					document.getElementById("idchk").className = "invalid-feedback";
 				}
