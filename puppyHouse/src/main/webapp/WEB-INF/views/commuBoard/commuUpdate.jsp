@@ -53,7 +53,7 @@
 	          </div>
 	          <div class="text-center">
 	          	<label for="file" class="border border-2 btn btn-light py-2 px-4" style="padding: 8px; margin-top: 15px;">사진 첨부</label>
-				<input type="file" class="d-none" id="file" name="file" accept="image/jpeg, image/png" multiple="multiple" onchange="PreviewImage();">  
+				<input type="file" class="d-none" id="file" name="files" accept="image/jpeg, image/png" multiple="multiple" onchange="PreviewImage();">  
 				<input type="submit" class="border border-2 btn btn-light py-2 px-4" value="수정">    		 	 	
 	          </div>
           </form>

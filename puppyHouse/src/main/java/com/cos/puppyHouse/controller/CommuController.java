@@ -1,3 +1,4 @@
+
 package com.cos.puppyHouse.controller;
 
 import java.io.File;
@@ -149,9 +150,9 @@ public class CommuController {
 
 	// 이미지 수정
 		@RequestMapping(value = "/commu/updateImg/{id}", method = { RequestMethod.GET })
-		public String updateImg(@PathVariable int id, Community commu, @RequestParam(value = "file", required = false) MultipartFile file,
-				@AuthenticationPrincipal PrincipalDetail principal) throws Exception {
-			
+		public String updateImg(Community commu, @RequestParam("files") MultipartFile file,
+				@PathVariable int id, @AuthenticationPrincipal PrincipalDetail principal) throws Exception {
+			System.out.println("file tset"+ file.getOriginalFilename());
 			System.out.println("api/board" + commu.getTitle() + ", " + file);
 			String sourceFileName = file.getOriginalFilename(); // getOriginalFilename() 업로드되는 파일에서 확장자를 포함한 파일의 이름을 반환
 			String sourceFileNameException = FilenameUtils.getExtension(sourceFileName).toLowerCase(); // getExtensio():

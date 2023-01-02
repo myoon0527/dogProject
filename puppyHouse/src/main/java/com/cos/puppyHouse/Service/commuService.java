@@ -91,6 +91,9 @@ public class commuService {
 				});
 		commu.setTitle(requestCommunity.getTitle());
 		commu.setContent(requestCommunity.getContent());	
+		commu.setImgName(requestCommunity.getImgName());
+		commu.setImgOriName(requestCommunity.getImgOriName());
+		commu.setImgUrl(requestCommunity.getImgUrl());
 	}
 	
 	
