@@ -29,8 +29,8 @@
             <div class="control-group">
              <label class="form-label" for="username">이름</label>
               <input type="text" class="form-control mb-2" name="username" id="username"  placeholder="Your Name" required>
-                <div class="invalid-feedback my-2">닉네임은 필수 입력 값입니다.</div>
-				<div class="valid-feedback my-2">사용가능한 닉네임입니다.</div>                  
+                <div class="invalid-feedback my-2" id="namechk">이름은 필수 입력 값입니다.</div>
+				<div class="valid-feedback my-2">사용 가능한 이름입니다.</div>                  
             </div>
               <div class="control-group">
              <label class="form-label" for="userid">아이디</label>
@@ -41,17 +41,26 @@
        		<div class="control-group">
                <label class="form-label" for="userpwd">비밀번호</label>
               <input type="password" class="form-control mb-2" name="userpwd" id="userpwd"  placeholder="Your password" required>
-              <div class="invalid-feedback my-2">비밀번호는 필수 입력 값입니다.</div>
+	              <div class="invalid-feedback my-2" id="pwdchk">비밀번호는 필수 입력 값입니다.</div>
+	              <div class="valid-feedback my-2">사용 가능한 비밀번호입니다.</div>
+            </div>
+       		<div class="control-group">
+               <label class="form-label" for="userpwd">비밀번호 확인</label>
+              <input type="password" class="form-control mb-2" name="userpwdChk" id="userpwdChk"  placeholder="Your password" required>
+	              <div class="invalid-feedback my-2" id="pwdchk2">일지하지 않습니다.</div>
+	              <div class="valid-feedback my-2">사용가능!</div>
             </div>
             <div class="control-group">
              <label class="form-label" for="useremail">이메일</label>
               <input type="email" class="form-control mb-2" name="useremail" id="useremail"  placeholder="Your email" required>
-           <div class="invalid-feedback my-2" id="emailchk">이메일은 필수 입력 값입니다.</div>
+	           <div class="invalid-feedback my-2" id="emailchk">이메일은 필수 입력 값입니다.</div>
+	           <div class="valid-feedback my-2">사용 가능한 이메일입니다.</div>
             </div>
              <div class="control-group">
              <label class="form-label" for="userphone">전화번호</label>
               <input type="text" class="form-control mb-2" name="userphone" id="userphone"  placeholder="Your phone" required>
-           <div class="invalid-feedback my-2">전화번호는 필수 입력 값입니다.(하이픈을 제외하고 입력해 주세요.)</div>
+	           <div class="invalid-feedback my-2">전화번호는 필수 입력 값입니다.(하이픈을 제외하고 입력해 주세요.)</div>
+	           <div class="valid-feedback my-2">사용 가능한 전화번호입니다.</div>
             </div>
                <div class="control-group">
              <label class="form-label" for="useraddr">주소</label>
@@ -64,7 +73,6 @@
               <input type="button" class="btn btn-primary py-2 px-4 mt-2" id="btn-save" value="회원가입"></input>
           </div>
           
-          <script src="/js/joinCheck.js"></script>
           <script src="/js/user.js"></script>
         </div>
       </div>

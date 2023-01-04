@@ -50,6 +50,7 @@ public class UserService {
 		
 	}
 	
+	//id 중복검사
 	@Transactional
 	public long idCheck(String id) {
 		long result = userRepository.countByUserid(id);
