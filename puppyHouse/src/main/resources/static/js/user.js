@@ -107,10 +107,10 @@ index.init();
    document.querySelector("#userid").addEventListener("input", function(){
 		let x = document.getElementById("idchk");
         let isIdValid=this.value;
-     
+     	const f = document.querySelector("userid");
+     	
       if(isIdValid){
 		let id=$("#userid").val();
-		let z = document.getElementById("userid").value;
 		console.log(id);
 		$.ajax({
 			type:"POST",
@@ -120,9 +120,10 @@ index.init();
 			}).done(function(resp){
 				console.log(resp.data)
 				if(resp.data == 1) {
-					 x.innerText = "이미 사용중인 아이디 입니다."
-					 this.classList.remove("is-valid");
-         			 this.classList.add("is-invalid");
+					
+					 f.classList.remove("is-valid");
+         			 f.classList.add("is-invalid");
+         			  x.innerText = "이미 사용중인 아이디 입니다."
          			 return false;
 				}
 				else {
