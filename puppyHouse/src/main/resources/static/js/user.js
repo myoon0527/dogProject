@@ -106,6 +106,8 @@ index.init();
    //  id 인 input 요소에 input 이벤트가 일어났을때 실행할 함수 등록 
    document.querySelector("#userid").addEventListener("input", function(){
 		let x = document.getElementById("idchk");
+		let y = document.getElementById("idchk2");
+		let f = document.getElementById("userid");
         let isIdValid=this.value;
      
       if(isIdValid){
@@ -121,16 +123,14 @@ index.init();
 				console.log(resp.data)
 				if(resp.data == 1) {
 					 x.innerText = "이미 사용중인 아이디 입니다."
-					 this.classList.remove("is-valid");
-         			 this.classList.add("is-invalid");
+					 f.classList.remove("is-valid");
+         			 f.classList.add("is-invalid");
          			 return false;
 				}
 				else {
-					x.innerText = "굿!"
-					x.classList.remove("is-invalid");
-					x.classList.remove("invalid-feedback");
-         			x.classList.add("is-valid");
-         			x.classList.add("valid-feedback");
+					y.innerText = "굿!"
+					f.classList.remove("is-invalid");
+         			f.classList.add("is-valid");
          			return true;
 				}
 			}).fail(function(error){

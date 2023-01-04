@@ -35,7 +35,8 @@
               <div class="control-group">
              <label class="form-label" for="userid">아이디</label>
               <input type="text" class="form-control mb-2" name="userid" id="userid"  placeholder="Your id" required>
-             <div class="invalid-feedback my-2" id="idchk"></div>
+             	<div class="invalid-feedback my-2" id="idchk"></div>
+             	<div class="valid-feedback my-2" id="idchk2"></div>
             </div>
        		<div class="control-group">
                <label class="form-label" for="userpwd">비밀번호</label>
