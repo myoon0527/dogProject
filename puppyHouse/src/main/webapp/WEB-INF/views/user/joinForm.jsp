@@ -34,39 +34,40 @@
             </div>
               <div class="control-group">
              <label class="form-label" for="userid">아이디</label>
-              <input type="text" class="form-control mb-2" name="userid" id="userid"  placeholder="Your id" required>
+              <input type="text" class="form-control mb-2" name="userid" id="userid"  placeholder="Your id" required onkeyup="idCheck()">
              	<div class="invalid-feedback my-2" id="idchk"></div>
              	<div class="valid-feedback my-2" id="idchk2"></div>
             </div>
        		<div class="control-group">
                <label class="form-label" for="userpwd">비밀번호</label>
-              <input type="password" class="form-control mb-2" name="userpwd" id="userpwd"  placeholder="Your password" required>
+              <input type="password" class="form-control mb-2" name="userpwd" id="userpwd"  placeholder="Your password" required onkeyup="pwdCheck()">
 	              <div class="invalid-feedback my-2" id="pwdchk">비밀번호는 필수 입력 값입니다.</div>
 	              <div class="valid-feedback my-2">사용 가능한 비밀번호입니다.</div>
             </div>
        		<div class="control-group">
                <label class="form-label" for="userpwd">비밀번호 확인</label>
-              <input type="password" class="form-control mb-2" name="userpwdChk" id="userpwdChk"  placeholder="Your password" required>
+              <input type="password" class="form-control mb-2" name="userpwdChk" id="userpwdChk"  placeholder="Your password" required onkeyup="pwdCheck2()">
 	              <div class="invalid-feedback my-2" id="pwdchk2">일지하지 않습니다.</div>
-	              <div class="valid-feedback my-2">사용가능!</div>
+	              <div class="valid-feedback my-2">비밀번호 일치!</div>
             </div>
             <div class="control-group">
              <label class="form-label" for="useremail">이메일</label>
-              <input type="email" class="form-control mb-2" name="useremail" id="useremail"  placeholder="Your email" required>
+              <input type="email" class="form-control mb-2" name="useremail" id="useremail"  placeholder="Your email" required onkeyup="emailCheck()">
 	           <div class="invalid-feedback my-2" id="emailchk">이메일은 필수 입력 값입니다.</div>
 	           <div class="valid-feedback my-2">사용 가능한 이메일입니다.</div>
             </div>
              <div class="control-group">
              <label class="form-label" for="userphone">전화번호</label>
-              <input type="text" class="form-control mb-2" name="userphone" id="userphone"  placeholder="Your phone" required>
+              <input type="text" class="form-control mb-2" name="userphone" id="userphone"  placeholder="Your phone" required onkeyup="phoneCheck()">
 	           <div class="invalid-feedback my-2">전화번호는 필수 입력 값입니다.(하이픈을 제외하고 입력해 주세요.)</div>
 	           <div class="valid-feedback my-2">사용 가능한 전화번호입니다.</div>
             </div>
-               <div class="control-group">
+             <div class="control-group">
              <label class="form-label" for="useraddr">주소</label>
-              <input type="text" class="form-control mb-2" name="useraddr" id="useraddr"  placeholder="Your addr" required>
-              <input type="text" class="form-control mb-2" name="useraddrdetail" id="useraddrdetail"  placeholder="Your addr detail" required>
-           <div class="invalid-feedback mb-2">상세 주소는 필수 입력 값입니다.</div>
+              <input type="text" class="form-control mb-2" name="useraddr" id="useraddr"  placeholder="Your addr" required onclick="addr()">
+              <div class="invalid-feedback my-2" id="addrchk"></div>
+              <input type="text" class="form-control mb-2" name="useraddrdetail" id="useraddrdetail"  placeholder="Your addr detail" required onkeyup="addrCheck()">
+           		<div class="invalid-feedback mb-2">상세 주소는 필수 입력 값입니다.</div>
             </div>
           </form>
           <div>

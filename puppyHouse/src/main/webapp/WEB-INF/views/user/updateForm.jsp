@@ -69,58 +69,80 @@
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group px-xl-5 px-lg-5">
-              <label for="userpassword">비밀번호</label><br>
+              <label for="userpwd">비밀번호</label><br>
               <input
                 type="password"
                 class="form-control"
-                id="userpassword"
+                id="userpwd"
                 required="required"
+                onkeyup="pwdCheck()"
               />
+              <div class="invalid-feedback my-2" id="pwdchk">비밀번호는 필수 입력 값입니다.</div>
+              <div class="valid-feedback my-2">사용 가능한 비밀번호입니다.</div>
               <p class="help-block text-danger"></p>
             </div>
             <div class="form-group px-xl-5 px-lg-5">
-              <label for="userpassword2">비밀번호 확인</label><br>
+              <label for="userpwdChk">비밀번호 확인</label><br>
               <input
               type="password"
               class="form-control"
-              id="userpassword2"
+              id="userpwdChk"
               required="required"
+              onkeyup="pwdCheck2()"
               />
-              <p class="help-block text-danger"></p>
+              <div class="invalid-feedback my-2" id="pwdchk2">일지하지 않습니다.</div>
+              <div class="valid-feedback my-2">비밀번호 일치!</div>
             </div>
             <div class="form-group px-xl-5 px-lg-5">
-              <label for="phone">휴대폰 번호</label><br>
+              <label for="userphone">휴대폰 번호</label><br>
               <input
                 type="tel"
                 class="form-control"
-                id="phone"
+                id="userphone"
                 placeholder="${principal.user.phone}"
                 value="${principal.user.phone}"
+                onload="phoneCheck2()"
               />
+              <div class="invalid-feedback my-2">전화번호는 필수 입력 값입니다.(하이픈을 제외하고 입력해 주세요.)</div>
+	          <div class="valid-feedback my-2">사용 가능한 전화번호입니다.</div>
               <p class="help-block text-danger"></p>
             </div>
             <div class="form-group px-xl-5 px-lg-5">
-              <label for="email">이메일</label><br>
+              <label for="useremail">이메일</label><br>
               <input
                 type="email"
                 class="form-control"
-                id="email"
+                id="useremail"
                 placeholder="${principal.user.email}"
                 value="${principal.user.email}"
+                onload="emailCheck2()"
+              />
+              <div class="invalid-feedback my-2" id="emailchk">이메일은 필수 입력 값입니다.</div>
+	          <div class="valid-feedback my-2">사용 가능한 이메일입니다.</div>
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="form-group px-xl-5 px-lg-5">
+              <label for="useraddr">주소</label><br>
+              <input
+                type="text"
+                class="form-control"
+                id="useraddr"
+                placeholder="${principal.user.addr}"
+                value="${principal.user.addr}"
+                onclick="addr()"
               />
               <p class="help-block text-danger"></p>
             </div>
             <div class="form-group px-xl-5 px-lg-5">
-              <label for="addr">주소</label><br>
-              <input
-                type="text"
-                class="form-control"
-                id="addr"
-                placeholder="${principal.user.addr}"
-                value="${principal.user.addr}"
-              />
-              <p class="help-block text-danger"></p>
-            </div>
+            <label for="useraddrdetail">상세 주소</label><br>
+            <input 
+            	type="text" 
+            	class="form-control mb-2"
+             	name="useraddrdetail" 
+             	id="useraddrdetail"  
+             	placeholder="${principal.user.addrdetail}" 
+             	required onkeyup="addrCheck()">
+          	</div>
           </form>
           <div class="col-3 mx-auto text-center">
               <button
