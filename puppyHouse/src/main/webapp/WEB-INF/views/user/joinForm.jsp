@@ -28,7 +28,7 @@
           <form novalidate action="" name="sentMessage" name="frm" id="joinForm" method="post">
             <div class="control-group">
              <label class="form-label" for="username">이름</label>
-              <input type="text" class="form-control mb-2" name="username" id="username"  placeholder="Your Name" required>
+              <input type="text" class="form-control mb-2" name="username" id="username"  placeholder="Your Name" required onkeyup="nameCheck()">
                 <div class="invalid-feedback my-2" id="namechk">이름은 필수 입력 값입니다.</div>
 				<div class="valid-feedback my-2">사용 가능한 이름입니다.</div>                  
             </div>
@@ -70,7 +70,7 @@
             </div>
           </form>
           <div>
-              <input type="button" class="btn btn-primary py-2 px-4 mt-2" id="btn-save" value="회원가입"></input>
+              <input type="button" class="btn btn-primary py-2 px-4 mt-2" id="btn-save" value="회원가입" ></input>
           </div>
           
           <script src="/js/user.js"></script>

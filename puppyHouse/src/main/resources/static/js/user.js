@@ -18,7 +18,9 @@ let index = {
 			addr: $("#useraddr").val(),
 			addrdetail: $("#useraddrdetail").val()
 		};
-		$.ajax({
+		
+		if(true){		
+			$.ajax({
 			type:"POST",
 			url:"/auth/joinProc",
 			data:JSON.stringify(data),
@@ -31,6 +33,7 @@ let index = {
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});	
+		}
 	},
 	update: function(){
 		let id=$("#id").val();
@@ -67,10 +70,11 @@ index.init();
    let isPhoneValid=false;
    let isAddrValid=false;	
 
-   // nick 인 input 요소에 input 이벤트가 일어났을때 실행할 함수 등록 
-   document.querySelector("#username").addEventListener("input", function(){
-		//1. 입력한 value 값을 읽어온다.
-		let inputNick=this.value;
+function nameCheck(){ 
+	//1. 입력한 value 값을 읽어온다.
+		let inputNick = document.getElementById("username").value;
+		let f = document.getElementById("username");
+		console.log(inputNick);
 		
 		let x = document.getElementById("namechk");
 		var pattern_kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; // 한글체크
@@ -91,11 +95,11 @@ index.init();
 		console.log(isNickValid);
       //3. 유효하다면 input 요소에 is-valid 클래스 추가, 아니라면 is-invalid 클래스 추가
       if(isNickValid){
-         this.classList.remove("is-invalid");
-         this.classList.add("is-valid");
+         f.classList.remove("is-invalid");
+         f.classList.add("is-valid");
       }else{
-         this.classList.remove("is-valid");
-         this.classList.add("is-invalid");
+         f.classList.remove("is-valid");
+         f.classList.add("is-invalid");
          if(inputNick == "") {
 			x.innerText = "이름은 필수 입력 값입니다."
 		}
@@ -104,7 +108,7 @@ index.init();
 		}
 		return false;
       }
-   });
+}
    
  
    
