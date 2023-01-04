@@ -106,11 +106,13 @@ index.init();
    //  id 인 input 요소에 input 이벤트가 일어났을때 실행할 함수 등록 
    document.querySelector("#userid").addEventListener("input", function(){
 		let x = document.getElementById("idchk");
+		let y = document.getElementById("idchk2");
+		let f = document.getElementById("userid");
         let isIdValid=this.value;
-     	const f = document.querySelector("userid");
-     	
+     
       if(isIdValid){
 		let id=$("#userid").val();
+		let z = document.getElementById("userid").value;
 		console.log(id);
 		$.ajax({
 			type:"POST",
@@ -120,18 +122,15 @@ index.init();
 			}).done(function(resp){
 				console.log(resp.data)
 				if(resp.data == 1) {
-					
+					 x.innerText = "이미 사용중인 아이디 입니다."
 					 f.classList.remove("is-valid");
          			 f.classList.add("is-invalid");
-         			  x.innerText = "이미 사용중인 아이디 입니다."
          			 return false;
 				}
 				else {
-					x.innerText = "굿!"
-					x.classList.remove("is-invalid");
-					x.classList.remove("invalid-feedback");
-         			x.classList.add("is-valid");
-         			x.classList.add("valid-feedback");
+					y.innerText = "굿!"
+					f.classList.remove("is-invalid");
+         			f.classList.add("is-valid");
          			return true;
 				}
 			}).fail(function(error){
