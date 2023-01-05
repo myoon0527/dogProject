@@ -3,6 +3,7 @@ package com.cos.puppyHouse.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,10 +14,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,6 +52,7 @@ public class Community {
 	@Lob
 	private String content;
 	
+	@ColumnDefault("0")
 	private int count;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -54,10 +60,20 @@ public class Community {
 	@JoinColumn(name="UsersId")
 	private Users users;
 	
-	@OneToMany (mappedBy="community", fetch = FetchType.EAGER)
-	
+	@OneToMany (mappedBy="community", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
+	@JsonIgnoreProperties({"communty"})
+	@OrderBy("replyid")
 	private List<Reply> reply;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
+	
+	@ColumnDefault("0")
+	private int replycount;
+	
+	@OneToMany (mappedBy="community", cascade=CascadeType.REMOVE)
+	private List<Likes> likes;
+	
+	@ColumnDefault("0")
+	private int likescount;
 }

@@ -49,6 +49,10 @@ public class PetBoard {
 	@JoinColumn(name="PetId")
 	private Pet pet;
 	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="UserId")
+	private Users user;
+	
 	@Enumerated(EnumType.STRING)
 	private PetBoardRoleType roles;
 		

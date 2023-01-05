@@ -7,14 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Table(name="Reserv")
 @SequenceGenerator(
@@ -23,7 +26,8 @@ import lombok.NoArgsConstructor;
 		, initialValue = 1
 		, allocationSize = 1
 		)
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -36,12 +40,16 @@ public class Reserv {
 	@Column(nullable=false, length=100)
 	private String reservdate;
 	
+	@JsonBackReference
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="PetId")
 	private Pet pet;
 	
-	@OneToOne
+	@JsonBackReference
+	@JsonIgnore
+	@ManyToOne
 	@JoinColumn(name="teacherId")
-	private Users users;
+	private Users teacher;
 	
 }

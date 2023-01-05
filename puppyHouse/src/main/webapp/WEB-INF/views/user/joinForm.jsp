@@ -25,33 +25,33 @@
         <div class="col-lg-7 mb-5">
           <form action="" name="sentMessage" id="joinForm">
             <div class="control-group">
-              <input type="text" class="form-control" id="username" placeholder="Your Name">
+              <input type="text" class="form-control" id="username" placeholder="이름">
               <p class="help-block text-danger"></p> 
             </div>
             <div class="control-group">
-              <input type="text" class="form-control" id="userid" placeholder="Your ID">
+              <input type="text" class="form-control" id="userid" placeholder="아이디">
               <p class="help-block text-danger"></p> 
             </div>
             <div class="control-group">
-              <input type="password" class="form-control" id="userpwd" placeholder="Your Password">
+              <input type="password" class="form-control" id="userpwd" placeholder="비밀번호">
               <p class="help-block text-danger"></p> 
             </div>
             <div class="control-group">
-              <input type="email" class="form-control" id="useremail" placeholder="Your Email">
+              <input type="email" class="form-control" id="useremail" placeholder="이메일">
               <p class="help-block text-danger"></p> 
             </div>
             <div class="control-group">
-              <input type="text" class="form-control" id="userphone" placeholder="Your Phone Number">
+              <input type="text" class="form-control" id="userphone" placeholder="핸드폰 번호">
               <p class="help-block text-danger"></p> 
             </div>
             <div class="control-group">
-              <input type="text" class="form-control" id="useraddr" placeholder="Your Address">
+              <input type="text" class="form-control" id="useraddr" placeholder="주소">
               <p class="help-block text-danger"></p> 
             </div>
             
           </form>
           <div>
-              <input type="button" class="btn btn-primary py-2 px-4" id="btn-save">회원가입</input>
+              <input type="button" class="btn btn-primary py-2 px-4" id="btn-save" value="회원가입">
           </div>
           <script src="/js/user.js"></script>
         </div>

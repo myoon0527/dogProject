@@ -22,6 +22,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Table(name="pet")
@@ -40,7 +41,7 @@ public class Pet {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USER_SEQ_GENERATOR2")
 	private int petId;
-	
+
 	@ManyToOne
 	@JoinColumn(name="UsersId")
 	private Users users;
@@ -52,7 +53,13 @@ public class Pet {
 	private String species;
 	
 	@Column(length=30)
-	private int age;
+	private String age;
+	
+	@Column(length=30)
+	private String birthday;
+	
+	@Column(length=30)
+	private int agetype;
 	
 	@Column(length=30)
 	private String gender;

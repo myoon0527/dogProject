@@ -83,7 +83,7 @@
   <div class="container-fluid py-5">
     <div class="container">
       <div class="row align-items-center justify-content-center">
-        <button class="btn btn-primary py-2 px-4" onclick="location.href='/reserve/reserveForm'">예약하기</button>
+        <button class="btn btn-primary py-2 px-4" onclick="location.href='/reserve/reserve'">예약하기</button>
       </div>
     </div>
   </div>

@@ -1,6 +1,5 @@
 package com.cos.puppyHouse.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,33 +15,43 @@ import org.hibernate.annotations.ColumnDefault;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(
+		uniqueConstraints = {
+				@UniqueConstraint(
+						name="likes",
+						columnNames = {"CommunityId", "UsersId"}
+			)			
+		}
+)
 @SequenceGenerator(
 		name = "USER_SEQ_GENERATOR7"
 		, sequenceName = "USER_SEQ7"
 		, initialValue = 1
 		, allocationSize = 1
 		)
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@Table(name="likes")
-@Entity
-public class Likes {
+public class Likes{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USER_SEQ_GENERATOR7")
 	private int id;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "CommunityId")
 	private Community community;
 	
-	@ManyToOne
-	@JoinColumn(name = "UsersId", unique=true)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "UsersId")
 	private Users users;
 	
 	@ColumnDefault("0")

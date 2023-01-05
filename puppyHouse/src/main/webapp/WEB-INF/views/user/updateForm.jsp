@@ -25,11 +25,11 @@
     <div class="col-12 text-center mb-2">
       <ul class="list-inline mb-4" id="portfolio-flters">
         <li class="d-inline-block m-1">
-         <a href="" class="btn btn-outline-primary active">
+         <a href="/user/updateForm" class="btn btn-outline-primary active">
            회원정보 수정</a>
        </li>
        <li class="d-inline-block m-1">
-         <a href="../reserve/myReserve.jsp" class="btn btn-outline-primary">나의 예약 내역</a>
+         <a href="/reserve/reserveInfo" class="btn btn-outline-primary">나의 예약 내역</a>
         </li>
        </ul>
     </div>
@@ -41,46 +41,49 @@
         <div class="text-center">
           <h1>회원정보 수정</h1>
         </div>
-        <div class="row justify-content-center">
-          <form class="col-4 col-md-8 col-sm-9 px-5" name="updateUserInfo" id="updateUserInfoForm">
+        <div class="col justify-content-center">
+          <form class="col-7 mx-auto">
+         	<input type="hidden" id="id" value="${principal.user.id}">
             <div class="form-group px-xl-5 px-lg-5">
               <label for="username">성명</label><br>
               <input
                 type="text"
                 class="form-control"
                 id="username"
-                placeholder="${username}"
+                placeholder="${principal.user.username}"
+                value="${principal.user.username}"
                 readonly
               />
               <p class="help-block text-danger"></p>
             </div>
             <div class="form-group px-xl-5 px-lg-5">
-              <label for="userId">아이디</label><br>
+              <label for="userid">아이디</label><br>
               <input
                 type="text"
                 class="form-control"
-                id="userId"
-                placeholder="${userId}"
+                id="userid"
+                placeholder="${principal.user.userid}"
+                value="${principal.user.userid}"
                 readonly
               />
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group px-xl-5 px-lg-5">
-              <label for="password">비밀번호</label><br>
+              <label for="userpassword">비밀번호</label><br>
               <input
                 type="password"
                 class="form-control"
-                id="password"
+                id="userpassword"
                 required="required"
               />
               <p class="help-block text-danger"></p>
             </div>
             <div class="form-group px-xl-5 px-lg-5">
-              <label for="password2">비밀번호 확인</label><br>
+              <label for="userpassword2">비밀번호 확인</label><br>
               <input
               type="password"
               class="form-control"
-              id="password2"
+              id="userpassword2"
               required="required"
               />
               <p class="help-block text-danger"></p>
@@ -91,7 +94,8 @@
                 type="tel"
                 class="form-control"
                 id="phone"
-                placeholder="${phone}"
+                placeholder="${principal.user.phone}"
+                value="${principal.user.phone}"
               />
               <p class="help-block text-danger"></p>
             </div>
@@ -101,34 +105,35 @@
                 type="email"
                 class="form-control"
                 id="email"
-                placeholder="${email}"
+                placeholder="${principal.user.email}"
+                value="${principal.user.email}"
               />
               <p class="help-block text-danger"></p>
             </div>
             <div class="form-group px-xl-5 px-lg-5">
-              <label for="address">주소</label><br>
+              <label for="addr">주소</label><br>
               <input
                 type="text"
                 class="form-control"
-                id="address"
-                placeholder="${address}"
+                id="addr"
+                placeholder="${principal.user.addr}"
+                value="${principal.user.addr}"
               />
               <p class="help-block text-danger"></p>
             </div>
-            <div>
+          </form>
+          <div class="col-3 mx-auto text-center">
               <button
                 class="btn btn-primary py-2 px-4"
                 type="submit"
-                id="sendMessageButton"
-              >
-                수정완료
+                id="btn-update"
+              >수정완료
               </button>
             </div>
-          </form>
         </div>
     </div>
   </div>
-      
+  <script type="text/javascript" src="/js/user.js"></script>
   <!-- 메인 end -->
 
 <%@ include file="../layout/footer.jsp" %>  

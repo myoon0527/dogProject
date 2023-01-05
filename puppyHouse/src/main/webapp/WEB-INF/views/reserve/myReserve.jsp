@@ -24,11 +24,11 @@
      <div class="col-12 text-center mb-2">
       <ul class="list-inline mb-4" id="portfolio-flters">
         <li class="d-inline-block m-1">
-         <a href="../user/updateForm.jsp" class="btn btn-outline-primary">
+         <a href="/user/updateForm" class="btn btn-outline-primary active">
            회원정보 수정</a>
        </li>
        <li class="d-inline-block m-1">
-         <a href="myReserve.jsp" class="btn btn-outline-primary  active">나의 예약 내역</a>
+         <a href="/reserve/myReserve" class="btn btn-outline-primary">나의 예약 내역</a>
         </li>
        </ul>
      </div>
@@ -59,18 +59,18 @@
             <div class="px-2 col-2">트레이너</div>
             <div class="px-2 col-5">이용권 기간</div>
           </div>
-          <div class="row border-bottom justify-content-around h-25 text-center">
-            <div class="px-2 col-3">2022/12/12(월)</div>
-            <div class="px-2 col-2">${dogname}</div>
-            <div class="px-2 col-2">${user-name}</div>
-            <div class="px-2 col-5">2022/12/01(목)~2023/02/28(화)</div>
-          </div>
-          <div class="row border-bottom justify-content-around h-25 text-center">
-            <div class="px-2 col-3">2022/12/14(수)</div>
-            <div class="px-2 col-2">${dogname}</div>
-            <div class="px-2 col-2">${user-name}</div>
-            <div class="px-2 col-5">2022/12/01(목)~2023/02/28(화)</div>
-          </div>
+         <c:forEach var="reserve" items="${reserve}">
+          <c:forEach var="pet" items="${loginUserPet}">
+          	<c:if test="${reserve.pet.petId eq pet.petId}">
+	          	<div class="row border-bottom justify-content-around h-25 text-center">
+		            <div class="px-2 col-3">${reserve.reservdate}</div>
+		            <div class="px-2 col-2">${reserve.pet.petName}</div>
+		            <div class="px-2 col-2">${reserve.teacher.username}</div>
+		            <div class="px-2 col-5">2022/12/01(목)~2023/02/28(화)</div>
+	         	</div>
+	         </c:if>
+	        </c:forEach>
+          </c:forEach>
         </div>
       </div>
     </div>
