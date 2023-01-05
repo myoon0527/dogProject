@@ -49,7 +49,18 @@ public class PetBoard {
 	@JoinColumn(name="PetId")
 	private Pet pet;
 	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="UserId")
+	private Users user;
+	
 	@Enumerated(EnumType.STRING)
 	private PetBoardRoleType roles;
+	
+	//diary 이미지 필드
+	private String imgOriName;
+		
+	private String imgName;
+		
+	private String imgUrl;
 		
 }

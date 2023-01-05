@@ -29,8 +29,9 @@
           <div id="success"></div>
           <form>
           <input type="hidden" id="petId" value="${pets.petId}"/>
-          <input type="text" id="userid" value="${pets.users.userid}"/>
-          <input type="text" id="userpwd" value="${pets.users.userpassword}"/>
+          <input type="hidden" id="id" value="${pets.users.id}"/>
+          <input type="hidden" id="userid" value="${pets.users.userid}"/>
+          <input type="hidden" id="userpassword" value="${pets.users.userpassword}"/>
           
              <div class="row justify-content-center">
               <div class="control-group">
@@ -40,18 +41,18 @@
               </div>
            	</div>
             <div class="control-group">
-              <input type="text" class="form-control" id="petName" name="petName" placeholder="강아지 이름" value="${pets.petName}" required="required">
+              <input type="text" class="form-control" id="petName" name="petName" placeholder="강아지 이름" required="required">
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group">
                <!--   <input type="radio" id="birthday" name="birthday" value="0" checked="checked">생년월일-->
                 <!-- <input type="radio" id="birthday" name="birthday" value="1">나이입력 -->
-              <div><input type="date" class="form-control" name="petage" id="petage" size="20" value="${pets.age}" required="required"></div>
+              <div><input type="date" class="form-control" name="petage" id="petage" size="20" required="required"></div>
               <!--  <div><input type="text" class="form-control" name="petage" id="petage" size="20" placeholder="강아지 나이" required="required"></div> -->
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group">
-              <input type="text" class="form-control" id="species" name="species" value="${pets.species}" placeholder="강아지 품종" required="required">
+              <input type="text" class="form-control" id="species" name="species" placeholder="강아지 품종" required="required">
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group">

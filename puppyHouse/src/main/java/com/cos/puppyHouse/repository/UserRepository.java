@@ -11,8 +11,12 @@ import com.cos.puppyHouse.model.Users;
 public interface UserRepository extends JpaRepository<Users, Integer>{
 	Optional<Users> findByUserid(String userId);
 	
-	//id 중복검사
-    Long countByUserid(String id);
+	//이메일 검사
+	Optional<Users> findByUsernameAndPhone(String username, String phone);
 	
+	Optional<Users> findByEmail(String email);
+
+	//id 중복검사
+    	Long countByUserid(String id);
 	
 }

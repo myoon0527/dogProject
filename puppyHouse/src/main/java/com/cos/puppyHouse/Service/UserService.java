@@ -40,7 +40,36 @@ public class UserService {
 		persistance.setAddr(user.getAddr());
 		
 	}
-	//user 한명만 가져오는거 추가
+	
+	@Transactional
+	public Users findUserId(String username, String phone) {
+		Users user = userRepository.findByUsernameAndPhone(username,phone).orElseThrow(() -> {
+			return new IllegalArgumentException("회원 찾기 실패");
+		});
+		return user;
+	}
+	
+	@Transactional
+	public Users findUserEmail(String email) {
+		Users user = userRepository.findByEmail(email).orElseThrow(() -> {
+			return new IllegalArgumentException("회원 찾기 실패");
+		});
+		System.out.println("db에서 찾아온 email: "+user.getEmail());
+		return user;
+	}
+	
+	@Transactional
+	public void resetUserPassword(Users user) {
+		Users persistance = userRepository.findByEmail(user.getEmail()).orElseThrow(() -> {
+			return new IllegalArgumentException("회원 찾기 실패");
+		});
+		String rawPassword = user.getUserpassword();
+		String encPassword = encodeer.encode(rawPassword);
+		persistance.setUserpassword(encPassword);
+		
+	}
+	
+	//user 한명 가져오기
 	@Transactional
 	public Users oneUser(Users user) {
 		Users persistance = userRepository.findById(user.getId()).orElseThrow(() -> {
@@ -49,6 +78,7 @@ public class UserService {
 		return persistance;
 		
 	}
+
 	
 	//id 중복검사
 	@Transactional

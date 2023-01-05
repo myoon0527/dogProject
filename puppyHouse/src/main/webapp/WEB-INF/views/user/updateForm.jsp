@@ -156,6 +156,14 @@
     </div>
   </div>
   <script type="text/javascript" src="/js/user.js"></script>
+  <script type="text/javascript">
+  	function checkPassword(){
+  		if (document.getElementById("userpassword").value==null) {
+  			alert("비밀번호를 입력해주세요.");
+  		};
+  	}
+	
+</script>
   <!-- 메인 end -->
 
 <%@ include file="../layout/footer.jsp" %>  

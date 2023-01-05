@@ -27,8 +27,9 @@ public class NoticeApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
 	
-	@DeleteMapping("/api/notice/{id}")
+	@DeleteMapping("/api/notice/delete/{id}")
 	public ResponseDto<Integer> deleteById(@PathVariable int id) {
+		System.out.println("@##2글삭제"+id);
 		noticeService.글삭제하기(id);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}

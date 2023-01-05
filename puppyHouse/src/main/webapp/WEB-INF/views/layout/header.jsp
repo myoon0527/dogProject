@@ -3,6 +3,7 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <sec:authorize access="isAuthenticated()">
 	<sec:authentication property="principal" var="principal" />
 </sec:authorize>
@@ -34,26 +35,36 @@
 
 <!-- 라이브러리 스타일시트 <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" /> -->
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet" />
-    
-        <!-- 캘린더 스타일시트 -->
-    <link href="/css/myReservation.css" rel="stylesheet" />
-    
-     <!--카카오 지도 API-->
-     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5994d78f64b564c1aaf75803fce10a44"></script>
-     
-    <!-- Summernote -->
-    
-    <!--  -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-  
-  <!-- isotope -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
+<!-- Customized Bootstrap Stylesheet -->
+<link href="/css/style.css" rel="stylesheet" />
+
+<!-- 캘린더 스타일시트 -->
+<link href="/css/myReservation.css" rel="stylesheet" />
+
+<!--카카오 지도 API-->
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5994d78f64b564c1aaf75803fce10a44"></script>
+
+<!-- Summernote -->
+
+<!--  -->
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+<!-- isotope -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"
+	integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew=="
+	crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -79,26 +90,34 @@
 					<a href="/auth/news/NOTICE" class="nav-item nav-link mr-3">고객센터</a>
 					<c:choose>
 						<c:when test="${empty principal}">
-							</div>
-							<a href="/auth/loginForm" class="btn btn-primary px-3">로그인</a> 
-							<a href="/auth/joinForm" class="btn btn-primary px-3 ml-4">회원가입</a>
-						</c:when>
-						<c:otherwise>
-							<a href="/user/updateForm" class="nav-item nav-link mr-3">마이페이지</a>
-						</div>
-						<div id="petJoinContent">
-							<c:choose>
-								<c:when test="${empty loginUser.pet}">
-									<a href="/petNote/petJoinBtn" class="btn btn-primary px-3">애견수첩</a> 
-								</c:when>
-								<c:otherwise>
-								<c:forEach var="pet" items="${loginUserPet}" begin="0" end="0">
-									<a href="/petNote/${pet.petId}" class="btn btn-primary px-3">애견수첩</a> 
-								</c:forEach>
-								</c:otherwise>
-							</c:choose>
-						</div>
-						
+				</div>
+				<a href="/auth/loginForm" class="btn btn-primary px-3">로그인</a> <a
+					href="/auth/joinForm" class="btn btn-primary px-3 ml-4">회원가입</a>
+				</c:when>
+				<c:otherwise>
+					<a href="/user/updateForm" class="nav-item nav-link mr-3">마이페이지</a>
+			</div>
+			<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')">
+
+				<c:forEach var="reserve" items="${loginUserReserv}" begin="0"
+					end="0">
+					<a href="/petNote/${reserve.pet.petId}"
+						class="btn btn-primary px-3">애견수첩</a>
+				</c:forEach>
+			</sec:authorize>
+			<sec:authorize access="hasAnyRole('ROLE_USER')">
+				<c:choose>
+					<c:when test="${empty loginUser.pet}">
+						<a href="/petNote/petJoinBtn" class="btn btn-primary px-3">애견수첩</a>
+					</c:when>
+					<c:otherwise>
+						<c:forEach var="pet" items="${loginUserPet}" begin="0" end="0">
+							<a href="/petNote/${pet.petId}" class="btn btn-primary px-3">애견수첩</a>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+			</sec:authorize>
+
 			<a href="/logout" class="btn btn-primary px-3 ml-4">로그아웃</a>
 			</c:otherwise>
 			</c:choose>

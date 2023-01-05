@@ -2,6 +2,7 @@ package com.cos.puppyHouse.model;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,6 +18,11 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -59,9 +65,6 @@ public class Users {
 	@Column(nullable=false, length=30)
 	private String addr;
 	
-	@Column(nullable=false, length=30)
-	private String addrdetail;
-	
 	@Enumerated(EnumType.STRING)
 	private RoleType roles;
 	
@@ -73,5 +76,10 @@ public class Users {
 
 	@OneToMany (mappedBy="users", fetch = FetchType.LAZY)
 	private List<Pet> Pet;
+	
+	@JsonManagedReference
+	@JsonIgnore
+	@OneToMany (mappedBy="teacher", fetch = FetchType.LAZY ,cascade=CascadeType.REMOVE)
+	private List<Reserv> Reserv;
 	
 }

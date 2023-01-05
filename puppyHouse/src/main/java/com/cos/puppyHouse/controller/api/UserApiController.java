@@ -42,6 +42,28 @@ public class UserApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
 	
+	@PostMapping("/auth/user/findUserId")
+	public ResponseDto<Users> findUserId(@RequestBody Users user) {
+		Users foundUser = userService.findUserId(user.getUsername(),user.getPhone());
+		return new ResponseDto<Users>(HttpStatus.OK.value(),foundUser);
+	}
+
+	
+	@PostMapping("/auth/user/findUserEmail")
+	public ResponseDto<Users> findUserEmail(@RequestBody Users user) {
+		System.out.println("넘어온 data의 email: "+user.getEmail());
+		Users foundUser = userService.findUserEmail(user.getEmail());
+		System.out.println("findUserEmail"+foundUser);
+			return new ResponseDto<Users>(HttpStatus.OK.value(),foundUser);
+	}
+	
+	
+	@PutMapping("/auth/user/resetUserPassword")
+	public ResponseDto<Integer> resetUserPassword(@RequestBody Users user) {
+		userService.resetUserPassword(user);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+	}
+	
 	//id 중복검사
 	@PostMapping("/auth/idCheck/{id}")
 	public ResponseDto<Integer> idCheck(@PathVariable String id) {
@@ -49,5 +71,4 @@ public class UserApiController {
 		int result = (int)userService.idCheck(id);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),result);
 	}
-
 }

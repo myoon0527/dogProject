@@ -33,15 +33,16 @@ let index={
 	},
 	
 	deleteById: function() {
-		var id=$("#id").text();
-		
+		var id=$("#id").val();
+		var roles=$("#roles").val();
+		console.log(id);
 		$.ajax({
 			type:"DELETE",
-			url:"/api/notice/" + id,
+			url:"/api/notice/delete/"+id,
 			dataType:"json"
 		}).done(function(resp){
 			alert("삭제가 완료되었습니다.");
-			location.href="/auth/newsMain";
+			location.href="/auth/news/"+roles;
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});
@@ -62,7 +63,7 @@ let index={
 			dataType:"json"
 		}).done(function(resp){
 			alert("수정이 완료되었습니다.");
-			location.href="/auth/newsMain";
+			location.href="/news/"+id;
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});

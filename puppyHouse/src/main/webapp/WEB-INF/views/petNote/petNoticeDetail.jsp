@@ -22,7 +22,11 @@
   <div class="container">
     <div class="bg-light p-5 rounded">
       <div class="mb-5">
-        <h2 class="mb-4">알림장</h2>
+      <div class="row justify-content-between">
+      <h2 class="mb-4">알림장</h2>
+        <a class="btn btn-danger mb-4">삭제</a>
+        </div>
+        
         <div class="media mb-4 border-bottom">
           <img
             src="../img/dogImg/icon/main3-removebg-preview.png"

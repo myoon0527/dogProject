@@ -48,11 +48,11 @@
       <div class="col-8 justify-content-center">
       	<ul class="pagination justify-content-center">
 			<c:choose>
-				<c:when test="${notices.pageable.pageNumber+1<=10}">
-					<li class="page-item"><a class="page-link" href="?page=${startBlockPage-2}" style="display:none;">이전</a></li>
+				<c:when test="${notices.first}">
+					<li class="page-item disabled"><a class="page-link" href="?page=${notices.number-1}">이전</a></li>
 				</c:when>
 				<c:otherwise>
-					<li class="page-item"><a class="page-link" href="?page=${startBlockPage-2}">이전</a></li>
+					<li class="page-item"><a class="page-link" href="?page=${notices.number-1}">이전</a></li>
 				</c:otherwise>
 			</c:choose>
 			<c:forEach var="i" begin="${startBlockPage}" end="${endBlockPage}">
@@ -66,11 +66,11 @@
 				</c:choose>
 			</c:forEach>
 			<c:choose>
-				<c:when test="${totalPages==endBlockPage+1}">
-					<li class="page-item"><a class="page-link" href="?page=${endBlockPage}" style="display:none;">다음</a></li>
+				<c:when test="${notices.last}">
+					<li class="page-item disabled"><a class="page-link" href="?page=${notices.number+1}">다음</a></li>
 				</c:when>
 				<c:otherwise>
-					<li class="page-item"><a class="page-link" href="?page=${endBlockPage}">다음</a></li>
+					<li class="page-item"><a class="page-link" href="?page=${notices.number+1}">다음</a></li>
 				</c:otherwise>
 			</c:choose>
 		</ul>
