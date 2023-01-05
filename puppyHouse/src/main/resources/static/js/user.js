@@ -64,7 +64,12 @@ let index = {
 			addr: $("#useraddr").val(),
 			addrdetail: $("#useraddrdetail").val()
 		};
-		let test = pwdCheck()&&pwdCheck2()&&emailCheck()&&phoneCheck();
+		console.log("pwdCheck"+pwdCheck());
+		console.log("pwdCheck2"+pwdCheck2());
+		console.log("emailCheck"+emailCheck());
+		console.log("phoneCheck"+phoneCheck());
+		let test = pwdCheck()&&pwdCheck2()&&emailCheck()&&phoneCheck()&&addrCheck()&&addr();
+		console.log("test =" + test);
 		if(test) {
 			$.ajax({
 			type:"PUT",
@@ -238,12 +243,12 @@ function pwdCheck2() {
 	if(inputPwd != inputPwdChk) {
 		 f.classList.remove("is-valid");
      	 f.classList.add("is-invalid");
-     	 return true;
+     	 return false;
 	}
 	else {
 		f.classList.remove("is-invalid");
      	f.classList.add("is-valid");
-     	return false;
+     	return true;
 	}
 }  
 
@@ -259,7 +264,9 @@ function emailCheck() {
 	  if(isMailValid){
 	     f.classList.remove("is-invalid");
 	     f.classList.add("is-valid");
-	  }else{
+	     return true;
+	  }
+	  else {
 	     f.classList.remove("is-valid");
 	     f.classList.add("is-invalid");
 	     if(inputEmail == "") {
@@ -283,7 +290,9 @@ function phoneCheck() {
       if(isPhoneValid){
          f.classList.remove("is-invalid");
          f.classList.add("is-valid");
-      }else{
+         return true;
+      }
+      else {
          f.classList.remove("is-valid");
          f.classList.add("is-invalid");
          return false;
@@ -293,7 +302,6 @@ function phoneCheck() {
 //주소
 function addr() {
 	let inputAddr = document.getElementById("useraddr").value;
-	
 	 new daum.Postcode({
             oncomplete: function(data) { //선택시 입력값 세팅
                 document.getElementById("useraddr").value = data.address; // 주소 넣기
@@ -301,7 +309,7 @@ function addr() {
             }
         }).open();
     
-
+	
 	let f = document.getElementById("useraddr");
 	if(inputAddr == "") {
 		f.classList.remove("is-valid");
@@ -315,6 +323,22 @@ function addr() {
 		return true;
 	}
     
+}
+function addrcheeeck() {
+
+	let inputAddr = document.getElementById("useraddr").value;
+	let f = document.getElementById("useraddr");
+	if(inputAddr == "") {
+		f.classList.remove("is-valid");
+		f.classList.add("is-invalid");
+		return false;
+		
+	}
+	else {
+		f.classList.remove("is-invalid");
+        f.classList.add("is-valid");
+		return true;
+	}
 }
 
 
@@ -336,49 +360,6 @@ function addrCheck() {
 }
    
 
-//
-
-//회원정보 수정 전화번호
-window.onload = function phoneCheck2() {
-
-	  let inputPhone = document.getElementById("userphone").value;
-	  let f = document.getElementById("userphone");
-	  
-	  isPhoneValid = /^01(?:0|1|[6-9])(?:\d{4})\d{4}$/.test(inputPhone);
-     
-      if(isPhoneValid){
-         f.classList.remove("is-invalid");
-         f.classList.add("is-valid");
-      }else{
-         f.classList.remove("is-valid");
-         f.classList.add("is-invalid");
-         return false;
-      }
-} 
-
-//회원정보 수정 이메일    
-window.addEventListener('load', function emailCheck2(){
-	let x = document.getElementById("emailchk");
-	let inputEmail = document.getElementById("useremail").value;
-	let f = document.getElementById("useremail");
-	  //2. 유효성(5글자이상 10글자 이하)을 검증한다.
-	  isMailValid = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(inputEmail);
-	  //3. 유효하다면 input 요소에 is-valid 클래스 추가, 아니라면 is-invalid 클래스 추가
-	  if(isMailValid){
-	     f.classList.remove("is-invalid");
-	     f.classList.add("is-valid");
-	  }else{
-	     f.classList.remove("is-valid");
-	     f.classList.add("is-invalid");
-	     if(inputEmail == "") {
-			x.innerText = "이메일은 필수 입력 값입니다."
-		}
-		 else{
-			x.innerText = "올바른 형식으로 작성해 주세요"
-		}
-		return false;
-	  }
-}); 
   
 
 

@@ -75,7 +75,7 @@
                 class="form-control"
                 id="userpwd"
                 required="required"
-                onkeyup="pwdCheck()"
+                onkeyup="pwdCheck(); pwdCheck2();"
               />
               <div class="invalid-feedback my-2" id="pwdchk">비밀번호는 필수 입력 값입니다.</div>
               <div class="valid-feedback my-2">사용 가능한 비밀번호입니다.</div>
@@ -101,7 +101,7 @@
                 id="userphone"
                 placeholder="${principal.user.phone}"
                 value="${principal.user.phone}"
-                onload="phoneCheck2()"
+                onkeyup="phoneCheck()"
               />
               <div class="invalid-feedback my-2">전화번호는 필수 입력 값입니다.(하이픈을 제외하고 입력해 주세요.)</div>
 	          <div class="valid-feedback my-2">사용 가능한 전화번호입니다.</div>
@@ -115,7 +115,7 @@
                 id="useremail"
                 placeholder="${principal.user.email}"
                 value="${principal.user.email}"
-                onload="emailCheck2()"
+                onkeyup="emailCheck()"
               />
               <div class="invalid-feedback my-2" id="emailchk">이메일은 필수 입력 값입니다.</div>
 	          <div class="valid-feedback my-2">사용 가능한 이메일입니다.</div>

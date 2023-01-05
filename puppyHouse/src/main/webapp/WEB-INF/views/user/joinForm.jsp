@@ -40,7 +40,7 @@
             </div>
        		<div class="control-group">
                <label class="form-label" for="userpwd">비밀번호</label>
-              <input type="password" class="form-control mb-2" name="userpwd" id="userpwd"  placeholder="Your password" required onkeyup="pwdCheck()">
+              <input type="password" class="form-control mb-2" name="userpwd" id="userpwd"  placeholder="Your password" required onkeyup="pwdCheck(); pwdCheck2();">
 	              <div class="invalid-feedback my-2" id="pwdchk">비밀번호는 필수 입력 값입니다.</div>
 	              <div class="valid-feedback my-2">사용 가능한 비밀번호입니다.</div>
             </div>
@@ -65,8 +65,7 @@
              <div class="control-group">
              <label class="form-label" for="useraddr">주소</label>
               <input type="text" class="form-control mb-2" name="useraddr" id="useraddr"  placeholder="Your addr" required onclick="addr()">
-              <div class="invalid-feedback my-2" id="addrchk"></div>
-              <input type="text" class="form-control mb-2" name="useraddrdetail" id="useraddrdetail"  placeholder="Your addr detail" required onkeyup="addrCheck()">
+              <input type="text" class="form-control mb-2" name="useraddrdetail" id="useraddrdetail"  placeholder="Your addr detail" required onkeyup="addrCheck(); addrcheeeck();">
            		<div class="invalid-feedback mb-2">상세 주소는 필수 입력 값입니다.</div>
             </div>
           </form>
