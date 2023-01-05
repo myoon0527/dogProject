@@ -81,7 +81,9 @@ let index = {
 		console.log("pwdCheck2"+pwdCheck2());
 		console.log("emailCheck"+emailCheck());
 		console.log("phoneCheck"+phoneCheck());
-		let test = pwdCheck()&&pwdCheck2()&&emailCheck()&&phoneCheck()&&addrCheck()&&addr();
+		console.log("addrcheeeck"+addrcheeeck());
+		console.log("addrCheck"+addrCheck());
+		let test = pwdCheck()&&pwdCheck2()&&emailCheck()&&phoneCheck()&&addrcheeeck()&&addrCheck();
 		console.log("test =" + test);
 		if(test) {
 			$.ajax({
@@ -451,18 +453,18 @@ function addrcheeeck() {
 
 //상세주소
 function addrCheck() {
-	
+	  
       let isAddrValid = document.getElementById("useraddrdetail").value;
       let f = document.getElementById("useraddrdetail")
-     
-      if(isAddrValid){
-         f.classList.remove("is-invalid");
-         f.classList.add("is-valid");
-         return true;
-      }else{
+     	console.log("상세주소: " + isAddrValid);
+      if(isAddrValid == ""){
          f.classList.remove("is-valid");
          f.classList.add("is-invalid");
          return false;
+      }else{
+         f.classList.remove("is-invalid");
+         f.classList.add("is-valid");
+         return true;
       }
 }
 

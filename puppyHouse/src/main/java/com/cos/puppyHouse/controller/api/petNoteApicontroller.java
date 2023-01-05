@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cos.puppyHouse.Service.PetBoardService;
+import com.cos.puppyHouse.Service.petBoardService;
 import com.cos.puppyHouse.dto.ResponseDto;
 
 @RestController
 public class petNoteApicontroller {
 	
 	@Autowired
-	private PetBoardService petBoardService;
+	private petBoardService petBoardService;
 	
 	@DeleteMapping("/petNote/diary/delete/{petBoardId}")
 	public ResponseDto<Integer> deleteById(@PathVariable int petBoardId) {

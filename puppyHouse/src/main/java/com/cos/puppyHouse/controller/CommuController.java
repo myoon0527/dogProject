@@ -126,7 +126,7 @@ public class CommuController {
 	}
 
 	// 이미지 출력
-	@GetMapping("/auth/images")
+	@GetMapping("/auth/image")
 	public ResponseEntity<Resource> display(@Param("imgName") String imgName) {
 		String path = "C:\\image\\";
 		Resource resource = new FileSystemResource(path + imgName);

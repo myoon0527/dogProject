@@ -11,14 +11,16 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,9 +28,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.cos.puppyHouse.Service.PetBoardService;
+import com.cos.puppyHouse.Service.PetService;
+import com.cos.puppyHouse.Service.petBoardService;
 import com.cos.puppyHouse.config.auth.PrincipalDetail;
-import com.cos.puppyHouse.dto.ResponseDto;
 import com.cos.puppyHouse.model.PetBoard;
 import com.cos.puppyHouse.model.PetBoardRoleType;
 
@@ -36,7 +38,10 @@ import com.cos.puppyHouse.model.PetBoardRoleType;
 public class petBoardController {
 	
 	@Autowired
-	private PetBoardService petBoardService;
+	private petBoardService petBoardService;
+	
+	@Autowired
+	private PetService petService;
 	 
 	
 	@GetMapping("/petNote/diarySaveForm/{petId}")
@@ -111,7 +116,7 @@ public class petBoardController {
 		int endBlockPage = startBlockPage + pageBlock - 1;
 		endBlockPage = totalPages < endBlockPage ? totalPages : endBlockPage;
 		
-		model.addAttribute("pets",petService.강아지수첩상세보기(petId));
+		model.addAttribute("pets", petService.강아지수첩상세보기(petId));
 		model.addAttribute("startBlockPage", startBlockPage);
 		model.addAttribute("endBlockPage", endBlockPage);
 		model.addAttribute("petnotices", petBoardService.글목록(pageable, PetBoardRoleType.FOOD));
@@ -174,21 +179,5 @@ public class petBoardController {
 		return "petNote/healthDetail";
 	}
 	
-	@GetMapping("/petNote/petNotice/DIARY/{petId}")
-	public String petBoardDIARY(@PageableDefault(size = 4, sort = "petBoardId", direction = Sort.Direction.DESC) Pageable pageable,@PathVariable int petId, Model model) {
-		System.out.println("petBoard 호출");
-		int pageNumber = petBoardService.글목록(pageable, PetBoardRoleType.DIARY).getPageable().getPageNumber(); // 현재페이지
-		int totalPages = petBoardService.글목록(pageable, PetBoardRoleType.DIARY).getTotalPages(); // 총 페이지 수
-		int pageBlock = 4; // 숫자 블럭 수 1부터 10
-		int startBlockPage = ((pageNumber) / pageBlock) * pageBlock + 1;
-		int endBlockPage = startBlockPage + pageBlock - 1;
-		endBlockPage = totalPages < endBlockPage ? totalPages : endBlockPage;
 
-		model.addAttribute("pets",petService.강아지수첩상세보기(petId));
-		model.addAttribute("startBlockPage", startBlockPage);
-		model.addAttribute("endBlockPage", endBlockPage);
-		model.addAttribute("petnotices", petBoardService.글목록(pageable, PetBoardRoleType.DIARY));
-
-		return "petNote/diaryDetail";
-	}
 }

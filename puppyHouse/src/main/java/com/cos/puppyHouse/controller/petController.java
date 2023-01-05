@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.cos.puppyHouse.Service.PetBoardService;
 import com.cos.puppyHouse.Service.PetService;
+import com.cos.puppyHouse.Service.petBoardService;
 import com.cos.puppyHouse.model.PetBoardRoleType;
 
 @Controller
@@ -17,7 +17,7 @@ public class petController {
 	private PetService petService;
 	
 	@Autowired
-	private PetBoardService petBoardService;
+	private petBoardService petBoardService;
 
 	@GetMapping("/petNote/petJoinForm")
 	public String petJoinForm() {
@@ -65,8 +65,8 @@ public class petController {
 	 public String diaryDetail(@PathVariable int petId, Model model) {
 		System.out.println("diaryDetail 호출");
 		 model.addAttribute("petId", petId);
-	     model.addAttribute("diary", petBoardService.글목록(PetBoardRoleType.DIARY));
-	     System.out.println("글목록: "+petBoardService.글목록(PetBoardRoleType.DIARY));
+	     model.addAttribute("diary", petBoardService.글목록2(PetBoardRoleType.DIARY));
+	     System.out.println("글목록: "+petBoardService.글목록2(PetBoardRoleType.DIARY));
 	     
 	     model.addAttribute("pets", petService.강아지수첩상세보기(petId));
 	     System.out.println("$$%$#petidd: "+petService.강아지수첩상세보기(petId));

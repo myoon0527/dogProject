@@ -65,6 +65,9 @@ public class Users {
 	@Column(nullable=false, length=30)
 	private String addr;
 	
+	@Column(nullable=false, length=30)
+	private String addrdetail;
+	
 	@Enumerated(EnumType.STRING)
 	private RoleType roles;
 	
