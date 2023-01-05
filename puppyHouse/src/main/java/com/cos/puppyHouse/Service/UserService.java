@@ -68,8 +68,6 @@ public class UserService {
 		persistance.setUserpassword(encPassword);
 		
 	}
-	
-	//user 한명 가져오기
 	@Transactional
 	public Users oneUser(Users user) {
 		Users persistance = userRepository.findById(user.getId()).orElseThrow(() -> {
@@ -79,13 +77,10 @@ public class UserService {
 		
 	}
 
-	
 	//id 중복검사
 	@Transactional
 	public long idCheck(String id) {
 		long result = userRepository.countByUserid(id);
 		return result;
 	}
-	
-	
 }

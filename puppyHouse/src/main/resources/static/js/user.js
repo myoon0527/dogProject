@@ -24,6 +24,7 @@ let index = {
 		});
 	},
 	
+
 	save: function() {
 		let data={
 			username: $("#username").val(),
@@ -101,7 +102,7 @@ let index = {
 		}
 		
 	},
-	
+
 	findUserId: function(){
 		let data={
 			username: $("#username").val(),

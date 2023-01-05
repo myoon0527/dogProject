@@ -66,29 +66,27 @@
             <div class="form-group col-3 px-md-0 px-sm-0">
               <label for="dogname">애견명</label>
               <select id="dogname" class="form-control">
-                <option value="22">뽀삐</option>
-                <option value="23">나비</option>
-                <option value="24">미미</option>
+              <c:forEach var="pet" items="${loginUserPet}">
+                <option value="${pet.petId}">${pet.petName}</option>
+              </c:forEach>
               </select>
             </div>
             <div class="form-group col-3 px-md-0 px-sm-0">
               <label for="trainer">담당 트레이너</label>
               <select id="trainer" class="form-control">
-                <c:forEach var="teacher" items="${reserve.users.id}">
-                	<option value="/petNote/${pet.petId}" <c:if test='${pet.petId eq petId}'>selected</c:if>>${pet.petName}  </option>
-                </c:forEach>
-                <c:forEach var="pet" items="${principal.user.pet}">
-                		<option value="/petNote/${pet.petId}" <c:if test='${pet.petId eq petId}'>selected</c:if>>${pet.petName}  </option>
-                	</c:forEach>
+              <c:forEach var="teacher" items="${user}">
+              	<c:if test="${teacher.roles eq 'MANAGER'}">
+                	<option value="${teacher.id}">${teacher.username}</option>
+                </c:if>
+              </c:forEach>
               </select>
             </div>
           </div>
           <br>
+          </form>
           <div class="mx-auto col-4 d-flex justify-content-center">
-            <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">
-              예약하기</button>
+            <button class="btn btn-primary py-2 px-4" type="submit" id="reserve_btn">예약하기</button>
           </div>
-        </form>
       </div>
     </div>
   </div>
@@ -97,6 +95,7 @@
   <!-- 예약 영역 end -->
 <!-- 캘린더 자바스크립트 -->
 <script src="../js/reserved.js"></script>
+<script type="text/javascript" src="/js/reserveForm.js"></script>
  
   <!-- 메인 end -->
 <%@ include file="../layout/footer.jsp" %> 

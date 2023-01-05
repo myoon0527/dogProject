@@ -24,8 +24,9 @@ public class petController {
 		return "pet/petJoinForm";
 	}
 	
-	@GetMapping ("/petNote/petUpdateForm")
-	public String petUpdateForm() {
+	@GetMapping ("/petNote/petUpdateForm/{petId}")
+	public String petUpdateForm(@PathVariable int petId, Model model) {
+		model.addAttribute("pet", petService.강아지수첩상세보기(petId));
 		return "pet/petUpdateForm";
 	}
 	

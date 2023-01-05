@@ -59,18 +59,18 @@
             <div class="px-2 col-2">트레이너</div>
             <div class="px-2 col-5">이용권 기간</div>
           </div>
-          <div class="row border-bottom justify-content-around h-25 text-center">
-            <div class="px-2 col-3">2022/12/12(월)</div>
-            <div class="px-2 col-2">${dogname}</div>
-            <div class="px-2 col-2">${user-name}</div>
-            <div class="px-2 col-5">2022/12/01(목)~2023/02/28(화)</div>
-          </div>
-          <div class="row border-bottom justify-content-around h-25 text-center">
-            <div class="px-2 col-3">2022/12/14(수)</div>
-            <div class="px-2 col-2">${dogname}</div>
-            <div class="px-2 col-2">${user-name}</div>
-            <div class="px-2 col-5">2022/12/01(목)~2023/02/28(화)</div>
-          </div>
+         <c:forEach var="reserve" items="${reserve}">
+          <c:forEach var="pet" items="${loginUserPet}">
+          	<c:if test="${reserve.pet.petId eq pet.petId}">
+	          	<div class="row border-bottom justify-content-around h-25 text-center">
+		            <div class="px-2 col-3">${reserve.reservdate}</div>
+		            <div class="px-2 col-2">${reserve.pet.petName}</div>
+		            <div class="px-2 col-2">${reserve.teacher.username}</div>
+		            <div class="px-2 col-5">2022/12/01(목)~2023/02/28(화)</div>
+	         	</div>
+	         </c:if>
+	        </c:forEach>
+          </c:forEach>
         </div>
       </div>
     </div>

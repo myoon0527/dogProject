@@ -53,6 +53,7 @@ public class CommuController {
 			session.setAttribute("loginUser", userService.oneUser(principal.getUser()));
 			System.out.println("login유저 강아지 "+userService.oneUser(principal.getUser()).getPet());
 			session.setAttribute("loginUserPet", userService.oneUser(principal.getUser()).getPet());
+			session.setAttribute("loginUserReserv", userService.oneUser(principal.getUser()).getReserv()); 
 		}
 		return "index";
 	}
