@@ -1,3 +1,4 @@
+let code;
 let index = {
 	init: function() {
 		$("#btn-save").on("click",()=>{
@@ -14,6 +15,12 @@ let index = {
 		}),
 		$("#btn-resetPassword").on("click",()=>{
 			this.resetUserPassword();
+		}),
+		$("#mail-Check-Btn").on("click",()=>{
+			this.findUserMail();
+		}),
+		$('#Num-Check-Btn').on("click",()=>{
+			this.checkNum();
 		});
 	},
 	
@@ -78,6 +85,7 @@ let index = {
 			contentType:"application/json; charset=utf-8",
 			dataType:"json"
 		}).done(function(resp){
+			if(resp.data.userid!=undefined){
 				$("#findIdForm").remove();
 				$("#findbtn").remove();
 				$(".changeDiv").attr('class','col-lg-7 mb-5 changeDiv justify-content-center text-center');
@@ -85,38 +93,62 @@ let index = {
 					"<strong>내 아이디: "+resp.data.userid+"</strong></div>");
 				$("#foundId").after("<br><br><div class=''><a href='/auth/loginForm' class='btn btn-primary py-2 px-4'>"+
 					 "로그인하기</a><a href='/auth/findUserPassword' class='btn btn-primary py-2 px-4 ml-4'>비밀번호찾기</a></div>");
-					 
+			}else{
+				alert("일치하는 회원 정보가 없습니다.");
+			}
 			console.log(resp.data.userid);
 		}).fail(function(error){
-			alert("일치하는 회원 정보가 없습니다.");
+			alert(JSON.stringify(error));
 		});
 	},
 	
-	findUserPassword: function(){
+	findUserMail: function(){
 		let data={
-			userid: $("#userid").val(),
-			username: $("#username").val(),
-			phone: $("#phone").val()
+			email: $('#userEmail1').val()+$('#userEmail2').val()
 		};
-		console.log(data);
+		let checkInput = $('#mail-check-input');
+		console.log('완성된 이메일:'+data.email);
 		$.ajax({
 			type:"POST",
-			url:"/auth/user/findUserPassword",
+			url:"/auth/user/findUserEmail",
 			data:JSON.stringify(data),  
 			contentType:"application/json; charset=utf-8",
 			dataType:"json"
 		}).done(function(resp){
-			location.href="/auth/resetUserPassword/"+resp.data.id;
-			console.log(resp.data.userid);
+			if(resp.data.email!=undefined) {
+				sendMail(resp.data);
+			} else {
+				alert("일치하는 회원 정보가 없습니다.");
+			}
 		}).fail(function(error){
-			alert("일치하는 회원 정보가 없습니다.");
+			alert(JSON.stringify(error));
+		});
+	},
+	
+	
+	// 인증 번호 비교 
+	checkNum: function () {
+		const inputCode = $('#mail-check-input').val();
+		const userpwd = $('#userpwd');
+		const chkUserpwd = $('#chk-userpwd');
+		$.ajax({
+			type : "GET",
+			success : function (data) {
+				if(inputCode === code){
+					alert('인증번호 확인이 완료되었습니다.');
+					userpwd.attr('disabled',false);
+					chkUserpwd.attr('disabled',false);	         
+				}else{
+					alert('인증번호가 불일치합니다.');
+				}
+			}
 		});
 	},
 	
 	resetUserPassword: function(){
 		console.log("resetUserPassword함수 호출");
 		let data={
-			id: $("#id").val(),
+			email: $('#userEmail1').val()+$('#userEmail2').val(),
 			userpassword: $("#userpwd").val()
 		};
 		console.log(data);
@@ -132,6 +164,21 @@ let index = {
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});
-	}
+	},
 }
 index.init();
+
+function sendMail(foundData) {
+		let data = {email: foundData.email};
+		let checkInput = $('#mail-check-input');
+		$.ajax({
+			type : "GET",
+			url : "/auth/mailCheck/"+data.email,
+			success : function (data) {
+				console.log("data : " +  data);
+				checkInput.attr('disabled',false);
+				alert('인증번호가 전송되었습니다.');
+				code =data;
+			}			
+		});
+	}

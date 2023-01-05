@@ -18,4 +18,3 @@ public interface NoticeRepository extends JpaRepository<NoticeFAQ,Integer>{
 	public Page<NoticeFAQ> findByRoles(NoticeRoleType roles,Pageable pageable);
 	
 }
-

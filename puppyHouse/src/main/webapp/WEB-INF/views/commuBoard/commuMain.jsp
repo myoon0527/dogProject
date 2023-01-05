@@ -28,7 +28,7 @@
         <c:forEach var="commu" items="${commu.content}">
         	<div class="col-lg-4 mb-4">
         		<div class="card border-0 shadow-sm mb-2">
-        			<img src="/img/blog-1.jpg" alt="img" class="card-img-top mb-2">
+        			<img src="" alt="img" class="card-img-top mb-2">
         			<div class="card-body bg-light text-center p-4">
 	        			<h4>${commu.title}</h4>
 	        			<div class="d-flex justify-content-center mb-3">

@@ -1,7 +1,5 @@
 package com.cos.puppyHouse.Service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -45,23 +43,37 @@ public class UserService {
 	
 	@Transactional
 	public Users findUserId(String username, String phone) {
-		Users user = userRepository.findByUsernameAndPhone(username,phone);
+		Users user = userRepository.findByUsernameAndPhone(username,phone).orElseThrow(() -> {
+			return new IllegalArgumentException("회원 찾기 실패");
+		});
 		return user;
 	}
 	
 	@Transactional
-	public Users findUserPassword(String userid, String username, String phone) {
-		Users user = userRepository.findByUseridAndUsernameAndPhone(userid,username,phone);
+	public Users findUserEmail(String email) {
+		Users user = userRepository.findByEmail(email).orElseThrow(() -> {
+			return new IllegalArgumentException("회원 찾기 실패");
+		});
+		System.out.println("db에서 찾아온 email: "+user.getEmail());
 		return user;
 	}
+	
 	@Transactional
 	public void resetUserPassword(Users user) {
-		Users persistance = userRepository.findById(user.getId()).orElseThrow(() -> {
+		Users persistance = userRepository.findByEmail(user.getEmail()).orElseThrow(() -> {
 			return new IllegalArgumentException("회원 찾기 실패");
 		});
 		String rawPassword = user.getUserpassword();
 		String encPassword = encodeer.encode(rawPassword);
 		persistance.setUserpassword(encPassword);
+		
+	}
+	@Transactional
+	public Users oneUser(Users user) {
+		Users persistance = userRepository.findById(user.getId()).orElseThrow(() -> {
+			return new IllegalArgumentException("회원 찾기 실패");
+		});
+		return persistance;
 		
 	}
 }

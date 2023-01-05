@@ -1,22 +1,40 @@
 package com.cos.puppyHouse.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.cos.puppyHouse.Service.UserService;
 import com.cos.puppyHouse.Service.commuService;
+import com.cos.puppyHouse.config.auth.PrincipalDetail;
 
 @Controller
 public class CommuController {
+	@Autowired
+	private UserService userService;
 	
 	@Autowired
 	private commuService commuService;
 	
+	// index
+		@GetMapping({ "/", "" })
+		public String index(HttpSession session, Model model, @AuthenticationPrincipal PrincipalDetail principal) {
+			if (principal != null) {
+				session.setAttribute("loginUser", userService.oneUser(principal.getUser()));
+				System.out.println("login유저 강아지 "+userService.oneUser(principal.getUser()).getPet());
+				session.setAttribute("loginUserPet", userService.oneUser(principal.getUser()).getPet());
+			}
+			return "index";
+		}
+		
 	//커뮤니티 메인
 	@GetMapping({"/auth/commuBoard/commuMain"})
 	public String commuMain(Model model, @PageableDefault(size = 6, sort = "commuId", 

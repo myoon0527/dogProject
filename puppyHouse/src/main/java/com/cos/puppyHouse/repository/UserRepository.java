@@ -12,11 +12,9 @@ public interface UserRepository extends JpaRepository<Users, Integer>{
 	Optional<Users> findByUserid(String userId);
 	
 	
-	Users findByUsernameAndPhone(String username, String phone);
+	Optional<Users> findByUsernameAndPhone(String username, String phone);
 	
-	//@Modifying
-	//@Query("select * from users where USERID=? AND USERNAME=? AND PHONE=?")
-	Users findByUseridAndUsernameAndPhone(String userid, String username, String phone);
+	Optional<Users> findByEmail(String email);
 	
 
 }

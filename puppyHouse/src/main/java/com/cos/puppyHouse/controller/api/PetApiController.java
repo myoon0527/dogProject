@@ -7,6 +7,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,15 +26,15 @@ public class PetApiController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
 	
-	@PutMapping("/api/pet")
-	public ResponseDto<Integer> save(@RequestBody Pet pet, @RequestBody Users user){
+	@PutMapping("/api/pet/{id}")
+	public ResponseDto<Integer> save(@PathVariable int id, @RequestBody Pet pet, @RequestBody Users user){
 		System.out.println("PetApiController 호출됨");
 		
 		petService.펫등록(pet);
-		//세션 등록
-		Authentication authentication =
-				authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUserid(), user.getUserpassword()));
-		SecurityContextHolder.getContext().setAuthentication(authentication);
+		System.out.println(user.getUserid());
+		System.out.println(user.getUserpassword());
+		
+
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
 

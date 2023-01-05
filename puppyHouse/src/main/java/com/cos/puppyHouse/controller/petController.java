@@ -1,23 +1,23 @@
 package com.cos.puppyHouse.controller;
 
-import java.io.File;
-
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 
+import com.cos.puppyHouse.Service.PetBoardService;
 import com.cos.puppyHouse.Service.PetService;
-import com.cos.puppyHouse.model.Pet;
-import com.cos.puppyHouse.repository.PetRepository;
+import com.cos.puppyHouse.model.PetBoardRoleType;
 
 @Controller
 public class petController {
+	
+	@Autowired
+	private PetService petService;
+	
+	@Autowired
+	private PetBoardService petBoardService;
 
 	@GetMapping("/petNote/petJoinForm")
 	public String petJoinForm() {
@@ -32,11 +32,6 @@ public class petController {
 	@GetMapping ("/petNote/activity")
 	public String activityDetail() {
 		return "petNote/activityDetail";
-	}
-	
-	@GetMapping ("/petNote/diary")
-	public String diaryDetail() {
-		return "petNote/diaryDetail";
 	}
 	
 	@GetMapping ("/petNote/food")
@@ -65,5 +60,20 @@ public class petController {
 		return "petNote/petImg";
 	}
 	
+	@GetMapping("/petNote/diary/{petId}")
+	 public String diaryDetail(@PathVariable int petId, Model model) {
+		System.out.println("diaryDetail 호출");
+		 model.addAttribute("petId", petId);
+	     model.addAttribute("diary", petBoardService.글목록(PetBoardRoleType.DIARY));
+	     System.out.println("글목록: "+petBoardService.글목록(PetBoardRoleType.DIARY));
+	     
+	     model.addAttribute("pets", petService.강아지수첩상세보기(petId));
+	     System.out.println("$$%$#petidd: "+petService.강아지수첩상세보기(petId));
+	     
+	     System.out.println(model.getAttribute("diary"));
+	     System.out.println(model.getAttribute("pets"));
+	     
+	     return "petNote/diaryDetail";
+	}
 	
 }

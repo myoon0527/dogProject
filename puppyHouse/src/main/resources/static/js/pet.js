@@ -6,9 +6,7 @@ let index={
 	},
 	
 	save: function(){
-		let userid=$("#userid").text();
-		let userpwd=$("#userpwd").text();
-		
+		let id = $("#id").val();
 		let data={
 			petId: $("#petId").val(),
 			petName: $("#petName").val(),
@@ -24,7 +22,7 @@ let index={
 		console.log(data);
 		$.ajax({
 			type:"PUT",
-			url:"/api/pet",
+			url:"/api/pet/"+id,
 			data:JSON.stringify(data),
 			contentType:"application/json; charset=utf-8",
 			dataType:"json",

@@ -66,16 +66,20 @@
             <div class="form-group col-3 px-md-0 px-sm-0">
               <label for="dogname">애견명</label>
               <select id="dogname" class="form-control">
-                <option>${dogname}</option>
-                <option>${dogname}</option>
+                <option value="22">뽀삐</option>
+                <option value="23">나비</option>
+                <option value="24">미미</option>
               </select>
             </div>
             <div class="form-group col-3 px-md-0 px-sm-0">
               <label for="trainer">담당 트레이너</label>
               <select id="trainer" class="form-control">
-                <option>${user-name}</option>
-                <option>${user-name}</option>
-                <option>${user-name}</option>
+                <c:forEach var="teacher" items="${reserve.users.id}">
+                	<option value="/petNote/${pet.petId}" <c:if test='${pet.petId eq petId}'>selected</c:if>>${pet.petName}  </option>
+                </c:forEach>
+                <c:forEach var="pet" items="${principal.user.pet}">
+                		<option value="/petNote/${pet.petId}" <c:if test='${pet.petId eq petId}'>selected</c:if>>${pet.petName}  </option>
+                	</c:forEach>
               </select>
             </div>
           </div>

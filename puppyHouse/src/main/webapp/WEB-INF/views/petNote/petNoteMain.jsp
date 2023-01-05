@@ -38,7 +38,7 @@
                 <h5 class="mb-4 font-weight-bold fs-10">
                 	<select class="bg-light" id="sel" name="sel" style="border: none;outline: none;" onchange=changeval() >
                 	<!--  <option value="">강아지 이름 선택</option> -->
-                	<c:forEach var="pet" items="${principal.user.pet}">
+                	<c:forEach var="pet" items="${loginUserPet}">
                 		<option value="/petNote/${pet.petId}" <c:if test='${pet.petId eq petId}'>selected</c:if>>${pet.petName}  </option>
                 	</c:forEach>
                 	</select></h5>
@@ -88,9 +88,10 @@
                     </button>
                 </div>
                 <div class="col-lg-10 col-md-12 pb-1">
+                	<c:set var="roles" value="DIARY" scope="session"/>
                     <button type="button"
                       class="d-flex shadow-sm rounded mb-4"
-                      style="width: 100%; padding: 30px; background-color: white; border: none;" onclick="location.href='/petNote/diary'">
+                      style="width: 100%; padding: 30px; background-color: white; border: none;" onclick="location.href='/petNote/diary/${petId}'">
                       <!--<i class="flaticon-025-sandwich h1 font-weight-normal text-primary mb-3"></i>-->
                       <img src="../img/dogImg/icon/하트강아지.png" alt="건강" class="h1 font-weight-normal text-primary mb-3" style="width:15%;">
                       <div class="pl-4">

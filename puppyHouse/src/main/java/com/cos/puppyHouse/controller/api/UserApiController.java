@@ -6,7 +6,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -46,20 +45,16 @@ public class UserApiController {
 	@PostMapping("/auth/user/findUserId")
 	public ResponseDto<Users> findUserId(@RequestBody Users user) {
 		Users foundUser = userService.findUserId(user.getUsername(),user.getPhone());
-		if(foundUser==null) {
-			return new ResponseDto<Users>(HttpStatus.OK.value(),null);
-		} else return new ResponseDto<Users>(HttpStatus.OK.value(),foundUser);
+		return new ResponseDto<Users>(HttpStatus.OK.value(),foundUser);
 	}
 
 	
-	@PostMapping("/auth/user/findUserPassword")
-	public ResponseDto<Users> findUserPassword(@RequestBody Users user) {
-		Users foundUser = userService.findUserPassword(user.getUserid(),user.getUsername(),user.getPhone());
-		if(foundUser==null) {
-			return new ResponseDto<Users>(HttpStatus.OK.value(),null);
-		} else {
+	@PostMapping("/auth/user/findUserEmail")
+	public ResponseDto<Users> findUserEmail(@RequestBody Users user) {
+		System.out.println("넘어온 data의 email: "+user.getEmail());
+		Users foundUser = userService.findUserEmail(user.getEmail());
+		System.out.println("findUserEmail"+foundUser);
 			return new ResponseDto<Users>(HttpStatus.OK.value(),foundUser);
-		} 
 	}
 	
 	
@@ -68,5 +63,6 @@ public class UserApiController {
 		userService.resetUserPassword(user);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 	}
+	
 	
 }

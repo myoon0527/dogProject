@@ -22,36 +22,43 @@
   <div class="container">
     <div class="row justify-content-center pb-2">
       <div class="col-lg-7 mb-5 changeDiv">
-        <form name="findId" id="findPwdForm">
+        <form class="form-group email-form">
+	 		<label for="email">이메일</label>
+			<input type="text" class="form-control" name="userEmail1" id="userEmail1" placeholder="이메일" >
+			<select class="form-control" name="userEmail2" id="userEmail2" >
+				<option>@naver.com</option>
+				<option>@daum.net</option>
+				<option>@gmail.com</option>
+				<option>@hanmail.com</option>
+				<option>@yahoo.co.kr</option>
+			</select>
+		</form>
+        <div class="input-group-addon">
+			<button type="button" class="btn btn-primary" id="mail-Check-Btn">인증번호 받기</button>
+		</div>
+		<div class="mail-check-box">
+			<input id="mail-check-input" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6">
+		</div>
+		<div class="input-group-addon">
+			<button type="button" class="btn btn-primary" id="Num-Check-Btn">확인</button>
+		</div>
+		<form name="resetPwdForm" id="resetPwdForm">
           <div class="control-group">
-            <input type="text" class="form-control" id="userid" placeholder="아이디를 입력하세요">
+            <input type="password" class="form-control" id="userpwd" disabled="disabled" placeholder="새 비밀번호">
             <p class="help-block text-danger"></p>
           </div>
           <div class="control-group">
-            <input type="text" class="form-control" id="username" placeholder="이름을 입력하세요">
-            <p class="help-block text-danger"></p>
-          </div>
-          <div class="control-group">
-            <input type="text" class="form-control" id="phone" placeholder="휴대폰번호를 입력하세요">
+            <input type="password" class="form-control" id="chk-userpwd" disabled="disabled" placeholder="새 비밀번호 확인">
             <p class="help-block text-danger"></p>
           </div>
         </form>
-        <div id="findbtn">
-          <button class="btn btn-primary py-2 px-4" id="btn-findPassword">다음</button>
-        </div>        
+        <div>
+            <button class="btn btn-primary py-2 px-4" id="btn-resetPassword">확인</button>
+        </div>    
       </div>
     </div>
   </div>
 </div>
 <!-- 섹션 2 end -->
-<script>
-	function id_search() {
-		var frm = document.findId;
-		frm.method="post";
-		frm.action="findResult.jsp";
-		frm.submit();
-		
-	}
-</script>
 <script src="/js/user.js"></script>
 <%@ include file="../layout/footer.jsp" %>

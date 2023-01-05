@@ -1,10 +1,16 @@
 package com.cos.puppyHouse.controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.cos.puppyHouse.Service.PetService;
 import com.cos.puppyHouse.config.auth.PrincipalDetail;
 import com.cos.puppyHouse.model.Pet;
+import com.cos.puppyHouse.model.PetBoard;
 import com.cos.puppyHouse.repository.PetRepository;
 
 @Controller
@@ -63,10 +70,12 @@ public class petNoteController {
 		pet.setImgUrl(fileUrl);
 		pet.setUsers(principal.getUser());
 		System.out.println("펫아이디"+pet.getPetId());
+		System.out.println("사용자"+pet.getUsers().getUserid());
 		petRepository.save(pet);
 		model.addAttribute("pets",petService.강아지수첩상세보기(pet.getPetId()));
 		
 		return "pet/petJoinForm";
 	}
+	
 
 }

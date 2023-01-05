@@ -25,7 +25,6 @@
       <div class="row pb-2">
         <div class="col-lg-12 mb-2">
           <span id="commuId" hidden>${commu.commuId}</span>
-          <span id="userId" hidden>${principal.user.id}</span> 
           <h3 class="col-lg-12 mb-2">${commu.title}</h3>
           <hr>
           <div class="col-lg-12 mb-2 row justify-content-between">

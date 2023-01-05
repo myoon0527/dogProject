@@ -54,6 +54,9 @@
   
   <!-- isotope -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
+
+  <!-- 애견수첩 diaryDetail 이미지 상세보기 -->
+  <link rel="stylesheet" href="/css/diaryImg.css">
 </head>
 
 <body>
@@ -88,12 +91,12 @@
 						</div>
 						<div id="petJoinContent">
 							<c:choose>
-								<c:when test="${empty principal.user.pet}">
+								<c:when test="${empty loginUser.pet}">
 									<a href="/petNote/petJoinBtn" class="btn btn-primary px-3">애견수첩</a> 
 								</c:when>
 								<c:otherwise>
-								<c:forEach var="pet" items="${principal.user.pet}" begin="0" end="0">
-									<a href="/petNote/${pet.petId}" class="btn btn-primary px-3">애견수첩</a> 
+								<c:forEach var="pet" items="${loginUserPet}" begin="0" end="0">
+									<a href="/petNote/${pet.petId}" class="btn btn-primary px-3">애견수첩</a>  
 								</c:forEach>
 								</c:otherwise>
 							</c:choose>

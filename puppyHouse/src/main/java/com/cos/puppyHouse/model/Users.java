@@ -18,6 +18,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -68,7 +71,9 @@ public class Users {
 	@OneToMany (mappedBy="community",fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
 	private List<Likes> likes;
 
-	@OneToMany (mappedBy="users", fetch = FetchType.EAGER)
+	@JsonIgnoreProperties
+	@JsonManagedReference
+	@OneToMany (mappedBy="users", fetch = FetchType.LAZY)
 	private List<Pet> Pet;
 	
 }
