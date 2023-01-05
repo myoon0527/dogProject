@@ -50,12 +50,22 @@
 	              <div class="invalid-feedback my-2" id="pwdchk2">일지하지 않습니다.</div>
 	              <div class="valid-feedback my-2">비밀번호 일치!</div>
             </div>
+             <div class="control-group" >
+				<button type="button" class="btn btn-primary float-right py-1 my-2" id="mail-Check-Btn2">인증번호 받기</button>
+			</div>
             <div class="control-group">
              <label class="form-label" for="useremail">이메일</label>
-              <input type="email" class="form-control mb-2" name="useremail" id="useremail"  placeholder="Your email" required onkeyup="emailCheck()">
+              <input type="email" class="form-control mb-2" name="useremail" id="useremail1"  placeholder="Your email" required onkeyup="emailCheck()"> 
 	           <div class="invalid-feedback my-2" id="emailchk">이메일은 필수 입력 값입니다.</div>
 	           <div class="valid-feedback my-2">사용 가능한 이메일입니다.</div>
             </div>
+			<div class="mail-check-box">
+				<label class="form-label" for="">인증번호 확인</label>
+				<input id="mail-check-input" class="form-control mb-2" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6">
+			</div>
+			<div class="input-group-addon">
+				<button type="button" class="btn btn-primary" id="Num-Check-Btn" onclick="numCheck()">확인</button>
+			</div>
              <div class="control-group">
              <label class="form-label" for="userphone">전화번호</label>
               <input type="text" class="form-control mb-2" name="userphone" id="userphone"  placeholder="Your phone" required onkeyup="phoneCheck()">

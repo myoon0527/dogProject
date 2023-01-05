@@ -141,6 +141,7 @@
              	name="useraddrdetail" 
              	id="useraddrdetail"  
              	placeholder="${principal.user.addrdetail}" 
+             	value="${principal.user.addrdetail}"
              	required onkeyup="addrCheck()">
           	</div>
           </form>

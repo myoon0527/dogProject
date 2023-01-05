@@ -24,14 +24,8 @@
       <div class="col-lg-7 mb-5 changeDiv">
         <form class="form-group email-form">
 	 		<label for="email">이메일</label>
-			<input type="text" class="form-control" name="userEmail1" id="userEmail1" placeholder="이메일" >
-			<select class="form-control" name="userEmail2" id="userEmail2" >
-				<option>@naver.com</option>
-				<option>@daum.net</option>
-				<option>@gmail.com</option>
-				<option>@hanmail.com</option>
-				<option>@yahoo.co.kr</option>
-			</select>
+			<input type="text" class="form-control" name="useremail1" id="useremail1" placeholder="이메일" onkeyup="emailCheck()">
+			
 		</form>
         <div class="input-group-addon">
 			<button type="button" class="btn btn-primary" id="mail-Check-Btn">인증번호 받기</button>

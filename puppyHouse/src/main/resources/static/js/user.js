@@ -22,6 +22,9 @@ let index = {
 		$('#Num-Check-Btn').on("click",()=>{
 			this.checkNum();
 		});
+		$('#mail-Check-Btn2').on("click",()=>{
+			this.findUserMail2();
+		});
 	},
 	
 
@@ -30,7 +33,7 @@ let index = {
 			username: $("#username").val(),
 			userid: $("#userid").val(),
 			userpassword: $("#userpwd").val(),
-			email: $("#useremail").val(),
+			email: $("#useremail1").val(),
 			phone: $("#userphone").val(),
 			addr: $("#useraddr").val(),
 			addrdetail: $("#useraddrdetail").val()
@@ -42,8 +45,9 @@ let index = {
 		console.log("emailCheck"+emailCheck());
 		console.log("phoneCheck"+phoneCheck());
 		console.log("addrCheck"+addrCheck());
-		console.log("addrCheck2"+addr());
-		let test = 	nameCheck()&&idCheck()&&pwdCheck()&&pwdCheck2()&&emailCheck()&&phoneCheck()&&addrCheck()&&addr();
+		console.log("addrCheck2"+addrcheeeck());
+		console.log("numCheck"+numCheck());
+		let test = 	nameCheck()&&idCheck()&&pwdCheck()&&pwdCheck2()&&emailCheck()&&phoneCheck()&&addrCheck()&&addrcheeeck()&&numCheck();
 		
 		if(test){		
 			$.ajax({
@@ -73,7 +77,7 @@ let index = {
 			userid: $("#userid").val(),
 			userpassword: $("#userpassword").val(),
 			phone: $("#userphone").val(),
-			email: $("#useremail").val(),
+			email: $("#useremail1").val(),
 			addr: $("#useraddr").val(),
 			addrdetail: $("#useraddrdetail").val()
 		};
@@ -137,7 +141,7 @@ let index = {
 	
 	findUserMail: function(){
 		let data={
-			email: $('#userEmail1').val()+$('#userEmail2').val()
+			email: $('#useremail1').val()
 		};
 		let checkInput = $('#mail-check-input');
 		console.log('완성된 이메일:'+data.email);
@@ -158,19 +162,24 @@ let index = {
 		});
 	},
 	
+	findUserMail2: function(){
+		
+	},
+	
 	
 	// 인증 번호 비교 
 	checkNum: function () {
 		const inputCode = $('#mail-check-input').val();
 		const userpwd = $('#userpwd');
 		const chkUserpwd = $('#chk-userpwd');
+		
 		$.ajax({
 			type : "GET",
 			success : function (data) {
 				if(inputCode === code){
 					alert('인증번호 확인이 완료되었습니다.');
 					userpwd.attr('disabled',false);
-					chkUserpwd.attr('disabled',false);	         
+					chkUserpwd.attr('disabled',false); 
 				}else{
 					alert('인증번호가 불일치합니다.');
 				}
@@ -364,13 +373,39 @@ function pwdCheck2() {
 //이메일
 function emailCheck() {
 	let x = document.getElementById("emailchk");
-	let inputEmail = document.getElementById("useremail").value;
-	let f = document.getElementById("useremail");
-	  
-	  //2. 유효성(5글자이상 10글자 이하)을 검증한다.
+	let inputEmail = document.getElementById("useremail1").value;
+	let f = document.getElementById("useremail1");
+
+	//2. 유효성(5글자이상 10글자 이하)을 검증한다.
 	  isMailValid = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(inputEmail);
 	  //3. 유효하다면 input 요소에 is-valid 클래스 추가, 아니라면 is-invalid 클래스 추가
 	  if(isMailValid){
+		
+		let data={
+			email: $('#useremail1').val()
+		};
+		let checkInput = $('#mail-check-input');
+		console.log('완성된 이메일:'+data.email);
+		$.ajax({
+			type:"POST",
+			url:"/auth/user/findUserEmail",
+			data:JSON.stringify(data),  
+			contentType:"application/json; charset=utf-8",
+			dataType:"json"
+		}).done(function(resp){
+			console.log(resp.data.email);
+			if(resp.data.email!=undefined) {
+				f.classList.remove("is-valid");
+	     		f.classList.add("is-invalid");
+	     		x.innerText = "이미 사용중인 이메일입니."
+			} else {
+				sendMail2(data.email);
+				console.log(data.email);
+			}
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		});
+		
 	     f.classList.remove("is-invalid");
 	     f.classList.add("is-valid");
 	     return true;
@@ -386,7 +421,41 @@ function emailCheck() {
 		}
 		return false;
 	  }
+	 	  
 } 
+
+//이메일 인증번호 확인
+function numCheck() {
+	const inputCode = $('#mail-check-input').val();
+	const userpwd = $('#userpwd');
+	const chkUserpwd = $('#chk-userpwd');
+	
+	let f = document.getElementById("mail-check-input");
+	
+	$.ajax({
+		type : "GET",
+		success : function (data) {
+			if(inputCode === code){
+				alert('인증번호 확인이 완료되었습니다.');
+				userpwd.attr('disabled',false);
+				chkUserpwd.attr('disabled',false); 
+				f.classList.remove("is-invalid");
+    			f.classList.add("is-valid");
+				return true;	         
+			}else{
+				alert('인증번호가 불일치합니다.');
+				f.classList.remove("is-valid");
+    			f.classList.add("is-invalid");
+				return false;
+			}
+			
+		},
+		error : function(error) {
+			return false;
+		}
+	});
+}
+
 
 //전화번호
 function phoneCheck() {
@@ -470,6 +539,20 @@ function addrCheck() {
 
 function sendMail(foundData) {
 		let data = {email: foundData.email};
+		let checkInput = $('#mail-check-input');
+		$.ajax({
+			type : "GET",
+			url : "/auth/mailCheck/"+data.email,
+			success : function (data) {
+				console.log("data : " +  data);
+				checkInput.attr('disabled',false);
+				alert('인증번호가 전송되었습니다.');
+				code =data;
+			}			
+		});
+	}
+function sendMail2(email) {
+		let data = {email: email};
 		let checkInput = $('#mail-check-input');
 		$.ajax({
 			type : "GET",
