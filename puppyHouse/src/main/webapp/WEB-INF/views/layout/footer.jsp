@@ -4,9 +4,9 @@
     <div
       class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
       <div class="row pt-5 justify-content-center">
-        <div class="col-lg-4 col-md-6 mb-5">
+        <div class="col-lg-4 col-md-12 mb-5">
      	 <a
-            href="../index.jsp"
+            href="/"
             class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0"
             style="font-size: 35px; line-height: 35px"
           >
@@ -37,7 +37,7 @@
             ></a>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 mb-5">
+        <div class="col-lg-4 col-md-12 mb-5">
           <h3 class="text-primary mb-4">Get In Touch</h3>
           <div class="d-flex">
             <h4 class="fa fa-map-marker-alt text-primary"></h4>
@@ -63,7 +63,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 mb-5">
+        <div class="col-lg-4 col-md-12 mb-5">
           <h3 class="text-primary mb-4">Quick Links</h3>
           <div class="d-flex flex-column justify-content-start">
             <a class="text-white mb-2" href="/"
@@ -72,7 +72,7 @@
             <a class="text-white mb-2" href="/auth/introduce"
               ><i class="fa fa-angle-right mr-2"></i>소개</a
             >
-            <a class="text-white mb-2" href="/auth/reserveMain""
+            <a class="text-white mb-2" href="/auth/reserveMain"
               ><i class="fa fa-angle-right mr-2"></i>예약</a
             >
             <a class="text-white mb-2" href="#"
@@ -91,14 +91,8 @@
       >
         <p class="m-0 text-center text-white">
           &copy;
-          <a class="text-primary font-weight-bold" href="#">Your Site Name</a>.
-          All Rights Reserved.
-          Designed by
-          <a class="text-primary font-weight-bold" href="https://htmlcodex.com"
-            >HTML Codex</a
-          >
-          <br />Distributed By:
-          <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+          <a class="text-primary font-weight-bold" href="/">PUPPYHOUSE</a>.
+          All Rights Reserved.>
         </p>
       </div>
     </div>
@@ -110,8 +104,6 @@
 	
 	
 	<!-- 자바스크립트 라이브러 -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="/lib/easing/easing.min.js"></script>
     <!-- <script src="/lib/owlcarousel/owl.carousel.min.js"></script>  -->
     <script src="/lib/isotope/isotope.pkgd.min.js"></script>

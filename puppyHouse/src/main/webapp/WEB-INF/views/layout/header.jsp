@@ -70,8 +70,7 @@
 <body>
 	<!-- 메뉴 Start -->
 	<div class="container-fluid position-relative shadow">
-		<nav
-			class="navbar navbar-expand-lg navbar-light py-3 py-lg-0 px-0 px-lg-5">
+		<nav class="navbar navbar-expand-lg navbar-light py-3 py-lg-0 px-0 px-lg-5">
 			<a href="/" class="navbar-brand font-weight-bold text-secondary"
 				style="font-size: 50px"> <img class="img-fluid"
 				src="/img/logo.png" alt="logo">
@@ -87,15 +86,15 @@
 						href="/auth/introduce" class="nav-item nav-link mr-3">소개</a> <a
 						href="/auth/reserveMain" class="nav-item nav-link mr-3">예약</a> <a
 						href="/auth/commuBoard/commuMain" class="nav-item nav-link mr-3">커뮤니티</a>
-					<a href="/auth/news/NOTICE" class="nav-item nav-link mr-3">고객센터</a>
+					<a href="/auth/news/NOTICE" class="nav-item nav-link mr-3 mb-2">고객센터</a>
 					<c:choose>
 						<c:when test="${empty principal}">
 				</div>
-				<a href="/auth/loginForm" class="btn btn-primary px-3">로그인</a> <a
-					href="/auth/joinForm" class="btn btn-primary px-3 ml-4">회원가입</a>
+				<a href="/auth/loginForm" class="btn btn-primary px-3 ml-2">로그인</a> <a
+					href="/auth/joinForm" class="btn btn-primary px-3 ml-3">회원가입</a>
 				</c:when>
 				<c:otherwise>
-					<a href="/user/updateForm" class="nav-item nav-link mr-3">마이페이지</a>
+					<a href="/user/updateForm" class="nav-item nav-link mr-3 mb-3">마이페이지</a>
 			</div>
 			<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')">
 
@@ -108,20 +107,20 @@
 			<sec:authorize access="hasAnyRole('ROLE_USER')">
 				<c:choose>
 					<c:when test="${empty loginUser.pet}">
-						<a href="/petNote/petJoinBtn" class="btn btn-primary px-3">애견수첩</a>
+						<a href="/petNote/petJoinBtn" class="btn btn-primary px-3 ml-2">애견수첩</a>
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="pet" items="${loginUserPet}" begin="0" end="0">
-							<a href="/petNote/${pet.petId}" class="btn btn-primary px-3">애견수첩</a>
+							<a href="/petNote/${pet.petId}" class="btn btn-primary px-3 ml-2">애견수첩</a>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
 			</sec:authorize>
 
-			<a href="/logout" class="btn btn-primary px-3 ml-4">로그아웃</a>
+			<a href="/logout" class="btn btn-primary px-3 ml-3">로그아웃</a>
 			</c:otherwise>
 			</c:choose>
+			</nav>
 	</div>
-	</nav>
 	</div>
 	<!-- 메뉴 End -->

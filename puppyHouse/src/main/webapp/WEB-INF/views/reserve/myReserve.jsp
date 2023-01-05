@@ -24,11 +24,11 @@
      <div class="col-12 text-center mb-2">
       <ul class="list-inline mb-4" id="portfolio-flters">
         <li class="d-inline-block m-1">
-         <a href="/user/updateForm" class="btn btn-outline-primary active">
+         <a href="/user/updateForm" class="btn btn-outline-primary">
            회원정보 수정</a>
        </li>
        <li class="d-inline-block m-1">
-         <a href="/reserve/reserveInfo" class="btn btn-outline-primary">나의 예약 내역</a>
+         <a href="/reserve/reserveInfo" class="btn btn-outline-primary active">나의 예약 내역</a>
         </li>
        </ul>
      </div>

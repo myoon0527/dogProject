@@ -12,7 +12,7 @@
         <div class="d-inline-flex text-white">
           <p class="m-0"><a class="text-white" href="/">Home</a></p>
           <p class="m-0 px-2">/</p>
-          <p class="m-0">소개</p>
+          <p class="m-0">마이페이지</p>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
      
   <div class="container-fluid">
     <div class="container">
-        <div class="text-center">
+        <div class="text-center mb-4">
           <h1>회원정보 수정</h1>
         </div>
         <div class="col justify-content-center">
@@ -144,7 +144,7 @@
              	required onkeyup="addrCheck()">
           	</div>
           </form>
-          <div class="col-3 mx-auto text-center">
+          <div class="col-12 mx-auto text-center">
               <button
                 class="btn btn-primary py-2 px-4"
                 type="submit"

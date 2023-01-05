@@ -38,7 +38,7 @@
             <h4>유의사항</h4>
           </div>
           <div class="row pt-2 pb-4">
-            <div class="col-6 col-md-12 col-sm-12">
+            <div class="col-12 col-md-12 col-sm-12">
               <ul class="list-inline lm-0">
                 <li class="py-2"><i class="fa fa-circle text-primary mr-3"></i><strong>유치원 이용시간은 오전 07:00 ~ 오후 08:00 입니다.</strong></li>
                 <li class="py-2"><i class="fa fa-circle text-primary mr-3"></i><strong>예약은 이용권 결제 및 애견수첩 등록 후 가능합니다.</strong></li>
@@ -64,7 +64,7 @@
             <h4>이용제한 안내</h4>
           </div>
           <div class="row pt-2 pb-4">
-            <div class="col-6 col-md-12 col-sm-12">
+            <div class="col-12 col-md-12 col-sm-12">
               <ul class="list-inline lm-0">
                 <li class="py-2"><i class="fa fa-circle text-primary mr-3"></i><strong>반려견 특성에 따라 활동 내용이 변경될 수 있습니다.</strong></li>
                 <li class="py-2"><i class="fa fa-circle text-primary mr-3"></i><strong>1년 이내 5가지 접종(종합, 코로나, 켄넬코프, 신종 인플루엔자, 광견병) 받지 않은 반려견은 이용이 제한됩니다.

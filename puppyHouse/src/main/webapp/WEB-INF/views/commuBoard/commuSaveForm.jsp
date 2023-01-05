@@ -40,11 +40,10 @@
            <div class="border border1 img-fluid" style="border-radius: 70%; width: 230px; height: 220px; overflow: hidden;">
 	 			<img class="img-fluid w-100" id="user_image" src="/img/dog.png" alt="사진" style="width: 100%; height: 100%; object-fit: cover;">
 		   </div>
-          
           	<div class="text-center">
-          	    <label for="file" class="border border-2 btn btn-light py-2 px-4" style="padding: 8px; margin-top: 15px;">사진 첨부</label>
+          	    <label for="file" class="border border-2 btn btn-light py-2 px-4 mr-4" style="padding: 8px; margin-top: 15px;">사진 첨부</label>
 				<input type="file" class="d-none" id="file" name="file" accept="image/jpeg, image/png" multiple="multiple" onchange="PreviewImage();">  
-				<input type="submit" class="border border-2 btn btn-light py-2 px-4" value="등록하기">    		 	 	
+				<input type="submit" class="border border-2 btn btn-light py-2 px-4 mt-1" value="등록하기">    		 	 	
           	</div>
           </form>
         </div>
