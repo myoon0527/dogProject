@@ -66,8 +66,8 @@
 	<!-- 섹션 3 start -->
 	<div class="container-fluid py-5">
       <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-lg-4">
+        <div class="row align-items-center">
+          <div class="col-lg-4 text-center">
             <img
               class="img-fluid rounded mb-5"
               src="/img/intro3.png"
@@ -77,7 +77,7 @@
           <div class="col-lg-5 ml-5">
             <h1 class="mb-4" style="font-family: 'Noto Sans KR'">이런 아이들에게 좋아요!</h1>
             <div class="row pt-2 pb-4">
-              <div class="col-6 col-md-12 col-sm-12">
+              <div class="col-12 col-md-12 col-sm-12">
                 <ul class="list-inline m-0">
                   <li class="py-2">
                     <i class="fa fa-circle text-primary mr-3"></i><strong>분리불안이 있는 아이
@@ -323,11 +323,11 @@
 		 <a name="howtocome"></a>
 		<div class="row justify-content-center">
         <div class="text-center col-lg-12 pb-2">
-          <h1 class="mb-4" style="font-family: 'Noto Sans KR'">오시는 길</h1>
+          <h1 class="mb-5" style="font-family: 'Noto Sans KR'">오시는 길</h1>
         </div>
-          <div class="col-lg-7 col-md-7 mb-4" id="map" style="width: 500px; height: 400px;">
+          <div class="col-lg-6 col-md-12 mb-4" id="map" style="width: 500px; height: 400px;">
             </div>
-			<div class="col-lg-3 col-md-4 align-self-center">
+			<div class="col-lg-5 col-md-12 align-self-center ml-4">
 			  <ul class="list-inline m-0">
                   <li class="py-2">
                     <i class="fa fa-circle text-primary mr-3"></i><strong>주소 : 경기 수원시 팔달구 덕영대로 905 아이메카 7층 

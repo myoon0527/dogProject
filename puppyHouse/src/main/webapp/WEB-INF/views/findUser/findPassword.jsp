@@ -21,31 +21,46 @@
 <div class="container-fluid">    
   <div class="container">
     <div class="row justify-content-center pb-2">
-      <div class="col-lg-7 mb-5 changeDiv">
+      <div class="col-6 mb-5 changeDiv">
+      <div class="mb-2"><strong>이메일</strong></div>
+      <div class="col px-0">
         <form class="form-group email-form">
-	 		<label for="email">이메일</label>
-			<input type="text" class="form-control" name="useremail1" id="useremail1" placeholder="이메일" onkeyup="emailCheck()">
-			
+	 			<input onkeyup="emailCheck2();" class="form-control" type="text" class="form-control" name="useremail1" id="useremail1" placeholder="이메일" >
+	 			<div class="invalid-feedback my-2" id="emailchk">이메일은 필수 입력 값입니다.</div>
+	           <div class="valid-feedback my-2">사용 가능한 이메일입니다.</div>
 		</form>
-        <div class="input-group-addon">
+        <div class="input-group-addon align-middle">
 			<button type="button" class="btn btn-primary" id="mail-Check-Btn">인증번호 받기</button>
 		</div>
-		<div class="mail-check-box">
-			<input id="mail-check-input" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6">
+        </div>
+		<Br>
+		<br>
+		<div class="mb-2"><strong>인증번호</strong></div>
+		<div class="mail-check-box row px-0">
+			<div class="row pl-4">
+				<form class="form-group">
+					<input id="mail-check-input"  placeholder="숫자 6자리" disabled="disabled" maxlength="6">
+				</form>
+				<button type="button" class="btn btn-primary ml-3" id="Num-Check-Btn">확인</button>
+			</div>
 		</div>
-		<div class="input-group-addon">
-			<button type="button" class="btn btn-primary" id="Num-Check-Btn">확인</button>
-		</div>
-		<form name="resetPwdForm" id="resetPwdForm">
-          <div class="control-group">
-            <input type="password" class="form-control" id="userpwd" disabled="disabled" placeholder="새 비밀번호">
-            <p class="help-block text-danger"></p>
-          </div>
-          <div class="control-group">
-            <input type="password" class="form-control" id="chk-userpwd" disabled="disabled" placeholder="새 비밀번호 확인">
-            <p class="help-block text-danger"></p>
-          </div>
-        </form>
+		<Br>
+		<Br>
+		<div class="mb-2"><strong>비밀번호 재설정</strong></div>
+		<div class="mail-check-box row  justify-content-start">
+			<div class="col-12">
+				<form name="resetPwdForm" id="resetPwdForm">
+		          <div class="control-group">
+		            <input type="password" class="form-control" id="userpwd" disabled="disabled" placeholder="새 비밀번호">
+		            <p class="help-block text-danger"></p>
+		          </div>
+		          <div class="control-group">
+		            <input type="password" class="form-control" id="chk-userpwd" disabled="disabled" placeholder="새 비밀번호 확인">
+		            <p class="help-block text-danger"></p>
+		          </div>
+		        </form>
+        	</div>
+        </div>
         <div>
             <button class="btn btn-primary py-2 px-4" id="btn-resetPassword">확인</button>
         </div>    

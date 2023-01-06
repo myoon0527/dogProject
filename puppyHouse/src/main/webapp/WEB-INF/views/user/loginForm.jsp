@@ -34,8 +34,10 @@
               <p class="help-block text-danger"></p>
             </div>
             <div class="control-group">
-              <input type="checkbox" name="remember" id="rememberid"> 로그인상태유지
-              <a href="" style="float: right;">아이디 / 비밀번호 찾기</a>
+              <input type="checkbox" name="remember"> 로그인상태유지
+              <a href="/auth/findUserPassword" style="float: right;">비밀번호 찾기</a>
+              <p style="float: right;color: #17a2b8;">/</p>
+              <a href="/auth/findUserId" style="float: right;">아이디</a>
               <p class="help-block text-danger"></p>
             </div>
             <div>

@@ -59,7 +59,7 @@ public class reserveService {
 	public Reserv 예약강아지목록상세보기(int reservId) {
 		System.out.println("상세보기 서비스 호출");
 		return reserveRepository.findById(reservId).orElseThrow(()->{
-			return new IllegalArgumentException("에러남아아아");
+			return new IllegalArgumentException("강아지 상세 정보를 부를 수 없습니다.");
 		});
 	}
 	@Transactional
@@ -69,5 +69,22 @@ public class reserveService {
 	
 	}
 	
+	@Transactional
+	public void 예약수정하기(int reservId, Reserv requestReserv, Pet pets, Users user) {
+		Reserv reserv = reserveRepository.findById(reservId).orElseThrow(() -> {
+			return new IllegalArgumentException("예약 정보 찾기 실패");
+		});
+		
+		System.out.println("예약수정서비스"+pets +","+user);
+		
+		reserv.setPet(pets);
+		reserv.setTeacher(user);
+		reserv.setReservdate(requestReserv.getReservdate());
+	}
+	
+	@Transactional
+	public void 예약삭제하기(int reservId) {
+		reserveRepository.deleteById(reservId);
+	}
 
 }

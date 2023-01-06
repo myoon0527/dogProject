@@ -3,11 +3,9 @@
 <%@ include file="layout/header.jsp" %>  
 	
 		<!-- 상단 1 start -->
-	 <div class="container-fluid px-0 px-md-5 mb-5">
+	 <div class="container-fluid mb-5">
 		  <div class="row align-items-center">
-			  <div class="col-lg-12">
 			  <img class="img-fluid" src="img/main2.png" alt="puppy">
-			  </div>
 		 </div>
 	</div>
 	<!-- 상단 1 end -->
@@ -15,11 +13,12 @@
 
 	<!-- 상단 2 start -->
 	 <div class="container-fluid px-0 px-md-5 my-5">
+	 <div class="container">
 		  <div class="row justify-content-center">
-			  <div class="col-lg-3 col-md-3 col-sm-3">
+			  <div class="col-lg-5 text-center mb-3">
 				<img class="img-fluid" src="../img/main3.png" alt="main3">
 			  </div>
-			  <div class="col-lg-4 col-md-8 col-sm-8 ml-3 align-self-center">
+			  <div class="col-lg-7">
 			  <h2 class="text-primary" style="font-family: 'Noto Sans KR'">ABOUT</h2>
 				<h5 class="mb-5" style="font-family: 'Noto Sans KR'">애견 유치원인 퍼피하우스는
 				 반려견과 가족의 행복한 Life 문화를 선도하고자 반려동물의 Life의 새로운 문화 창조와 발전을 목표로 합니다.</h5>
@@ -28,7 +27,7 @@
 				  <img class="img-fluid mr-3" src="img/icon3.png" alt="icon3">
 				  <img class="img-fluid mr-3" src="img/icon4.png" alt="icon4">
 			  </div>
-
+			</div>
 		 </div>
 	</div>
 	<!-- 상단 2 end -->

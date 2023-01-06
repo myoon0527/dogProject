@@ -27,8 +27,8 @@
       <div class="row">
         <div class="col-lg-12 text-center mb-2">
           <ul class="list-inline mb-4" id="portfolio-flters">
-            <li class="btn btn-outline-primary m-1"><a class="d-block" href="/auth/news/NOTICE">공지사항</a></li>
-            <li class="btn btn-outline-primary m-1"><a class="d-block" href="/auth/news/FAQ">FAQ</a></li>
+            <li class="d-inline-block  m-1"><a class="btn btn-outline-primary" href="/auth/news/NOTICE">공지사항</a></li>
+            <li class="d-inline-block  m-1"><a class="btn btn-outline-primary" href="/auth/news/FAQ">FAQ</a></li>
           </ul>
         </div>
       </div>

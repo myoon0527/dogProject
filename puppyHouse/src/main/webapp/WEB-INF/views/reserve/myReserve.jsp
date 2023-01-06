@@ -48,7 +48,7 @@
         </div>
         <div class="row">
           <div class="col-12 mb-3">
-            <button class="btn btn-info float-right" onclick="location.href='reserveUpdateForm.jsp'">변경하기</button>
+           
           </div>
 
         </div>
@@ -57,16 +57,18 @@
             <div class="px-2 col-3">방문 날짜</div>
             <div class="px-2 col-2">애견명</div>
             <div class="px-2 col-2">트레이너</div>
-            <div class="px-2 col-5">이용권 기간</div>
+            <div class="px-2 col-4">이용권 기간</div>
+            <div class="px-2 col-1"></div>
           </div>
          <c:forEach var="reserve" items="${reserve}">
           <c:forEach var="pet" items="${loginUserPet}">
           	<c:if test="${reserve.pet.petId eq pet.petId}">
 	          	<div class="row border-bottom justify-content-around h-25 text-center">
-		            <div class="px-2 col-3">${reserve.reservdate}</div>
-		            <div class="px-2 col-2">${reserve.pet.petName}</div>
-		            <div class="px-2 col-2">${reserve.teacher.username}</div>
-		            <div class="px-2 col-5">2022/12/01(목)~2023/02/28(화)</div>
+		            <div class="px-2 pt-2 col-3">${reserve.reservdate}</div>
+		            <div class="px-2 pt-2 col-2">${reserve.pet.petName}</div>
+		            <div class="px-2 pt-2 col-2">${reserve.teacher.username}</div>
+		            <div class="px-2 pt-2 col-4">2022/12/01(목)~2023/02/28(화)</div>
+		            <button class="btn btn-outline-info px-2 col-1" onclick="location.href='/reserve/${reserve.reservId}/updateForm'">변경</button>         
 	         	</div>
 	         </c:if>
 	        </c:forEach>

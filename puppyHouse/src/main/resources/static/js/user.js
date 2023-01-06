@@ -154,6 +154,7 @@ let index = {
 		}).done(function(resp){
 			if(resp.data.email!=undefined) {
 				sendMail(resp.data);
+				checkInput.attr('disabled',false);
 			} else {
 				alert("일치하는 회원 정보가 없습니다.");
 			}
@@ -397,10 +398,64 @@ function emailCheck() {
 			if(resp.data.email!=undefined) {
 				f.classList.remove("is-valid");
 	     		f.classList.add("is-invalid");
-	     		x.innerText = "이미 사용중인 이메일입니."
+	     		x.innerText = "이미 사용중인 이메일입니다."
 			} else {
 				sendMail2(data.email);
 				console.log(data.email);
+			}
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		});
+		
+	     f.classList.remove("is-invalid");
+	     f.classList.add("is-valid");
+	     return true;
+	  }
+	  else {
+	     f.classList.remove("is-valid");
+	     f.classList.add("is-invalid");
+	     if(inputEmail == "") {
+			x.innerText = "이메일은 필수 입력 값입니다."
+		}
+		 else{
+			x.innerText = "올바른 형식으로 작성해 주세요"
+		}
+		return false;
+	  }
+	 	  
+} 
+
+function emailCheck2() {
+	let x = document.getElementById("emailchk");
+	let inputEmail = document.getElementById("useremail1").value;
+	let f = document.getElementById("useremail1");
+
+	//2. 유효성(5글자이상 10글자 이하)을 검증한다.
+	  isMailValid = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(inputEmail);
+	  //3. 유효하다면 input 요소에 is-valid 클래스 추가, 아니라면 is-invalid 클래스 추가
+	  if(isMailValid){
+		
+		let data={
+			email: $('#useremail1').val()
+		};
+		let checkInput = $('#mail-check-input');
+		console.log('완성된 이메일:'+data.email);
+		$.ajax({
+			type:"POST",
+			url:"/auth/user/findUserEmail",
+			data:JSON.stringify(data),  
+			contentType:"application/json; charset=utf-8",
+			dataType:"json"
+		}).done(function(resp){
+			console.log(resp.data.email);
+			if(resp.data.email!=undefined) {
+				sendMail2(data.email);
+				console.log(data.email);
+			} else {
+				f.classList.remove("is-valid");
+	     		f.classList.add("is-invalid");
+	     		x.innerText = "이미 사용중인 이메일입니다."
+				
 			}
 		}).fail(function(error){
 			alert(JSON.stringify(error));

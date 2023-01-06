@@ -35,7 +35,7 @@
 
 							<div class="row justify-content-center">
 								<div class="control-group">
-									<div class="border border-2 img-fluid mb-3"
+									<div class="border border-2 img-fluid mb-3 mx-auto"
 										style="border-radius: 70%; width: 150px; height: 150px; overflow: hidden; background-color: white;">
 										<c:choose>
 											<c:when test="${empty pet.imgOriName}">
@@ -141,12 +141,16 @@
 			$('#petbirthday').css('display', 'block');
 
 			$('#petage').css('display', 'none');
+			
+			$('#petage').val('');
 
 		} else if (chkValue == '2') {
 
 			$('#petbirthday').css('display', 'none');
 
 			$('#petage').css('display', 'block');
+			
+			$('#petbirthday').val('');
 
 		}
 
