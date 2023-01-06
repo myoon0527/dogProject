@@ -163,6 +163,29 @@ let index = {
 		});
 	},
 		
+	findUserMail2: function() {
+		let data={
+			email: $('#useremail1').val()
+		};
+		let checkInput = $('#mail-check-input');
+		console.log('완성된 이메일:'+data.email);
+		$.ajax({
+			type:"POST",
+			url:"/auth/user/findUserEmail",
+			data:JSON.stringify(data),  
+			contentType:"application/json; charset=utf-8",
+			dataType:"json"
+		}).done(function(resp){
+			if(resp.data.email!=undefined) {
+				alert("이미사용중인 이메일입니다.");
+			} else {
+				sendMail2(data.email);
+				checkInput.attr('disabled',false);
+			}
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		});
+	},
 	
 	// 인증 번호 비교 
 	checkNum: function () {
@@ -204,7 +227,11 @@ let index = {
 			alert(JSON.stringify(error));
 		});
 	},
+	
+	
 }
+
+	
 index.init();
 
 // 유효성 여부를 저장할 변수를 만들고 초기값 false 부여
@@ -396,7 +423,7 @@ function emailCheck() {
 	     		f.classList.add("is-invalid");
 	     		x.innerText = "이미 사용중인 이메일입니다."
 			} else {
-				sendMail2(data.email);
+				
 				console.log(data.email);
 			}
 		}).fail(function(error){
@@ -474,6 +501,8 @@ function emailCheck2() {
 	  }
 	 	  
 } 
+
+
 
 //이메일 인증번호 확인
 function numCheck() {
