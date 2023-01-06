@@ -172,7 +172,7 @@ let index = {
 	checkNum: function () {
 		const inputCode = $('#mail-check-input').val();
 		const userpwd = $('#userpwd');
-		const chkUserpwd = $('#chk-userpwd');
+		const chkUserpwd = $('#userpwdChk');
 		
 		$.ajax({
 			type : "GET",

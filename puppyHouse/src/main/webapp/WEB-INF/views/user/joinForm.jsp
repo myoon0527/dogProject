@@ -55,7 +55,7 @@
 			</div>
             <div class="control-group">
              <label class="form-label" for="useremail">이메일</label>
-              <input type="email" class="form-control mb-2" name="useremail" id="useremail1"  placeholder="Your email" required onkeyup="emailCheck()"> 
+              <input type="email" class="form-control mb-2" name="useremail" id="useremail1"  placeholder="Your email" required onkeyup="numCheck()"> 
 	           <div class="invalid-feedback my-2" id="emailchk">이메일은 필수 입력 값입니다.</div>
 	           <div class="valid-feedback my-2">사용 가능한 이메일입니다.</div>
             </div>

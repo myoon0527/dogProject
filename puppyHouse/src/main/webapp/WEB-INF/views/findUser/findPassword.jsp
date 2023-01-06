@@ -39,9 +39,9 @@
 		<div class="mail-check-box row px-0">
 			<div class="row pl-4">
 				<form class="form-group">
-					<input id="mail-check-input"  placeholder="숫자 6자리" disabled="disabled" maxlength="6">
+					<input id="mail-check-input" class="form-control mb-2" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6">
 				</form>
-				<button type="button" class="btn btn-primary ml-3" id="Num-Check-Btn">확인</button>
+				<button type="button" class="btn btn-primary ml-3" onclick="numCheck()">확인</button>
 			</div>
 		</div>
 		<Br>
@@ -51,11 +51,15 @@
 			<div class="col-12">
 				<form name="resetPwdForm" id="resetPwdForm">
 		          <div class="control-group">
-		            <input type="password" class="form-control" id="userpwd" disabled="disabled" placeholder="새 비밀번호">
+		            <input type="password" class="form-control" id="userpwd" disabled="disabled" placeholder="새 비밀번호" onkeyup="pwdCheck(); pwdCheck2();">
+			            <div class="invalid-feedback my-2" id="pwdchk">비밀번호는 필수 입력 값입니다.</div>
+	              		<div class="valid-feedback my-2">사용 가능한 비밀번호입니다.</div>
 		            <p class="help-block text-danger"></p>
 		          </div>
 		          <div class="control-group">
-		            <input type="password" class="form-control" id="chk-userpwd" disabled="disabled" placeholder="새 비밀번호 확인">
+		            <input type="password" class="form-control" id="userpwdChk" disabled="disabled" placeholder="새 비밀번호 확인" onkeyup="pwdCheck2()">
+			            <div class="invalid-feedback my-2" id="pwdchk2">일지하지 않습니다.</div>
+	              		<div class="valid-feedback my-2">비밀번호 일치!</div>
 		            <p class="help-block text-danger"></p>
 		          </div>
 		        </form>
