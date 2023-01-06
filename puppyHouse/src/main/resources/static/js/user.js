@@ -162,11 +162,7 @@ let index = {
 			alert(JSON.stringify(error));
 		});
 	},
-	
-	findUserMail2: function(){
 		
-	},
-	
 	
 	// 인증 번호 비교 
 	checkNum: function () {
@@ -329,7 +325,7 @@ function pwdCheck() {
 	var pattern1 = /[0-9]/; // 숫자
 	var pattern2 = /[a-zA-Z]/; // 문자
 	var pattern3 = /[~!@#$%^&*()_+|<>?:{}]/; // 특수문자
-    
+    console.log(inputPwd);
       if(!pattern1.test(inputPwd) || !pattern2.test(inputPwd) || !pattern3.test(inputPwd) || inputPwd.length < 8) {
 	  	x.innerText = "비밀번호는 8자리 이상 문자, 숫자, 특수문자로 구성하여야 합니다."
 	  	isPwdValid = false;
@@ -358,7 +354,7 @@ function pwdCheck2() {
 	let inputPwdChk = document.getElementById("userpwdChk").value;
 	let f = document.getElementById("userpwdChk");	
 	let inputPwd = document.getElementById("userpwd").value;
-
+	console.log(inputPwdChk);
 	if(inputPwd != inputPwdChk) {
 		 f.classList.remove("is-valid");
      	 f.classList.add("is-invalid");
@@ -449,7 +445,7 @@ function emailCheck2() {
 		}).done(function(resp){
 			console.log(resp.data.email);
 			if(resp.data.email!=undefined) {
-				sendMail2(data.email);
+				
 				console.log(data.email);
 			} else {
 				f.classList.remove("is-valid");
@@ -483,7 +479,7 @@ function emailCheck2() {
 function numCheck() {
 	const inputCode = $('#mail-check-input').val();
 	const userpwd = $('#userpwd');
-	const chkUserpwd = $('#chk-userpwd');
+	const chkUserpwd = $('#userpwdChk');
 	
 	let f = document.getElementById("mail-check-input");
 	

@@ -41,7 +41,7 @@
 				<form class="form-group">
 					<input id="mail-check-input" class="form-control mb-2" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6">
 				</form>
-				<button type="button" class="btn btn-primary ml-3" onclick="numCheck()">확인</button>
+				<button class="btn btn-primary ml-3 py-2 px-4" onclick="numCheck()">확인</button>
 			</div>
 		</div>
 		<Br>
