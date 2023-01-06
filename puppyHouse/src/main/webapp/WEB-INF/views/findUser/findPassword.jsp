@@ -36,12 +36,12 @@
 		<Br>
 		<br>
 		<div class="mb-2"><strong>인증번호</strong></div>
-		<div class="mail-check-box row px-0">
-			<div class="row pl-4">
+		<div class="mail-check-box">
+			<div class="col-12 px-0">
 				<form class="form-group">
 					<input id="mail-check-input" class="form-control mb-2" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6">
 				</form>
-				<button class="btn btn-primary ml-3 py-2 px-4" onclick="numCheck()">확인</button>
+				<button class="btn btn-primary py-1 px-4" onclick="numCheck()">확인</button>
 			</div>
 		</div>
 		<Br>
